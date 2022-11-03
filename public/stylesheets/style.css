@@ -1,8 +1,30 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+:root{
+  --azul-forte : #18A2C0;
+  --azul-claro : #DAF2FF;
 }
 
-a {
-  color: #00B7FF;
+
+.color-a{
+  background-color: var(--azul-forte);
+}
+.color-a2{
+  background-color: var(--azul-claro);
+}
+.config-header{
+  display: flex;
+  justify-content: space-between;
+}
+.ajust-left{
+  
+ padding-left: 30%;
+}
+
+.config-nav{
+  display: flex;
+  height: 40px;
+  justify-content: space-evenly;
+
+}
+.config-nav li:hover{
+  border-bottom: solid 2px var(--azul-forte);
 }
