@@ -40,10 +40,7 @@ Thumbs.db
 ####################
 *.yml
 *.cfg
-<<<<<<< HEAD
 *.env
-=======
->>>>>>> 051a13dccc5bdc1942b546055a86e0a09d5c5df2
 .htaccess
 *.config
 node_modules/
