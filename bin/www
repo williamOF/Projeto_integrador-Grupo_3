@@ -5,7 +5,11 @@
  */
 
 var app = require('../app');
+<<<<<<< HEAD
 var debug = require('debug')('pi:server');
+=======
+var debug = require('debug')('01-projeto-integrador:server');
+>>>>>>> 051a13dccc5bdc1942b546055a86e0a09d5c5df2
 var http = require('http');
 
 /**

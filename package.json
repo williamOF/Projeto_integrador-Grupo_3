@@ -1,9 +1,17 @@
 {
+<<<<<<< HEAD
   "name": "pi",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www"
+=======
+  "name": "01-projeto-integrador",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+>>>>>>> 051a13dccc5bdc1942b546055a86e0a09d5c5df2
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -12,8 +20,11 @@
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1"
+<<<<<<< HEAD
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
+=======
+>>>>>>> 051a13dccc5bdc1942b546055a86e0a09d5c5df2
   }
 }
