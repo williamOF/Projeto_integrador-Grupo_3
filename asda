@@ -1,0 +1,39 @@
+        <div id="mainSlider" class="carousel slide" data-ride="carousel">
+
+            <ol class="carousel-indicators">
+              <li data-target="#mainSlider" data-slide-to="0" class="active"></li>
+              <li data-target="#mainSlider" data-slide-to="1" ></li>
+              <li data-target="#mainSlider" data-slide-to="2"></li>
+            </ol>
+
+            <div class="carousel-inner box">
+              <div class="carousel-item active d-flex justfy-content-center alingn-items-center">
+                <div class="container col-9 d-flex ">
+                    <div class="col-4 d-flex m-2">
+                        <img class="d-block w-100" src="/images/books/slide1.jpg" alt="Primeiro Slide">
+                    </div>
+
+                    <div class="row d-flex row align-items-center m-5 ">
+                      <div class="col">
+                        <h5>É Assim que Acaba</h5>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempore nobis minus blanditiis nemo ipsam nulla quos quasi quae? Maiores saepe maxime accusamus mollitia ullam magni, temporibus ea sequi in eveniet?</p>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint eos asperiores dicta officiis quis fuga ducimus vel porro molestias ratione veniam quod neque, deserunt ipsum placeat id laudantium eius facilis?</p>   
+                        <div class="row">
+                          <a href="#" class="btn ">Ver mais</a>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                
+                
+              </div>
+              
+            <a class="carousel-control-prev" href="#mainSlider" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Anterior</span>
+            </a>
+            <a class="carousel-control-next" href="#mainSlider" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Próximo</span>
+            </a>
+          </div>
