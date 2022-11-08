@@ -1,9 +1,12 @@
+const fs = require('fs')
+const path = require('path')
 
-const title = 'Dh Livros'
-
+const arquivo = path.join(__dirname , "../database/data.json")
+const produtos = JSON.parse(fs.readFileSync(arquivo, "utf-8"))
 
 module.exports = { 
     home : (req,res) => {
-        res.render('home', {title})
+        
+        res.render('home.ejs', {produtos})
     }
 }

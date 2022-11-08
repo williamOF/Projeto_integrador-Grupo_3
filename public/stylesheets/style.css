@@ -1,7 +1,7 @@
 body{
   background-image: url(/images/icons/bg-main.jpg)  ;
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: auto;
 }
 
 :root{
