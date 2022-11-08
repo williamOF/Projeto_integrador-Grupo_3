@@ -38,5 +38,70 @@
         "preco" : [15.00,25.00,23.00],
         "editora": "editora 1",
         "capa": "/capas/book/livro1.jpg"
+    },
+    {
+
+        "titulo" : "O apanhador no campo de centeio",
+        "sinopse" : "Publicado em 1951, “O Apanhador no Campo de Centeio” tem como protagonista Holden Caulfield, um jovem de 16 anos que resolve abandonar o internato onde estuda, após ser reprovado em quase todas matérias. Porém, antes de enfrentar o sermão dos pais, ele decide ficar vagabundeando pela cidade até acabar seu dinheiro.",
+        "preco" : [15.00,25.00,23.00],
+        "editora": "editora 1",
+         "capa": "/capas/book/apanhador.jpg"
+    },
+    {
+        "titulo" : "Laranja mecânica",
+        "sinopse" : "Situado na sociedade inglesa de um futuro distópico, que tem uma cultura de extrema violência juvenil, onde um anti-herói adolescente dá uma narração em primeira pessoa sobre suas façanhas violentas e suas experiências com autoridades estaduais que possuem a intenção de reformá-lo",
+        "autor" : "Anthony burgess",
+        "preco" : [15.00,25.00,23.00],
+        "editora": "editora 1",
+         "capa": "/capas/book/laranja.jpg"
+    }, 
+    {
+        "titulo" : "Senhor das moscas",
+        "sinopse" : "Depois de um acidente de avião, um grupo de estudantes chega a uma ilha. Eles acabam se dividindo em dois grupos. Enquanto um é organizado, o outro recorre à selvageria e usa o medo do desconhecido para controlar os outros.",
+        "autor" : "Willian golding",
+        "preco" : [15.00,25.00,23.00],
+        "editora": "editora 1",
+         "capa": "/capas/book/Senhor.jpg"
+    },
+     {
+        "titulo": "O mundo de Sofia",
+        "sinopse": "Sofia é uma adolescente de 14 anos, e nas vésperas de seu aniversário começa a receber cartas anônimas. A menina fica indignada com o acontecido, uma vez que muitas circunstancias das cartas encaixam-se com sua vida, outra peculiaridade é que as cartas vem de inúmeros meios não somente por caixa postal!",
+        "autor": "Jostein Gaarder",
+        "preco" : [15.00,25.00,23.00],
+        "editora": " editora 1",
+         "capa": "/capas/book/mundo-de-sofia.jpg"
+    }, 
+    { 
+        "titulo": "O iluminado",
+        "sinopse": "Jack Torrance se torna caseiro de inverno do isolado Hotel Overlook, nas montanhas do Colorado, na esperança de curar seu bloqueio de escritor. Ele se instala com a esposa Wendy e o filho Danny, que é atormentando por premonições. Jack não consegue escrever e as visões de Danny se tornam mais perturbadoras. O escritor descobre os segredos sombrios do hotel e começa a se transformar em um maníaco homicida, aterrorizando sua família.",
+        "autor": "Stephen king",
+        "preco": [15.00,25.00,23.00],
+        "editora": "editora x",
+        "capa": "/capas/book/iluminado.jpg"
+
+    },
+    {
+        "titulo": "O Livro do desassossego",
+        "sinopse": "O Livro do Desassossego é um relato de tudo que se vive e percebe-se com (e talvez por muitas vezes sem) a consciência, deixando à mostra toda genialidade e angústias de Pessoa enquanto um de seus mais de 70 heterônimos. “Porque eu não sou nada, eu posso imaginar-me a ser qualquer coisa.",
+        "autor": "Fernando pessoa",
+        "preco": [15.00,25.00,23.00],
+        "editora": "editora x",
+        "capa": "/capas/book/livro-do-desassossego.jpg"
+    },
+    {
+        "titulo": "Assim falou Zaratustra",
+        "sinopse": "Assim falou Zaratustra: um livro para todos e para ninguém é um livro escrito entre 1883 e 1885 pelo filósofo alemão Friedrich Nietzsche, que influenciou significativamente o mundo moderno. O livro foi escrito originalmente como três volumes separados em um período de vários anos.",
+        "autor": " Friedrich Nietzsche",
+        "preco":  [15.00,25.00,23.00],
+        "editora": "editora x",
+        "capa": "/capas/book/assim-falou-zaratustra-14.jpg"
+    },
+    {
+        "titulo": "Memórias do subsolo",
+        "sinopse": "Considerada uma obra precursora do existencialismo e da psicanálise, traz na primeira parte o monólogo de um homem amargurado e amargo, um homem subterrâneo, sem nome ou relações sociais, um empregado aposentado, em cuja própria existência não vê nenhum sentido, e que se dirige diretamente ao leitor.",
+        "autor": "Fiódor Dostoiévski",
+        "preco": [15.00,25.00,23.00],
+        "editora": "editora x",
+        "capa": "/capas/book/memorias-do-subsolo.jpg"
     }
 ]
