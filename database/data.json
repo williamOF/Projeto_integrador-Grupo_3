@@ -1,5 +1,5 @@
 [
-    {
+    {   "id": 1,
         "titulo" : "o segredo da vida",
         "sinopse" : "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
         "autor" : "autor 1",
@@ -8,6 +8,7 @@
         "capa": "/capas/book/livro1.jpg"
     },
     {
+        "id": 2,
         "titulo" : "Lorem Ipsum is simply dummy",
         "sinopse" : "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
         "autor" : "autor 1",
@@ -15,7 +16,8 @@
         "editora":" editora 1",
         "capa": "/capas/book/livro1.jpg"
     },
-    {
+    {  
+         "id": 3,
         "titulo" : "text of the printing and",
         "sinopse" : "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
         "autor" : "autor 1",
@@ -24,6 +26,7 @@
         "capa": "/capas/book/livro1.jpg"
     },
     {
+        "id": 4,
         "titulo" : "Lorem Ipsum has been the industry",
         "sinopse" : "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
         "autor" : "autor 1",
@@ -32,6 +35,7 @@
         "capa": "/capas/book/livro1.jpg"
     },
     {
+        "id": 5,
         "titulo" : "standard dummy text",
         "sinopse" : "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
         "autor" : "autor 1",
@@ -40,7 +44,7 @@
         "capa": "/capas/book/livro1.jpg"
     },
     {
-
+        "id": 6,
         "titulo" : "O apanhador no campo de centeio",
         "sinopse" : "Publicado em 1951, “O Apanhador no Campo de Centeio” tem como protagonista Holden Caulfield, um jovem de 16 anos que resolve abandonar o internato onde estuda, após ser reprovado em quase todas matérias. Porém, antes de enfrentar o sermão dos pais, ele decide ficar vagabundeando pela cidade até acabar seu dinheiro.",
         "preco" : [15.00,25.00,23.00],
@@ -48,6 +52,7 @@
          "capa": "/capas/book/apanhador.jpg"
     },
     {
+        "id": 7,
         "titulo" : "Laranja mecânica",
         "sinopse" : "Situado na sociedade inglesa de um futuro distópico, que tem uma cultura de extrema violência juvenil, onde um anti-herói adolescente dá uma narração em primeira pessoa sobre suas façanhas violentas e suas experiências com autoridades estaduais que possuem a intenção de reformá-lo",
         "autor" : "Anthony burgess",
@@ -56,6 +61,7 @@
          "capa": "/capas/book/laranja.jpg"
     }, 
     {
+        "id": 8,
         "titulo" : "Senhor das moscas",
         "sinopse" : "Depois de um acidente de avião, um grupo de estudantes chega a uma ilha. Eles acabam se dividindo em dois grupos. Enquanto um é organizado, o outro recorre à selvageria e usa o medo do desconhecido para controlar os outros.",
         "autor" : "Willian golding",
@@ -64,14 +70,16 @@
          "capa": "/capas/book/Senhor.jpg"
     },
      {
+        "id": 9,
         "titulo": "O mundo de Sofia",
         "sinopse": "Sofia é uma adolescente de 14 anos, e nas vésperas de seu aniversário começa a receber cartas anônimas. A menina fica indignada com o acontecido, uma vez que muitas circunstancias das cartas encaixam-se com sua vida, outra peculiaridade é que as cartas vem de inúmeros meios não somente por caixa postal!",
         "autor": "Jostein Gaarder",
-        "preco" : [15.00,25.00,23.00],
+        "preco" : [15.00,21.00,23.00],
         "editora": " editora 1",
          "capa": "/capas/book/mundo-de-sofia.jpg"
     }, 
     { 
+        "id": 9,
         "titulo": "O iluminado",
         "sinopse": "Jack Torrance se torna caseiro de inverno do isolado Hotel Overlook, nas montanhas do Colorado, na esperança de curar seu bloqueio de escritor. Ele se instala com a esposa Wendy e o filho Danny, que é atormentando por premonições. Jack não consegue escrever e as visões de Danny se tornam mais perturbadoras. O escritor descobre os segredos sombrios do hotel e começa a se transformar em um maníaco homicida, aterrorizando sua família.",
         "autor": "Stephen king",
@@ -81,6 +89,7 @@
 
     },
     {
+        "id": 10,
         "titulo": "O Livro do desassossego",
         "sinopse": "O Livro do Desassossego é um relato de tudo que se vive e percebe-se com (e talvez por muitas vezes sem) a consciência, deixando à mostra toda genialidade e angústias de Pessoa enquanto um de seus mais de 70 heterônimos. “Porque eu não sou nada, eu posso imaginar-me a ser qualquer coisa.",
         "autor": "Fernando pessoa",
@@ -89,19 +98,138 @@
         "capa": "/capas/book/livro-do-desassossego.jpg"
     },
     {
+        "id": 11,
         "titulo": "Assim falou Zaratustra",
         "sinopse": "Assim falou Zaratustra: um livro para todos e para ninguém é um livro escrito entre 1883 e 1885 pelo filósofo alemão Friedrich Nietzsche, que influenciou significativamente o mundo moderno. O livro foi escrito originalmente como três volumes separados em um período de vários anos.",
         "autor": " Friedrich Nietzsche",
-        "preco":  [15.00,25.00,23.00],
+        "preco":  [26.99],
         "editora": "editora x",
         "capa": "/capas/book/assim-falou-zaratustra-14.jpg"
     },
     {
+        "id": 12, 
         "titulo": "Memórias do subsolo",
         "sinopse": "Considerada uma obra precursora do existencialismo e da psicanálise, traz na primeira parte o monólogo de um homem amargurado e amargo, um homem subterrâneo, sem nome ou relações sociais, um empregado aposentado, em cuja própria existência não vê nenhum sentido, e que se dirige diretamente ao leitor.",
         "autor": "Fiódor Dostoiévski",
         "preco": [15.00,25.00,23.00],
         "editora": "editora x",
         "capa": "/capas/book/memorias-do-subsolo.jpg"
+    },
+    {
+        "id": 13,
+        "titulo": "1984",
+        "sinopse": "Após uma guerra global, semelhante à segunda grande guerra, porém com mais bombas atômicas, o mundo foi dividido em três continentes: Lestásia, Eurásia e Oceania, onde fica a cidade de Londres. Esse último é comandado pelo líder Big Brother, a figura máxima de poder e controle, “o olho que tudo vê",
+        "autor" : "George Orwell",
+        "preco": [39.50],
+        "editora": "DH LIVROS",
+        "capa": "/capas/book/1984.jpg"
+    },
+    {
+        "id": 14,
+        "titulo": "A peste",
+        "sinopse": "Na manhã de um dia 16 de abril dos anos de 1940, o doutor Bernard Rieux sai do seu consultório e tropeça num rato morto. Este é o primeiro sinal de uma epidemia de peste que em breve toma conta de toda a cidade de Orão, na Argélia. Sujeita a quarentena, esta torna-se um território irrespirável e os seus habitantes são conduzidos até estados de sofrimento, de loucura, mas também de compaixão de proporções desmedidas. ",
+        "autor" : "Albert Camus",
+        "preco": [22.00],
+        "editora": "DH LIVROS",
+        "capa": "/capas/book/apeste.jfif"
+    },
+    {
+        "id": 15,
+        "titulo": "Cem anos de solidão",
+        "sinopse":"Cem anos de Solidão é a narração da história de Macondo, uma cidade (aldeia) fictícia cujo fundador era José Arcadio Buendia. Tudo começa quando as coisas não tinham nome, indo até a chegada do telefone. Utilizando recursos como o realismo mágico, o autor trabalha temas complexos, tais quais, revoluções, incesto, corrupção e até loucura.",
+        "autor": "Gabriel Garcia Márquez",
+        "preco": [30.99],
+        "editora":"DH LIVROS",
+        "capa": "/capas/book/cem-anos-de-solidao.jpg"
+    },
+    {
+        "id": 16,
+        "titulo": "Clube da luta",
+        "sinopse": "Clube da luta narra a história de um jovem funcionário que descobre que sua frustração e ira não podem ser acalmadas com o consumo desenfreado que a mídia oferece. Ele encontra alívio e redenção após horas de luta em pequenos clubes escondidos nos porões de bares da cidade. O clube da luta é idealizado por Tyler Durden, que acredita ter encontrado uma maneira de viver fora dos limites da sociedade e das regras sem sentido. Mas o que está por vir de sua mente pode piorar muito daqui para frente.",
+        "autor": " Chuck Palahniuk",
+        "preco":  [15.50],
+        "editora":"DH LIVROS",
+        "capa": "/capas/book/clube-da-luta.jpg"
+    },
+    {
+        "id": 17,
+        "titulo": "Crime e castigo",
+        "sinopse": "Neste livro, Raskólnikov, um jovem estudante, pobre e desesperado, perambula pelas ruas de São Petersburgo até cometer um crime que tentará justificar por uma teoria: grandes homens, como César ou Napoleão, foram assassinos absolvidos pela História.",
+        "autor": "Fiódor Dostoiévski",
+        "preco": [60.00],
+        "editora":"DH LIVROS",
+        "capa":"/capas/book/crime-e-castigo.jpg"
+    },
+    {
+        "id": 18,
+        "titulo": "Ensaio sobre a cegueira",
+        "sinopse": "Um motorista parado no sinal se descobre subitamente cego. É o primeiro caso de uma treva branca que logo se espalha incontrolavelmente. Resguardados em quarentena, os cegos se perceberão reduzidos à essência humana, numa verdadeira viagem às trevas.",
+        "autor": "Jose Saramago",
+        "preco": [33.00],
+        "editora":"DH LIVROS",
+        "capa":"/capas/book/ensaio-sobre-a-cegueira.jpg"
+    },
+    {
+        "id":19,
+        "titulo": " A guerra dos tronos",
+        "sinopse": "Nas florestas ao norte de Winterfell, forças sobrenaturais se espalham por trás da Muralha que protege a região. E, nas Cidades Livres, o jovem Rei Dragão exilado na Rebelião de Robert planeja sua vingança e deseja recuperar sua herança de família: o Trono de Ferro de Westeros.",
+        "autor": "George R. R. Martin",
+        "preco": [70.00],
+        "editora": "DH LIVROS",
+        "capa": "/capas/book/guerra-dos-tronos.webp"
+    },
+    {
+        "id": 20,
+        "titulo": "Homo Deus",
+        "sinopse": "A evolução tecnológica tem ameaçado a continuação da capacidade dos seres humanos para dar sentido às suas vidas; Harari sugere a possibilidade da substituição da humanidade por um super-homem, ou Homo deus (deus humano) dotado de habilidades, tais como a vida eterna.",
+        "autor": "Yuval Noah Harari",
+        "preco": [50.00],
+        "editora": "DH LIVROS",
+        "capa": "/capas/book/homodeus.png"
+    },
+    {
+        "id":21,
+        "titulo": "O estrangeiro",
+        "sinopse": "A história se passa na Argélia, quando o território ainda era colônia francesa. O narrador e personagem principal é Mersault, um homem de poucas palavras e cuja objetividade se confunde com seu comportamento frio.",
+        "autor": "Albert Camus",
+        "preco": [25.00],
+        "editora": "DH LIVROS",
+        "capa": "/capas/book/livro_o_estrangeiro.jpg"
+    },
+    {
+        "id":22,
+        "titulo": "A metamorfose",
+        "sinopse":"A Metamorfose nos mostra um indivíduo excluído do sistema de relações humanas, subtraído da qualidade inerente à sua personalidade, sem autonomia e autodeterminação. Um indivíduo do qual furtaram a própria dignidade.",
+        "autor": "Franz kafka",
+        "preco": [20.00],
+        "editora": "DH LIVROS",
+        "capa": "/capas/book/metamorfose.jpg"
+    },
+    {
+        "id":23,
+        "titulo": "O alquimista",
+        "sinopse": "Santiago, um jovem pastor da Andaluzia, parte rumo ao Egito em busca de um tesouro escondido entre as Pirâmides. O que ele não sabe é que sua jornada o levará a riquezas muito diferentes - e mais satisfatórias - do que ele estava esperando.",
+        "autor": "Paulo Coelho",
+        "preco": [19.99],
+        "editora": "DH LIVROS",
+        "capa": "/capas/book/o-alquimista.webp"
+    },
+    {
+        "id":24,
+        "titulo": "O corvo",
+        "sinopse": "O poema trata da visita misteriosa de um corvo falante a um homem, frequentemente identificado como estudante, que lamenta a perda de sua amada, Lenore, e progressivamente enlouquece.",
+        "autor": "Edgar Allan Poe",
+        "preco": [28.99],
+        "editora": "DH LIVROS",
+        "capa": "/capas/book/o-corvo.jpg"
+    },
+    {
+        "id":25,
+        "titulo": " O Pequeno principe",
+        "sinopse": "Um piloto cai com seu avião no deserto e ali encontra uma criança loura e frágil. Ela diz ter vindo de um pequeno planeta distante. E ali, na convivência com o piloto perdido, os dois repensam os seus valores e encontram o sentido da vida.",
+        "autor": "Antoine de Saint-Exupéry",
+        "preco": [40.00],
+        "editora": "DH LIVROS",
+        "capa": "/capas/book/pequeno-principe.jpg"
     }
 ]
