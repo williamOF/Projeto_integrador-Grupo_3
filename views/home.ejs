@@ -6,14 +6,12 @@
     <link rel="stylesheet" href="/stylesheets/carousel.css">
 
     <main class="container">
-
       <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
           <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
           <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
-
         <div class="carousel-inner">
 
           <div class="carousel-item active box">
@@ -81,65 +79,37 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
-
-      <div>
-
-        <div class="row mt-2 bg-light">
-          <div class="box text-center">
-            <h2 class="border-bottom">destaques</h2>
+      <div>   
+    </div>
+    </main>
+    <main>
+      <section class="container">
+        <div class="row bg-light p-1 mb-5">
+          <div class="text-center border-bottom mb-2">
+            <h2>destaques</h2>
           </div>
           <% for(let p of produtos){ %>
-            <div class="col-sm p-2">
-              <div class="">
-                <img src="<%= p.capa %>" class=" w-100" alt="">
-              </div>
+            <div class="col-2 col-sm col-lg nav-item border-bottom mb-2">
+              <a href="#" class="nav-link">
+                <img src="<%= p.capa %> " alt="capa-livro-<%= p.titulo %> " class="img-thumbnail">
+                <div class="text-center">
+                  <h2><%= p.titulo %> </h2>
+                  <p><%= p.preco[1] %> </p>
+                </div>
+              </a>
             </div>
-            <% } %> 
-          </div>
-      </div>
-
-      <div class="row mt-2 bg-light">
-        <div class="box text-center">
-          <h2 class="border-bottom">destaques</h2>
+          <% } %>  
+          <nav aria-label="Navegação de página d-flex">
+            <ul class="pagination justify-content-center">
+              <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" href="#">Próximo</a></li>
+            </ul>
+          </nav>
+        </section>
         </div>
-        <% for(let p of produtos){ %>
-          <div class="col-sm p-2">
-            <div class="">
-              <img src="<%= p.capa %>" class=" w-100" alt="">
-            </div>
-          </div>
-          <% } %> 
-        </div>
-    </div>
-
-    <div class="row mt-2 bg-light">
-      <div class="box text-center">
-        <h2 class="border-bottom">destaques</h2>
-      </div>
-      <% for(let p of produtos){ %>
-        <div class="col-sm p-2">
-          <div class="">
-            <img src="<%= p.capa %>" class=" w-100" alt="">
-          </div>
-        </div>
-        <% } %> 
-      </div>
-  </div>
-
-  <div class="row mt-2 bg-light">
-    <div class="box text-center">
-      <h2 class="border-bottom">destaques</h2>
-    </div>
-    <% for(let p of produtos){ %>
-      <div class="col-sm p-2">
-        <div class="">
-          <img src="<%= p.capa %>" class=" w-100" alt="">
-        </div>
-      </div>
-      <% } %> 
-    </div>
-</div>
-      
     </main>
 
     <script src="/javascripts/bootstrap.js"></script>
