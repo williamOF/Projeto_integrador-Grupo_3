@@ -194,7 +194,8 @@
         "autor": "Albert Camus",
         "preco": [25.00],
         "editora": "DH LIVROS",
-        "capa": "/capas/book/livro_o_estrangeiro.jpg"
+        "capa": "/capas/book/livro_o_estrangeiro.jpg",
+        "recomendacoes":true
     },
     {
         "id":22,
@@ -203,7 +204,8 @@
         "autor": "Franz kafka",
         "preco": [20.00],
         "editora": "DH LIVROS",
-        "capa": "/capas/book/metamorfose.jpg"
+        "capa": "/capas/book/metamorfose.jpg",
+        "recomendacoes": true
     },
     {
         "id":23,
@@ -212,7 +214,8 @@
         "autor": "Paulo Coelho",
         "preco": [19.99],
         "editora": "DH LIVROS",
-        "capa": "/capas/book/o-alquimista.webp"
+        "capa": "/capas/book/o-alquimista.webp",
+        "recomendacoes":true
     },
     {
         "id":24,
@@ -221,7 +224,9 @@
         "autor": "Edgar Allan Poe",
         "preco": [28.99],
         "editora": "DH LIVROS",
-        "capa": "/capas/book/o-corvo.jpg"
+        "capa": "/capas/book/o-corvo.jpg",
+        "recomendacoes": true
+
     },
     {
         "id":25,
