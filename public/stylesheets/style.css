@@ -1,13 +1,17 @@
+/*cores padroes*/
+
+:root{
+  --azul-forte : #74b9ff;
+  --azul-claro : #DAF2FF;
+}
+
+
 body{
   background-image: url(/images/icons/bg-main.jpg)  ;
   background-repeat: no-repeat;
   background-size: auto;
 }
 
-:root{
-  --azul-forte : #18A2C0;
-  --azul-claro : #DAF2FF;
-}
 
 main{
   margin-top: 10px;
@@ -39,6 +43,8 @@ main{
   border-bottom: solid 2px var(--azul-forte);
 }
 
-/*configure body home page*/
-/*books vitrine*/
+/*pagina categoria*/
+.h-box{
+  height: 700px;
+}
 

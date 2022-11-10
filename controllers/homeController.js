@@ -6,7 +6,13 @@ const produtos = JSON.parse(fs.readFileSync(arquivo, "utf-8"))
 
 module.exports = { 
     home : (req,res) => {
-        
-        res.render('home.ejs', {produtos})
+
+        const destaque  = produtos.filter( p => p.destaque === 1 )
+        console.log(destaque)
+        res.render('home.ejs', {produtos,destaque})
+    },
+    biblioteca : (req,res) => {
+
+        res.render('biblioteca', {produtos})
     }
 }

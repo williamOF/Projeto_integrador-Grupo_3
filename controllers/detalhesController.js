@@ -12,11 +12,5 @@ module.exports ={
         res.render('detalhes.ejs', {livro})
     },
 
-    recomendacoes: (req,res) => {
-       if(produtos.recomendacoes){
-        return recomendacoes
-       }
-
-       res.render('detalhes.ejs', {recomendacoes})
-    }
+    
 }

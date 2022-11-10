@@ -6,13 +6,19 @@
     <link rel="stylesheet" href="/stylesheets/carousel.css">
 
     <main class="container">
+
       <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <% let arr = [] %> 
+          <% for(let p of destaque){ %>
+            <% arr.push(1) %> 
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="<%= arr.length %>" class="" aria-current="true" aria-label="Slide <%= p.id %> "></button>
+          <% } %> 
+          
         </div>
         <div class="carousel-inner">
+          <% p = produtos[1] %> 
 
           <div class="carousel-item active box">
            
@@ -20,12 +26,12 @@
               <div class="carousel-caption text-start p-3">
                 <div class="d-flex">
                   <div class="col-4 p-2">
-                    <img src="/images/img/slide1.jpg" class="d-blok w-100" alt="">
+                    <img src="<%= p.capa %> " class="d-blok w-100" alt="">
                   </div>
 
                   <div class="d-flex flex-column align-items-center justify-content-center  p-2 ">
-                    <h1>Example headline.</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla earum facilis nisi voluptate veniam nemo, id iusto sequi quisquam ab odit, deserunt vel necessitatibus fugit fugiat. Sequi iure eligendi tempora!</p>
+                    <h1><%= p.titulo %> </h1>
+                    <p><%= p.sinopse %> </p>
                     <p><a class="btn btn-lg btn-primary col align-self-center" href="#">Ver mais</a></p>
                   </div>
 
@@ -33,42 +39,30 @@
               </div>
             </div>
           </div>
-          <div class="carousel-item box">
-           
-            <div class="container ">
-              <div class="carousel-caption text-start p-3">
-                <div class="d-flex">
-                  <div class="col-4 p-2">
-                    <img src="/images/img/slide2.jpg" class="d-blok w-100"  alt="">
-                  </div>
-                 
-                  <div class="d-flex flex-column align-items-center justify-content-center  p-2 ">
-                    <h1>Example headline.</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla earum facilis nisi voluptate veniam nemo, id iusto sequi quisquam ab odit, deserunt vel necessitatibus fugit fugiat. Sequi iure eligendi tempora!</p>
-                    <p><a class="btn btn-lg btn-primary col align-self-center" href="#">Ver mais</a></p>
-                  </div>
 
+          <% for(let p of destaque){%>
+          
+              <div class="carousel-item box"> 
+                <div class="container ">
+                  <div class="carousel-caption text-start p-3">
+                    <div class="d-flex">
+                      <div class="col-4 p-2">
+                        <img src="<%=p.capa %> " class="d-blok w-100"  alt="">
+                      </div>
+                     
+                      <div class="d-flex flex-column align-items-center justify-content-center  p-2 ">
+                        <h1><%= p.titulo %> </h1>
+                        <p><%= p.sinopse %> </p>
+                        <p><a class="btn btn-lg btn-primary col align-self-center" href="#">Ver mais</a></p>
+                      </div>
+    
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </div> <div class="carousel-item box">
+              </div> 
+          <% } %>  
            
-            <div class="container ">
-              <div class="carousel-caption text-start p-3">
-                <div class="d-flex p-5">
-                  <div class="col-4 p-2">
-                    <img src="/images/img/slide3.jpg" class="d-blok w-100"  alt="">
-                  </div>
 
-                  <div class="d-flex flex-column align-items-center justify-content-center  p-2 ">
-                    <h1>Example headline.</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla earum facilis nisi voluptate veniam nemo, id iusto sequi quisquam ab odit, deserunt vel necessitatibus fugit fugiat. Sequi iure eligendi tempora!</p>
-                    <p><a class="btn btn-lg btn-primary col align-self-center" href="#">Ver mais</a></p>
-                  </div>
-
-                </div>
-              </div>
-            </div>
           </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -84,17 +78,17 @@
     </main>
     <main>
       <section class="container">
-        <div class="row bg-light p-1 mb-5">
+        <div class="row bg-light p-1 ">
           <div class="text-center border-bottom mb-2">
             <h2>destaques</h2>
           </div>
           <% for(let p of produtos){ %>
-            <div class="col-2 col-sm col-lg nav-item border-bottom mb-2">
-              <a href="#" class="nav-link">
+            <div class="col-12 col-sm col-lg-3 nav-item border-bottom mb-2">
+              <a href="#" class="nav-link product-box">
                 <img src="<%= p.capa %> " alt="capa-livro-<%= p.titulo %> " class="img-thumbnail">
                 <div class="text-center">
                   <h2><%= p.titulo %> </h2>
-                  <p><%= p.preco[1] %> </p>
+                  <p>preço kindle: <%= p.preco[1] %> </p>
                 </div>
               </a>
             </div>
@@ -111,6 +105,7 @@
         </section>
         </div>
     </main>
+    <%- include('partials/footer') %> 
 
     <script src="/javascripts/bootstrap.js"></script>
     </body>

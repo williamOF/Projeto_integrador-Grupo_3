@@ -1,56 +1,62 @@
 [
-    {   "id": 1,
-        "titulo" : "o segredo da vida",
-        "sinopse" : "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-        "autor" : "autor 1",
-        "preco" : [15.00,25.00,23.00],
-        "editora": "editora 1",
-        "capa": "/capas/book/livro1.jpg"
-    },
     {
+        "id": 1,
+        "titulo" : "Senhor das moscas",
+        "sinopse" : "Depois de um acidente de avião, um grupo de estudantes chega a uma ilha. Eles acabam se dividindo em dois grupos. Enquanto um é organizado, o outro recorre à selvageria e usa o medo do desconhecido para controlar os outros.",
+        "autor" : "Willian golding",
+         "capa": "/capas/book/Senhor.jpg",
+         "preco":[25],
+         "destaque": 1
+    },
+    { 
         "id": 2,
-        "titulo" : "Lorem Ipsum is simply dummy",
-        "sinopse" : "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-        "autor" : "autor 1",
-        "preco" : [15.00,25.00,23.00],
-        "editora":" editora 1",
-        "capa": "/capas/book/livro1.jpg"
+        "titulo": "O iluminado",
+        "sinopse": "Jack Torrance se torna caseiro de inverno do isolado Hotel Overlook, nas montanhas do Colorado, na esperança de curar seu bloqueio de escritor. Ele se instala com a esposa Wendy e o filho Danny, que é atormentando por premonições. Jack não consegue escrever e as visões de Danny se tornam mais perturbadoras. O escritor descobre os segredos sombrios do hotel e começa a se transformar em um maníaco homicida, aterrorizando sua família.",
+        "autor": "Stephen king",
+        "preco": [15.00,25.00,23.00],
+        "editora": "editora x",
+        "capa": "/capas/book/iluminado.jpg"
     },
-    {  
-         "id": 3,
-        "titulo" : "text of the printing and",
-        "sinopse" : "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-        "autor" : "autor 1",
-        "preco" : [15.00,25.00,23.00],
-        "editora": "editora 1",
-        "capa": "/capas/book/livro1.jpg"
+    {   
+        "id": 3,
+        "titulo": "O Livro do desassossego",
+        "sinopse": "O Livro do Desassossego é um relato de tudo que se vive e percebe-se com (e talvez por muitas vezes sem) a consciência, deixando à mostra toda genialidade e angústias de Pessoa enquanto um de seus mais de 70 heterônimos. “Porque eu não sou nada, eu posso imaginar-me a ser qualquer coisa.",
+        "autor": "Fernando pessoa",
+        "preco": [15.00,25.00,23.00],
+        "editora": "editora x",
+        "capa": "/capas/book/livro-do-desassossego.jpg"
     },
-    {
+    {   
         "id": 4,
-        "titulo" : "Lorem Ipsum has been the industry",
-        "sinopse" : "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-        "autor" : "autor 1",
-        "preco" : [15.00,25.00,23.00],
-        "editora": "editora 1",
-        "capa": "/capas/book/livro1.jpg"
+        "titulo": "Assim falou Zaratustra",
+        "sinopse": "Assim falou Zaratustra: um livro para todos e para ninguém é um livro escrito entre 1883 e 1885 pelo filósofo alemão Friedrich Nietzsche, que influenciou significativamente o mundo moderno. O livro foi escrito originalmente como três volumes separados em um período de vários anos.",
+        "autor": " Friedrich Nietzsche",
+        "preco":  [15.00,25.00,23.00],
+        "editora": "editora x",
+        "capa": "/capas/book/assim-falou-zaratustra-14.jpg"
     },
-    {
+    {   
         "id": 5,
-        "titulo" : "standard dummy text",
-        "sinopse" : "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-        "autor" : "autor 1",
-        "preco" : [15.00,25.00,23.00],
-        "editora": "editora 1",
-        "capa": "/capas/book/livro1.jpg"
+        "titulo": "Memórias do subsolo",
+        "sinopse": "Considerada uma obra precursora do existencialismo e da psicanálise, traz na primeira parte o monólogo de um homem amargurado e amargo, um homem subterrâneo, sem nome ou relações sociais, um empregado aposentado, em cuja própria existência não vê nenhum sentido, e que se dirige diretamente ao leitor.",
+        "autor": "Fiódor Dostoiévski",
+        "preco": [15.00,25.00,23.00],
+        "editora": "editora x",
+        "capa": "/capas/book/memorias-do-subsolo.jpg"
     },
+
     {
+
         "id": 6,
         "titulo" : "O apanhador no campo de centeio",
         "sinopse" : "Publicado em 1951, “O Apanhador no Campo de Centeio” tem como protagonista Holden Caulfield, um jovem de 16 anos que resolve abandonar o internato onde estuda, após ser reprovado em quase todas matérias. Porém, antes de enfrentar o sermão dos pais, ele decide ficar vagabundeando pela cidade até acabar seu dinheiro.",
         "preco" : [15.00,25.00,23.00],
         "editora": "editora 1",
-         "capa": "/capas/book/apanhador.jpg"
+         "capa": "/capas/book/apanhador.jpg",
+         "destaque": 1
+         
     },
+
     {
         "id": 7,
         "titulo" : "Laranja mecânica",
@@ -67,7 +73,8 @@
         "autor" : "Willian golding",
         "preco" : [15.00,25.00,23.00],
         "editora": "editora 1",
-         "capa": "/capas/book/Senhor.jpg"
+        "capa": "/capas/book/Senhor.jpg",
+        "destaque": 1
     },
      {
         "id": 9,
@@ -76,10 +83,11 @@
         "autor": "Jostein Gaarder",
         "preco" : [15.00,21.00,23.00],
         "editora": " editora 1",
-         "capa": "/capas/book/mundo-de-sofia.jpg"
+         "capa": "/capas/book/mundo-de-sofia.jpg",
+         "destaque": 1
     }, 
     { 
-        "id": 9,
+        "id": 10,
         "titulo": "O iluminado",
         "sinopse": "Jack Torrance se torna caseiro de inverno do isolado Hotel Overlook, nas montanhas do Colorado, na esperança de curar seu bloqueio de escritor. Ele se instala com a esposa Wendy e o filho Danny, que é atormentando por premonições. Jack não consegue escrever e as visões de Danny se tornam mais perturbadoras. O escritor descobre os segredos sombrios do hotel e começa a se transformar em um maníaco homicida, aterrorizando sua família.",
         "autor": "Stephen king",
@@ -88,8 +96,9 @@
         "capa": "/capas/book/iluminado.jpg"
 
     },
+
     {
-        "id": 10,
+        "id": 11,
         "titulo": "O Livro do desassossego",
         "sinopse": "O Livro do Desassossego é um relato de tudo que se vive e percebe-se com (e talvez por muitas vezes sem) a consciência, deixando à mostra toda genialidade e angústias de Pessoa enquanto um de seus mais de 70 heterônimos. “Porque eu não sou nada, eu posso imaginar-me a ser qualquer coisa.",
         "autor": "Fernando pessoa",
@@ -98,7 +107,7 @@
         "capa": "/capas/book/livro-do-desassossego.jpg"
     },
     {
-        "id": 11,
+        "id": 111,
         "titulo": "Assim falou Zaratustra",
         "sinopse": "Assim falou Zaratustra: um livro para todos e para ninguém é um livro escrito entre 1883 e 1885 pelo filósofo alemão Friedrich Nietzsche, que influenciou significativamente o mundo moderno. O livro foi escrito originalmente como três volumes separados em um período de vários anos.",
         "autor": " Friedrich Nietzsche",
