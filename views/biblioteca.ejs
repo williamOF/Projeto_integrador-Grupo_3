@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <%- include('partials/head')  %> 
+
+<body>
+    <%- include('partials/header') %> 
+    <main class="bg-light container">
+        <div class=" text-center container mt-4 mb-2 p-2 border">
+            <h2>Categoria</h2>
+        </div>
+        <section class="container d-flex ">
+            <div class="col-2 me-2">
+                <div class=" color-a2  text-center">
+                    <ul class="nav flex-column p-5 " >
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Romance</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Ciências</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Aventura</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Pedagógico</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Contos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Terror</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Hístoricos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Financeiros</a>
+                        </li>    
+                    </ul>
+                </div>
+                <div class="col-1" style="height: 400px;"></div>
+            </div>
+            <div class="col-10 bg-light">
+                <section class="container">
+                    <div class="row">
+                        <% for(let p of produtos){ %>
+                            <div class="col-12 col-sm col-lg-3 nav-item  mb-2">
+                            <a href="#" class="nav-link product-box">
+                                <img src="<%= p.capa %> " alt="capa-livro-<%= p.titulo %> " class="img-thumbnail">
+                                <div class="text-center">
+                                <h2><%= p.titulo %> </h2>
+                                <p>preço kindle:<%= p.preco[1] %> </p>
+                                </div>
+                            </a>
+                            </div>
+                        <% } %>  
+                    </div>
+                </section>
+            </div>
+        </section>
+        <div class=" border-top m-5 p-2">
+        <nav aria-label="Navegação de página d-flex">
+            <ul class="pagination justify-content-center">
+            <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">Próximo</a></li>
+            </ul>
+        </nav>
+    </div>
+    </main>
+    <%- include('partials/footer') %> 
+</body>
+</html>
