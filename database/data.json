@@ -4,9 +4,11 @@
         "titulo" : "Senhor das moscas",
         "sinopse" : "Depois de um acidente de avião, um grupo de estudantes chega a uma ilha. Eles acabam se dividindo em dois grupos. Enquanto um é organizado, o outro recorre à selvageria e usa o medo do desconhecido para controlar os outros.",
         "autor" : "Willian golding",
+        "idioma" : "portugês",
          "capa": "/capas/book/Senhor.jpg",
          "preco":[25],
-         "destaque": 1
+         "destaque": 1,
+         "estoque": 200
     },
     { 
         "id": 2,

@@ -45,7 +45,7 @@
                     <div class="row">
                         <% for(let p of produtos){ %>
                             <div class="col-12 col-sm col-lg-3 nav-item  mb-2">
-                            <a href="#" class="nav-link product-box">
+                            <a href="/showbook/<%= p.id %> " class="nav-link product-box">
                                 <img src="<%= p.capa %> " alt="capa-livro-<%= p.titulo %> " class="img-thumbnail">
                                 <div class="text-center">
                                 <h2><%= p.titulo %> </h2>
