@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<%- include('partials/head.ejs') %>
+
+  <body>
+    <%- include('partials/header.ejs') %>
+
+
+      <main>
+        <div class="detalhes">
+          <h1>Detalhes do produto:</h1>
+          <img src="<%=livro.capa %>" alt="capa">
+          <h2>R$ <%=livro.preco%>
+          </h2>
+          <h3> Titulo: <%=livro.titulo %>
+          </h3>
+          <h3>Autor: <%=livro.autor%>
+          </h3>
+          <h4>
+            Publicado por: <%=livro.editora%>
+          </h4>
+          <span>Sinopse do livro:</span>
+          <P>
+            <%=livro.sinopse%>
+          </P>
+        </div>
+
+        <button type="submit">Adicionar ao carrinho</button>
+
+
+      </main>
+
+     <%-include('partials/footer.ejs') %>
+
+  </body>
+
+</html>
