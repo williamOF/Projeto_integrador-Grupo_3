@@ -20,7 +20,7 @@ module.exports = {
         const book = produtos.find(p => p.id ==id)
         const destaque  = produtos.filter( p => p.destaque === 1 )
 
-        res.render('showbook', {book,destaque})
+        res.render('login', {book,destaque})
     },
     carrinho: (req,res) => {
 

@@ -6,26 +6,29 @@
     <%- include('partials/header.ejs') %>
     
       <!--bg-ligth back-ground color white class bootstrap--->
-      <main class="bg-light">
-        <div class="detalhes">
-          <h1>Detalhes do produto:</h1>
-          <img src="<%=livro.capa %>" alt="capa">
-          <h2>R$ <%=livro.preco%>
-          </h2>
-          <h3> Titulo: <%=livro.titulo %>
-          </h3>
-          <h3>Autor: <%=livro.autor%>
-          </h3>
-          <h4>
-            Publicado por: <%=livro.editora%>
-          </h4>
-          <span>Sinopse do livro:</span>
-          <P>
-            <%=livro.sinopse%>
-          </P>
+      <main class="bg-light container">
+        <h1>Detalhes do produto:</h1>
+        <div class="detalhes d-flex">
+          <div class="col-3">
+            <img src="<%=livro.capa %>" alt="capa" class="img-thumbnail">
+          </div>
+          <div class="col-6 m-2 p-2 ">
+            <h2>R$ <%=livro.preco%></h2>
+            <h3> Titulo: <%=livro.titulo %>
+            </h3>
+            <h3>Autor: <%=livro.autor%>
+            </h3>
+            <h4>
+              Publicado por: <%=livro.editora%>
+            </h4>
+            <span>Sinopse do livro:</span>
+            <P>
+              <%=livro.sinopse%>
+            </P>
+            <button type="submit">Adicionar ao carrinho</button>
+          </div>
         </div>
 
-        <button type="submit">Adicionar ao carrinho</button>
 
 
       </main>
