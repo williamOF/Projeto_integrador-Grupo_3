@@ -8,12 +8,23 @@ module.exports = {
     home : (req,res) => {
 
         const destaque  = produtos.filter( p => p.destaque === 1 )
-        console.log(destaque)
         res.render('home.ejs', {produtos,destaque})
     },
     biblioteca : (req,res) => {
 
         res.render('biblioteca', {produtos})
+    },
+    showbook:  (req,res) => {
+        
+        const id = req.params.id
+        const book = produtos.find(p => p.id ==id)
+        const destaque  = produtos.filter( p => p.destaque === 1 )
+
+        res.render('showbook', {book,destaque})
+    },
+    carrinho: (req,res) => {
+
+        res.render('carrinho')
     }
     
 }

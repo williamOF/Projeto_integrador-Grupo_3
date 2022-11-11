@@ -32,7 +32,7 @@
                   <div class="d-flex flex-column align-items-center justify-content-center  p-2 ">
                     <h1><%= p.titulo %> </h1>
                     <p><%= p.sinopse %> </p>
-                    <p><a class="btn btn-lg btn-primary col align-self-center" href="#">Ver mais</a></p>
+                    <p><a class="btn btn-lg btn-primary col align-self-center" href="/showbook/<%= p.id %> ">Ver mais</a></p>
                   </div>
 
                 </div>
@@ -53,7 +53,7 @@
                       <div class="d-flex flex-column align-items-center justify-content-center  p-2 ">
                         <h1><%= p.titulo %> </h1>
                         <p><%= p.sinopse %> </p>
-                        <p><a class="btn btn-lg btn-primary col align-self-center" href="#">Ver mais</a></p>
+                        <p><a class="btn btn-lg btn-primary col align-self-center" href="/showbook/<%= p.id %> ">Ver mais</a></p>
                       </div>
     
                     </div>
@@ -84,7 +84,7 @@
           </div>
           <% for(let p of produtos){ %>
             <div class="col-12 col-sm col-lg-3 nav-item border-bottom mb-2">
-              <a href="#" class="nav-link product-box">
+              <a href="/showbook/<%= p.id %>" class="nav-link product-box">
                 <img src="<%= p.capa %> " alt="capa-livro-<%= p.titulo %> " class="img-thumbnail">
                 <div class="text-center">
                   <h2><%= p.titulo %> </h2>
