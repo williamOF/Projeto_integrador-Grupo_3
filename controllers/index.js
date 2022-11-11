@@ -14,13 +14,10 @@ module.exports = {
 
         res.render('biblioteca', {produtos})
     },
-    showbook:  (req,res) => {
-        
-        const id = req.params.id
-        const book = produtos.find(p => p.id ==id)
-        const destaque  = produtos.filter( p => p.destaque === 1 )
-
-        res.render('login', {book,destaque})
+    produto : (req,res) => {
+        let id = req.params.id;
+        let livro = produtos.find(l => l.id == id)
+        res.render('detalhes.ejs', {livro})
     },
     carrinho: (req,res) => {
 

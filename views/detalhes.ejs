@@ -7,11 +7,15 @@
     <%- include('partials/header.ejs') %>
     
       <!--bg-ligth back-ground color white class bootstrap--->
-      <main class="bg-light">
-        <div class="detalhes">
+      <main class="container">
+        <div class="text-center text-light">
           <h1>Detalhes do produto:</h1>
-          <img  class="capa"src="<%=livro.capa %>" alt="capa">
-          <div class="text-d">
+        </div>
+        <div class="detalhes d-flex">
+          <div class="col-3 m-2" >
+            <img  class="capa"src="<%=livro.capa %>" alt="capa">
+          </div>
+          <div class="text-d col-6 m-2">
             <h2>R$ <%=livro.preco%>
             </h2>
             <h3> Titulo: <%=livro.titulo %>
@@ -27,8 +31,11 @@
                      <%=livro.sinopse%>
                  </P>
           </div>
+          <div class="col-3 d-flex align-items-center justify-content-center">
+            
+            <button id='add'type="submit">Adicionar ao carrinho</button>
+          </div>
 
-          <button id='add'type="submit">Adicionar ao carrinho</button>
              
     </div> 
     
