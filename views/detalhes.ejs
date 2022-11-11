@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <link rel="stylesheet" href="/stylesheets/detalhes.css">
 <%- include('partials/head.ejs') %>
 
   <body>
@@ -9,23 +10,32 @@
       <main>
         <div class="detalhes">
           <h1>Detalhes do produto:</h1>
-          <img src="<%=livro.capa %>" alt="capa">
-          <h2>R$ <%=livro.preco%>
-          </h2>
-          <h3> Titulo: <%=livro.titulo %>
-          </h3>
-          <h3>Autor: <%=livro.autor%>
-          </h3>
-          <h4>
-            Publicado por: <%=livro.editora%>
-          </h4>
-          <span>Sinopse do livro:</span>
-          <P>
-            <%=livro.sinopse%>
-          </P>
-        </div>
+          <img  class="capa"src="<%=livro.capa %>" alt="capa">
+          <div class="text-d">
+            <h2>R$ <%=livro.preco%>
+            </h2>
+            <h3> Titulo: <%=livro.titulo %>
+            </h3>
+            <h3>Autor: <%=livro.autor%>
+            </h3>
+            <h4>
+              Publicado por: <%=livro.editora%>
+            </h4>
+              
+             <span>Sinopse do livro:</span>
+                 <P>
+                     <%=livro.sinopse%>
+                 </P>
+          </div>
 
-        <button type="submit">Adicionar ao carrinho</button>
+          <button id='add'type="submit">Adicionar ao carrinho</button>
+
+          
+         
+             
+    </div> 
+    
+        
 
 
       </main>

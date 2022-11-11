@@ -15,4 +15,5 @@ module.exports = {
 
         res.render('biblioteca', {produtos})
     }
+    
 }
