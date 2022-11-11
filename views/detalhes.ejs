@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <link rel="stylesheet" href="/stylesheets/detalhes.css">
 <%- include('partials/head.ejs') %>
 
   <body>
     <%- include('partials/header.ejs') %>
     
       <!--bg-ligth back-ground color white class bootstrap--->
-      <main class="bg-light container">
-        <h1>Detalhes do produto:</h1>
-        <div class="detalhes d-flex">
-          <div class="col-3">
-            <img src="<%=livro.capa %>" alt="capa" class="img-thumbnail">
-          </div>
-          <div class="col-6 m-2 p-2 ">
-            <h2>R$ <%=livro.preco%></h2>
+      <main class="bg-light">
+        <div class="detalhes">
+          <h1>Detalhes do produto:</h1>
+          <img  class="capa"src="<%=livro.capa %>" alt="capa">
+          <div class="text-d">
+            <h2>R$ <%=livro.preco%>
+            </h2>
             <h3> Titulo: <%=livro.titulo %>
             </h3>
             <h3>Autor: <%=livro.autor%>
@@ -21,16 +21,17 @@
             <h4>
               Publicado por: <%=livro.editora%>
             </h4>
-            <span>Sinopse do livro:</span>
-            <P>
-              <%=livro.sinopse%>
-            </P>
-            <button type="submit">Adicionar ao carrinho</button>
+              
+             <span>Sinopse do livro:</span>
+                 <P>
+                     <%=livro.sinopse%>
+                 </P>
           </div>
-        </div>
 
-
-
+          <button id='add'type="submit">Adicionar ao carrinho</button>
+             
+    </div> 
+    
       </main>
 
      <%-include('partials/footer.ejs') %>

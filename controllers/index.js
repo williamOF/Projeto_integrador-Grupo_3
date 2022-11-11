@@ -26,4 +26,5 @@ module.exports = {
 
         res.render('carrinho')
     }
+    
 }
