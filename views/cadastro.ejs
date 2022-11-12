@@ -2,9 +2,54 @@
 <html lang="pt-br">
     <%- include('partials/head') %> 
 <body>
+    <style>
+        main{
+            background-color: rgba(255, 255, 255,.4);
+            height: 80vh;
+        }
+        .ajust-center{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
     <%- include('partials/header') %> 
-    <main>
-        <h2>estou no cadastro de usuario</h2>
+    <main class="container col-12 ">
+        <div class="p-5 ajust-center ">
+            <form action="#" method="post" enctype="multipart/form-data" class="flex-colum p-5">
+                <div class="mb-5 ajust-center ">
+                    <img src="/images/icons/logoHome.png" alt="">
+                </div>
+                <div class="mb-3 form-group">
+                    <input type="text" class="form-control" name="nome-completo" id="nome" placeholder="nome completo">
+                </div>
+                <div class="mb-3 form-group">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="digite um email">
+                </div>
+                <div class="mb-3 form-group">
+                    <input type="email" class="form-control" name="email" id="re-email" placeholder="confirme seu email">
+                </div>
+                <div class="mb-3 form-group">
+                    <input type="password" class="form-control" name="senha" id="senha" placeholder="digite uma senha">
+                </div>
+                <div class="mb-3 form-group">
+                    <input type="password" class="form-control" name="re-senha" id="re-senha" placeholder="confirme sua senha">
+                </div>
+                <div class="mb-3 border p-2 bg-light form-group">
+                    <div>
+                        <label for="avatar">
+                            <span>escolha um avatar</span>
+                        </label>
+                    </div>
+                    <div class="mt-3">
+                        <input type="file" class="form-control-file" name="avatar" id="avatar">
+                    </div>
+                </div>
+                <div class="m-5 ajust-center">
+                    <button class="btn btn-info text-light">Cadastrar-se</button>
+                </div>
+            </form>
+        </div>
     </main>
     <%- include('partials/footer') %> 
 </body>
