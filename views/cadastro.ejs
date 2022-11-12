@@ -16,24 +16,39 @@
     <%- include('partials/header') %> 
     <main class="container col-12 ">
         <div class="p-5 ajust-center ">
-            <form action="#" method="post" enctype="multipart/form-data" class="flex-colum p-5">
+            <form action="/admin/cadastro" method="post"  enctype="" class="">
+
                 <div class="mb-5 ajust-center ">
-                    <img src="/images/icons/logoHome.png" alt="">
+                    <img src="/images/img/logo.png" alt="">
+                </div>
+                <div>
+                    <ul>
+                        <% if(typeof errors !== 'undefined') {%>
+                            <% for(let error in errors) {%>
+                                <li>
+                                    <b>
+                                        <%= error %> 
+                                    </b>
+                                    <%= errors[error].msg %> 
+                                </li>         
+                            <% } %> 
+                        <% } %> 
+                    </ul>
                 </div>
                 <div class="mb-3 form-group">
-                    <input type="text" class="form-control" name="nome-completo" id="nome" placeholder="nome completo">
+                    <input type="text" class="form-control" name="nome" id="nome" required placeholder="nome completo">
                 </div>
                 <div class="mb-3 form-group">
-                    <input type="email" class="form-control" name="email" id="email" placeholder="digite um email">
+                    <input type="email" class="form-control" name="email" id="email" required placeholder="digite um email">
                 </div>
                 <div class="mb-3 form-group">
-                    <input type="email" class="form-control" name="email" id="re-email" placeholder="confirme seu email">
+                    <input type="email" class="form-control" name="re_email" id="re_email" required placeholder="confirme seu email">
                 </div>
                 <div class="mb-3 form-group">
-                    <input type="password" class="form-control" name="senha" id="senha" placeholder="digite uma senha">
+                    <input type="password" class="form-control" name="senha" id="senha" required placeholder="digite uma senha">
                 </div>
                 <div class="mb-3 form-group">
-                    <input type="password" class="form-control" name="re-senha" id="re-senha" placeholder="confirme sua senha">
+                    <input type="password" class="form-control" name="re_senha" id="re_senha" required placeholder="confirme sua senha">
                 </div>
                 <div class="mb-3 border p-2 bg-light form-group">
                     <div>
@@ -46,7 +61,7 @@
                     </div>
                 </div>
                 <div class="m-5 ajust-center">
-                    <button class="btn btn-info text-light">Cadastrar-se</button>
+                    <button type="" class="btn btn-info text-light">Cadastrar-se</button>
                 </div>
             </form>
         </div>
