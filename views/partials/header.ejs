@@ -1,4 +1,30 @@
 <header>
+    <style>
+        .img-avatar{
+            width: 50px;
+            height: 50px;
+        }
+        .user-text{
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-end;
+        }
+        .btn-link{
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+            padding: 2px 15px 2px 15px;
+            border-radius: 5px;
+            transition: background-color 600ms;
+            border: 1px black solid;
+        }
+        
+        .btn-link:hover{
+            background-color: var(--azul-claro);
+            color: var(--azul-forte);
+        }
+    
+    </style>
     <div class="p-3 color-a"> 
         <div class="container ">
             <div class=" config-header  ">
@@ -15,16 +41,18 @@
                     <a href="/admin/cadastro" class="btn btn-warning">Sing-Up</a>
                 </div>
                 <% }else{ %>
-                    <div class="d-flex row text-end align-items-center justify-content-center">
-                        <div class="col-1">
-                            <img src="/images/users/<%= admin.avatar %>" class="img-thumbnail img" alt="avatar">
+                    <div class="col-4 d-flex align-items-center justy-itens-end">
+                        <div class="text-end w-100">
+                            <span><%= admin.nome %></span>
+                            
+                            <div class="mt-2">
+                                <a href="/admin/sair" class="btn-link">Sair</a>
+                            </div>
+                            
                         </div>
-                        <div class="text-center col-5">
-                            <span><%= admin.nome %> </span>
-                        </div>
-                        <span class="text-center">
-                            <a href="/admin/sair" class="nav-link">Sair</a>
-                        </span>
+                    </div>
+                    <div class=" img-avatar me-2">
+                        <img src="/images/users/<%= admin.avatar %>" class="h-100 rounded-circle" alt="avatar">
                     </div>
                 <% } %> 
                 
