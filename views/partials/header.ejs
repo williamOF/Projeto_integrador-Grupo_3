@@ -9,10 +9,24 @@
                 <form class=" ajust-left col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
                     <input type="search" class="form-control form-control-dark text-bg-light" placeholder="Search..." aria-label="Search" id="">
                 </form>
+                <% if(typeof admin == 'undefined') {%> 
                 <div class="text-end">
                     <a href="/admin/" class="btn btn-outline-light me-2">Login</a>
                     <a href="/admin/cadastro" class="btn btn-warning">Sing-Up</a>
                 </div>
+                <% }else{ %>
+                    <div class="d-flex row text-end align-items-center justify-content-center">
+                        <div class="col-1">
+                            <img src="/images/users/<%= admin.avatar %>" class="img-thumbnail img" alt="avatar">
+                        </div>
+                        <div class="text-center col-5">
+                            <span><%= admin.nome %> </span>
+                        </div>
+                        <span class="text-center">
+                            <a href="/admin/sair" class="nav-link">Sair</a>
+                        </span>
+                    </div>
+                <% } %> 
                 
             </div>
         </div>    

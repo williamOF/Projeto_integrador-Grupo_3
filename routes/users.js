@@ -24,6 +24,7 @@ const storage = multer.diskStorage({
 /* GET users listing. */
 router.get('/', adminController.login)
 router.post('/', adminController.loginAuth)
+router.get('/sair',adminController.sair)
 router.get('/cadastro', adminController.viewCadastro)
 router.post('/cadastro' ,upload.single('avatar'), adminController.cadastro)
 

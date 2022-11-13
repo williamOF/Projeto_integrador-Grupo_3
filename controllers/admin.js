@@ -21,9 +21,15 @@ module.exports = {
         if(user){
             let  pass =  bcrypt.compareSync(senha, user.senha)
             if(pass){
-                res.send(user)
+                req.session.usuario = user   
+                res.redirect('/')
             }
         }
+        
+    },
+    sair: (req,res) =>{
+        req.session.usuario = undefined
+        res.redirect('/')
         
     },
     viewCadastro: (req,res) => {
@@ -65,7 +71,7 @@ module.exports = {
         if(file !== undefined){
             file = req.file.filename
         }else{
-            file = 'default'
+            file = 'default.png'
         }
  
         //-------------- criando novo objeto json --------------/
