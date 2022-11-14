@@ -5,7 +5,37 @@
 </head>
 <body>
     <%- include('partials/header') %> 
-    <h2>carrinho</h2>
+    <main class="container bg-light">
+        <div class="col-8">
+            <h2 class="text-center">carrinho de compras</h2>
+            <div class="row">
+                <% if(typeof produtos !== 'undefined') {%>
+                    <% for(let p of produtos) {%>
+                        <div class="col-12 d-flex border m-2">
+
+                            <div class="m-2 img-thumbnail col-3" style="">
+                                <img class="w-100" src="<%= p.capa %> " alt="capa-livro<%= p.titulo %> ">
+                            </div>
+
+                            <div class=" col-9 " >
+                                <div>
+                                    <h2><%= p.titulo %> </h2>
+                                    <p>Editora: <%=p.editora %> </p>
+                                    <p>vendido por: <%= p.fornecedor %> </p>
+                                    <p>Em Estoque: <%= p.status %> </p>
+                                    <p>Este pedido é para presente
+                                        <input type="checkbox" name="quantidade" id="">
+                                    </p>                   
+                                </div>
+                             
+                            </div>
+                        </div>
+                    <% } %> 
+                <% } %> 
+
+            </div>
+        </div>
+    </main>
 
     <%- include('partials/footer') %> 
 </body>

@@ -31,7 +31,10 @@ module.exports = {
 
         const user = req.session.usuario
 
-        res.render('carrinho',{admin:user})
+        let destaques = produtos.filter(p => p.destaque == 1)
+
+
+        res.render('carrinho',{produtos:destaques,admin:user})
     }
     
 }

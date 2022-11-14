@@ -5,6 +5,7 @@ const multer = require('multer')
 
 //-------- require  controllers -------------// 
 const adminController = require('../controllers/admin')
+const userPerfil = require('../controllers/perfilUser')
 
 
 //-- multer config --//
@@ -22,10 +23,14 @@ const storage = multer.diskStorage({
   const upload = multer({ storage: storage })
 
 /* GET users listing. */
+router.get('/perfil' , userPerfil)
+
 router.get('/', adminController.login)
 router.post('/', adminController.loginAuth)
 router.get('/sair',adminController.sair)
+
 router.get('/cadastro', adminController.viewCadastro)
 router.post('/cadastro' ,upload.single('avatar'), adminController.cadastro)
+
 
 module.exports = router;
