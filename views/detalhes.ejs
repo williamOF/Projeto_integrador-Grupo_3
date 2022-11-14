@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <link rel="stylesheet" href="/stylesheets/detalhes.css">
+<link rel="stylesheet" href="/stylesheets/detalhes.css">
 <%- include('partials/head.ejs') %>
 
   <body>
     <%- include('partials/header.ejs') %>
-    
+
       <!--bg-ligth back-ground color white class bootstrap--->
       <main class="container">
         <div class="text-center text-light">
           <h1>Detalhes do produto:</h1>
         </div>
         <div class="detalhes d-flex">
-          <div class="col-3 m-2" >
-            <img  class="capa"src="<%=livro.capa %>" alt="capa">
+          <div class="col-3 m-2">
+            <img class="capa" src="<%=livro.capa %>" alt="capa">
           </div>
           <div class="text-d col-6 m-2">
             <h2>R$ <%=livro.preco%>
@@ -25,23 +25,26 @@
             <h4>
               Publicado por: <%=livro.editora%>
             </h4>
-              
-             <span>Sinopse do livro:</span>
-                 <P>
-                     <%=livro.sinopse%>
-                 </P>
+
+            <span>Sinopse do livro:</span>
+            <P>
+              <%=livro.sinopse%>
+            </P>
           </div>
           <div class="col-3 d-flex align-items-center justify-content-center">
-            
-            <button id='add'type="submit">Adicionar ao carrinho</button>
+
+            <button id='add' type="submit">Adicionar ao carrinho</button>
           </div>
 
-             
-    </div> 
-    
+
+        </div>
+
       </main>
 
-     <%-include('partials/footer.ejs') %>
+       
+
+
+      <%-include('partials /footer.ejs') %>
 
   </body>
 

@@ -16,7 +16,7 @@ module.exports = {
     },
     produto : (req,res) => {
         let id = req.params.id;
-        let livro = produtos.find(l => l.id == id)
+        let livro = produtos.find(l => l.id == id);
         res.render('detalhes.ejs', {livro})
     },
     carrinho: (req,res) => {
