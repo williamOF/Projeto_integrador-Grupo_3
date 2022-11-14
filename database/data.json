@@ -187,7 +187,8 @@
         "autor": "George R. R. Martin",
         "preco": [70.00],
         "editora": "DH LIVROS",
-        "capa": "/capas/book/guerra-dos-tronos.webp"
+        "capa": "/capas/book/guerra-dos-tronos.webp",
+        "destaque": 1
     },
     {
         "id": 20,
