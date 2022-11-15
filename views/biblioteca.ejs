@@ -44,16 +44,20 @@
                 <section class="container">
                     <div class="row">
                         <% for(let p of produtos){ %>
-                            <div class="col-12 col-sm col-lg-3 nav-item  mb-2">
-                            <a href="/showbook/<%= p.id %> " class="nav-link product-box">
-                                <img src="<%= p.capa %> " alt="capa-livro-<%= p.titulo %> " class="img-thumbnail">
-                                <div class="text-center">
-                                <h2><%= p.titulo %> </h2>
-                                <p>preço kindle:<%= p.preco[1] %> </p>
-                                </div>
-                            </a>
+                            <div class="col-12 col-sm col-lg-3 nav-item mb-5 book-box">
+                              <a href="/showbook/<%= p.id %>" class="nav-link">
+                                <div class="img-book">
+                                  <div class="img-box">
+                                    <img src="<%= p.capa %> " alt="capa-livro-<%= p.titulo %> " class=" h-100">
+                                  </div>
+                                  <div class="ib-text">
+                                    <h2><%= p.titulo %> </h2>
+                                    <p>R$: <%= p.preco[0] %> </p>
+                                  </div>
+                                </div>       
+                              </a>
                             </div>
-                        <% } %>  
+                          <% } %>  
                     </div>
                 </section>
             </div>

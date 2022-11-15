@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <%- include('partials/head.ejs')  %> 
+
 <body>
 <%- include('partials/header.ejs')  %> 
     <link rel="stylesheet" href="/stylesheets/carousel.css">
-
     <main class="container">
 
       <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -75,36 +75,41 @@
       </div>
       <div>   
     </div>
-    </main>
-    <main>
-      <section class="container">
-        <div class="row bg-light p-1 ">
-          <div class="text-center border-bottom mb-2">
-            <h2>destaques</h2>
-          </div>
-          <% for(let p of produtos){ %>
-            <div class="col-12 col-sm col-lg-3 nav-item border-bottom mb-2">
-              <a href="/showbook/<%= p.id %>" class="nav-link product-box">
-                <img src="<%= p.capa %> " alt="capa-livro-<%= p.titulo %> " class="img-thumbnail">
-                <div class="text-center">
-                  <h2><%= p.titulo %> </h2>
-                  <p>preço kindle: <%= p.preco[1] %> </p>
-                </div>
-              </a>
-            </div>
-          <% } %>  
-          <nav aria-label="Navegação de página d-flex">
-            <ul class="pagination justify-content-center">
-              <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
-              <li class="page-item"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item"><a class="page-link" href="#">Próximo</a></li>
-            </ul>
-          </nav>
-        </section>
+    <section class="container">
+      <div class="row bg-light p-1 ">
+        <div class="text-center border-bottom mb-2">
+          <h2>destaques</h2>
         </div>
+        <% for(let p of produtos){ %>
+          <div class="col-12 col-sm col-lg-3 nav-item mb-5 book-box">
+            <a href="/showbook/<%= p.id %>" class="nav-link">
+              <div class="img-book">
+                <div class="img-box">
+                  <img src="<%= p.capa %> " alt="capa-livro-<%= p.titulo %> " class=" h-100">
+                </div>
+                <div class="ib-text">
+                  <h2><%= p.titulo %> </h2>
+                  <p>R$: <%= p.preco[0] %> </p>
+                </div>
+              </div>       
+            </a>
+          </div>
+        <% } %>  
+        <nav aria-label="Navegação de página d-flex">
+          <ul class="pagination justify-content-center">
+            <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">Próximo</a></li>
+          </ul>
+        </nav>
+      </div>
+    </section>
     </main>
+
+  
+  
     <%- include('partials/footer') %> 
 
     <script src="/javascripts/bootstrap.js"></script>
