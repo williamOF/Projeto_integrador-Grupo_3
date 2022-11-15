@@ -17,8 +17,9 @@
           <% } %> 
           
         </div>
+
         <div class="carousel-inner">
-          <% p = produtos[1] %> 
+          <% p = destaque[1] %> 
 
           <div class="carousel-item active box">
            
@@ -80,6 +81,7 @@
         <div class="text-center border-bottom mb-2">
           <h2>destaques</h2>
         </div>
+
         <% for(let p of produtos){ %>
           <div class="col-12 col-sm col-lg-3 nav-item mb-5 book-box">
             <a href="/showbook/<%= p.id %>" class="nav-link">
@@ -95,6 +97,7 @@
             </a>
           </div>
         <% } %>  
+        
         <nav aria-label="Navegação de página d-flex">
           <ul class="pagination justify-content-center">
             <li class="page-item"><a class="page-link" href="#">Anterior</a></li>

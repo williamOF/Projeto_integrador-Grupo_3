@@ -35,6 +35,15 @@ module.exports = {
 
 
         res.render('carrinho',{produtos:destaques,admin:user})
+    },
+    search : (req,res) => {
+        const user = req.session.usuario
+        const query = req.query.search
+        const destaque  = produtos.filter( p => p.destaque === 1 )
+
+        let booksFilter = produtos.filter( book => book.titulo.toLowerCase().includes(query.toLowerCase()));
+
+       res.render('home', {produtos:booksFilter, destaque, admin:user})
     }
     
 }

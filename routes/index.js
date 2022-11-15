@@ -11,6 +11,7 @@ router.get('/',  indexController.home);
 router.get('/carrinho', indexController.carrinho)
 router.get('/biblioteca', indexController.biblioteca)
 router.get('/showbook/:id', indexController.produto)
+router.get('/search' , indexController.search)
 
 
 module.exports = router;
