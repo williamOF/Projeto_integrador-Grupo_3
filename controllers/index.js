@@ -16,8 +16,15 @@ module.exports = {
     },
     biblioteca : (req,res) => {
         const user = req.session.usuario
-        res.render('biblioteca', {produtos,admin:user })
+        const listGenSelect  = req.params.genero
         
+        const livroGenero = produtos.filter(gen => gen.genero == listGenSelect)
+
+        if(listGenSelect){
+            res.render('biblioteca', {produtos:livroGenero, admin:user})
+        }else{
+            res.render('biblioteca', {produtos,admin:user })
+        }
     },
     produto : (req,res) => {
         let id = req.params.id;
