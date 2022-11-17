@@ -77,26 +77,35 @@
       <div>   
     </div>
     <section class="container">
-      <div class="row bg-light p-1 ">
-        <div class="text-center border-bottom mb-2">
-          <h2>destaques</h2>
+      <div class="row bg-light">
+        <div class="text-center  mb-5">
+          <h2 class="p-5">Até 20% off em Livros e eBooks | Esquenta Black Friday</h2>
+          <div>
+            <img src="/images/banners/banner1.png" class="w-50 mt-3 mb-5 border" alt="baner">
+          </div>
         </div>
 
         <% for(let p of produtos){ %>
-          <div class="col-12 col-sm col-lg-3 nav-item mb-5 book-box">
-            <a href="/showbook/<%= p.id %>" class="nav-link">
-              <div class="img-book">
-                <div class="img-box">
-                  <img src="<%= p.capa %> " alt="capa-livro-<%= p.titulo %> " class=" h-100">
-                </div>
-                <div class="ib-text">
-                  <h2><%= p.titulo %> </h2>
-                  <p>R$: <%= p.preco[0] %> </p>
-                </div>
-              </div>       
-            </a>
-          </div>
+            <div class="col-12 col-sm col-lg-3 nav-item mb-5 book-box border">
+              <a href="/showbook/<%= p.id %>" class="nav-link">
+                <div class="img-book">
+                  <div class="img-box">
+                    <img src="<%= p.capa %> " alt="capa-livro-<%= p.titulo %> " class=" h-100">
+                  </div>
+                  <div class="ib-text">
+                    <h2><%= p.titulo %> </h2>
+                    <p>R$: <%= p.preco[0] %> </p>
+                  </div>
+                </div>       
+              </a>
+            </div>
         <% } %>  
+        <h1>
+
+          <% if(produtos.length == 0) {%>
+            <h2 class="text-center mt-5 mb-5">Nenhum livro encontrado</h2>
+            <% } %>  
+        </h1>
         
         <nav aria-label="Navegação de página d-flex">
           <ul class="pagination justify-content-center">

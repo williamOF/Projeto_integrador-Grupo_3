@@ -49,8 +49,11 @@ module.exports = {
         const destaque  = produtos.filter( p => p.destaque === 1 )
 
         let booksFilter = produtos.filter( book => book.titulo.toLowerCase().includes(query.toLowerCase()));
-
-       res.render('home', {produtos:booksFilter, destaque, admin:user})
-    }
-    
+        
+        if(booksFilter){
+            res.render('home', {produtos:booksFilter, destaque, admin:user})
+        }else{
+            res.redirect('/')
+        }
+    }    
 }
