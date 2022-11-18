@@ -1,69 +1,40 @@
 <header>
-    <style>
-        .img-avatar{
-            width: 50px;
-            height: 50px;
-        }
-        .user-text{
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            align-items: flex-end;
-        }
-        .btn-link{
-            text-decoration: none;
-            color: rgb(0, 0, 0);
-            padding: 2px 15px 2px 15px;
-            border-radius: 5px;
-            transition: background-color 600ms;
-            border: 1px black solid;
-        }
-        
-        .btn-link:hover{
-            background-color: var(--azul-claro);
-            color: var(--azul-forte);
-        }
-    
-    </style>
-    <div class="p-3 color-a"> 
+    <div class="header-top"> 
         <div class="container ">
-            <div class=" config-header  ">
-                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decorarion-none">
-                    <img src="/images/img/logo.png" alt="logo">
+            <div class="d-flex align-items-center justify-content-between col-12">
+                <a href="/" class="col-3 me-2">
+                    <img src="/images/img/logo.png"  class="" alt="logo">
                 </a>
-     
-                <form action="/search" class=" ajust-left col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                    <input type="search" class="form-control form-control-dark text-bg-light" placeholder="Search..." aria-label="Search" id="" name="search">
-                </form>
+                <div class="col-3 col-sm  d-flex justify-content-center">
+                    <form action="/search" class="w-75" role="search">
+                        <input type="search" class="form-control" placeholder="Search..." aria-label="Search" name="search">
+                    </form>
+                </div>
                 <% if(typeof admin == 'undefined') {%> 
-                <div class="text-end">
-                    <a href="/admin/" class="btn btn-outline-light me-2">Login</a>
-                    <a href="/admin/cadastro" class="btn btn-warning">Sing-Up</a>
+                <div class="col-2 text-center ">
+                    <a href="/admin/" class="btn btn-outline-light me-2 ">Login</a>
+                    <a href="/admin/cadastro" class="btn btn-warning ">Sing-Up</a>
                 </div>
                 <% }else{ %>
-                    <div class="col-4 d-flex align-items-center justy-itens-end">
-                        <div class="text-end w-100">
-                            <span><%= admin.nome %></span>
-                            
+                    <div class="d-flex align-items-center justy-itens-end">
+                        <div class="text-center w-100">
+                            <span class=""><%= admin.nome %></span>                          
                             <div class="mt-2">
                                 <a href="/admin/perfil" class="btn-link">perfil</a>
                                 <a href="/admin/sair" class="btn-link">Sair</a>
                             </div>
-                            
                         </div>
                     </div>
-                    <div class=" img-avatar me-2">
-                        <img src="/images/users/<%= admin.avatar %>" class="h-100 rounded-circle" alt="avatar">
+                    <div class=" img-avatar">
+                        <img src="/images/users/<%= admin.avatar %>" class="h-100 rounded-circle p-1" alt="avatar">
                     </div>
-                <% } %> 
-                
+                <% } %>
             </div>
         </div>    
     </div>  
-    <div class="p-1 mt-2 color-a2">
+    <div class="p-1 mt-2 bg-menu-bottom">
         <nav class="container">
-            <ul class="nav config-nav" >
-                
+            <ul class="nav config-nav swap-top" >
                 <li class="nav-item">
                     <a href="/biblioteca" class="nav-link ">biblioteca</a>
                 </li>
@@ -82,8 +53,26 @@
                 <li class="nav-item">
                     <a href="/carrinho" class="nav-link ">carrinho</a>
                 </li>
-                
             </ul>
+            <div class="swap-bottom ">
+                <div class="dropdown me-2">
+                    <a class="btn btn btn-outline-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      |||
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <a class="dropdown-item" href="/biblioteca">biblioteca</a>
+                      <a class="dropdown-item" href="#">mais vendidos</a>
+                      <a class="dropdown-item" href="#">indicações</a>
+                      <a class="dropdown-item" href="#">coleções</a>
+                      <a class="dropdown-item" href="#">novidades</a>
+                    </div>
+                  </div>
+                  <ul class="d-flex m-0 p-0">
+                    <li class="btn btn-outline-dark">
+                        <a href="/carrinho" class="nav-link ">carrinho</a>
+                    </li>
+                </ul>
+            </div>
         </nav>
     </div>
 
