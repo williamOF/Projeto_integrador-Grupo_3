@@ -10,25 +10,31 @@
                         <input type="search" class="form-control" placeholder="Search..." aria-label="Search" name="search">
                     </form>
                 </div>
-                <% if(typeof admin == 'undefined') {%> 
-                <div class="col-2 text-center ">
-                    <a href="/admin/" class="btn btn-outline-light me-2 ">Login</a>
-                    <a href="/admin/cadastro" class="btn btn-warning ">Sing-Up</a>
-                </div>
-                <% }else{ %>
-                    <div class="d-flex align-items-center justy-itens-end">
-                        <div class="text-center w-100">
-                            <span class=""><%= admin.nome %></span>                          
-                            <div class="mt-2">
-                                <a href="/admin/perfil" class="btn-link">perfil</a>
-                                <a href="/admin/sair" class="btn-link">Sair</a>
-                            </div>
+                <div class="col-2 admin">
+                    <% if(typeof admin == 'undefined') {%> 
+                        <div class="text-center off">
+                            <a href="/admin/" class="btn btn-outline-light me-2 ">Login</a>
+                            <a href="/admin/cadastro" class="btn btn-warning ">Sing-Up</a>
                         </div>
-                    </div>
-                    <div class=" img-avatar">
-                        <img src="/images/users/<%= admin.avatar %>" class="h-100 rounded-circle p-1" alt="avatar">
-                    </div>
-                <% } %>
+                        <% }else{ %>
+                            <div class="d-flex align-items-center">
+                                <div class="d-flex align-items-center justy-itens-end on">
+                                    <div class="text-center w-100">
+                                        <% let fullName = admin.nome %> 
+                                        <% let name = fullName.split(" ")[0]+ " " + fullName.split(" ")[1] %> 
+                                        <span class=""><b><%=name %></b></span>                          
+                                        <div class="mt-2">
+                                            <a href="/admin/perfil" class="btn-link">perfil</a>
+                                            <a href="/admin/sair" class="btn-link">Sair</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class=" img-avatar">
+                                    <img src="/images/users/<%= admin.avatar %>" class="h-100 rounded-circle p-1" alt="avatar">
+                                </div>
+                            </div>
+                        <% } %>
+                </div>
             </div>
         </div>    
     </div>  
@@ -57,7 +63,7 @@
             <div class="swap-bottom ">
                 <div class="dropdown me-2">
                     <a class="btn btn btn-outline-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      |||
+                      menu
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                       <a class="dropdown-item" href="/biblioteca">biblioteca</a>

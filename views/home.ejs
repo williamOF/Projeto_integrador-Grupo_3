@@ -1,128 +1,103 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <%- include('partials/head.ejs')  %> 
-
+<link rel="stylesheet" href="/stylesheets/carousel.css">
 <body>
-<%- include('partials/header.ejs')  %> 
-    <link rel="stylesheet" href="/stylesheets/carousel.css">
-    <main class="container">
-      <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <% let arr = [] %> 
-          <% for(let p of destaque){ %>
-            <% arr.push(1) %> 
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="<%= arr.length %>" class="" aria-current="true" aria-label="Slide <%= p.id %> "></button>
-          <% } %> 
-          
-        </div>
+  <%- include('partials/header.ejs')  %> 
 
-        <div class="carousel-inner">
-          <% p = destaque[1] %> 
-
-          <div class="carousel-item active box">
-           
-            <div class="container ">
-              <div class="carousel-caption text-start p-3">
-                <div class="d-flex">
-                  <div class="col-4 p-2">
-                    <img src="<%= p.capa %> " class="d-blok w-100" alt="">
-                  </div>
-
-                  <div class="d-flex flex-column align-items-center justify-content-center  p-2 ">
-                    <h1><%= p.titulo %> </h1>
-                    <p><%= p.sinopse %> </p>
-                    <p><a class="btn btn-lg btn-primary col align-self-center" href="/showbook/<%= p.id %> ">Ver mais</a></p>
-                  </div>
-
+  <div id="myCarousel" class="carousel slide container mt-5 col-12" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <% let arr = [] %> 
+      <% for(let p of destaque){ %>
+        <% arr.push(1) %> 
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="<%= arr.length %>" class="" aria-current="true" aria-label="Slide <%= p.id %> "></button>
+      <% } %> 
+      
+    </div>
+    <div class="carousel-inner">
+      <% let i = 0 %> 
+      <% for(let p of destaque){%>
+        <!-- logica para executar o active do carousel uma  unica vez -->
+        <% if(i == 0) {%>
+          <div class="carousel-item box active">
+          <% i=i+1 %>   
+        <% }else{%>
+          <div class="carousel-item box">
+        <% } %>
+        <!-- Fim da logica-->
+          <div >
+            <div class="carousel-caption d-flex col-8 ">
+              <a href="/showbook/<%= p.id %> ">
+                <div class="carousel-img  ">
+                  <img src="<%=p.capa %> " class=""  alt="">
+                </div>
+              </a>
+                <div class="carousel-text col-8">
+                  <h2><%= p.titulo %> </h2>
+                  <p class="p-2"><%= p.sinopse %> </p>
+                  
                 </div>
               </div>
             </div>
-          </div>
-
-          <% for(let p of destaque){%>
-          
-              <div class="carousel-item box"> 
-                <div class="container ">
-                  <div class="carousel-caption text-start p-3">
-                    <div class="d-flex">
-                      <div class="col-4 p-2">
-                        <img src="<%=p.capa %> " class="d-blok w-100"  alt="">
-                      </div>
-                     
-                      <div class="d-flex flex-column align-items-center justify-content-center  p-2 ">
-                        <h1><%= p.titulo %> </h1>
-                        <p><%= p.sinopse %> </p>
-                        <p><a class="btn btn-lg btn-primary col align-self-center" href="/showbook/<%= p.id %> ">Ver mais</a></p>
-                      </div>
-    
-                    </div>
-                  </div>
-                </div>
-              </div> 
-          <% } %>  
-           
-
-          </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-      <div>   
+        </div> 
+      <% } %>  
     </div>
-    <section class="container">
-      <div class="row bg-light">
-        <div class="text-center  mb-5">
-          <h2 class="p-5">Até 20% off em Livros e eBooks | Esquenta Black Friday</h2>
-          <div>
-            <img src="/images/banners/banner1.png" class="w-50 mt-3 mb-5 border" alt="baner">
-          </div>
+    <div class="zindex-10">
+      <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>   
+
+  <section class="container">
+    <div class="row bg-light">
+      <div class="text-center  mb-5">
+        <div class="pt-2">
+          <img src="/images/banners/banner.png" class=" w-100 border" alt="baner">
+          <h2>Até 25% off em Livros e eBooks | Black Friday</h2>
         </div>
-
-        <% for(let p of produtos){ %>
-            <div class="col-12 col-sm col-lg-3 nav-item mb-5 book-box border">
-              <a href="/showbook/<%= p.id %>" class="nav-link">
-                <div class="img-book">
-                  <div class="img-box">
-                    <img src="<%= p.capa %> " alt="capa-livro-<%= p.titulo %> " class=" h-100">
-                  </div>
-                  <div class="ib-text">
-                    <h2><%= p.titulo %> </h2>
-                    <p>R$: <%= p.preco[0] %> </p>
-                  </div>
-                </div>       
-              </a>
-            </div>
-        <% } %>  
-        <h1>
-
-          <% if(produtos.length == 0) {%>
-            <h2 class="text-center mt-5 mb-5">Nenhum livro encontrado</h2>
-            <% } %>  
-        </h1>
-        
-        <nav aria-label="Navegação de página d-flex">
-          <ul class="pagination justify-content-center">
-            <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">Próximo</a></li>
-          </ul>
-        </nav>
       </div>
-    </section>
-    </main>
+      <% for(let p of produtos){ %>
+          <div class="col-12 col-sm col-lg-3 nav-item mb-5 book-box border">
+            <a href="/showbook/<%= p.id %>" class="nav-link">
+              <div class="img-book">
+                <div class="img-box">
+                  <img src="<%= p.capa %> " alt="capa-livro-<%= p.titulo %> " class=" h-100">
+                </div>
+                <div class="ib-text">
+                  <h2><%= p.titulo %> </h2>
+                  <p>R$: <%= p.preco[0] %> </p>
+                </div>
+              </div>       
+            </a>
+          </div>
+      <% } %>  
+      <h1>
 
-  
-  
+        <% if(produtos.length == 0) {%>
+          <h2 class="text-center mt-5 mb-5">Nenhum livro encontrado</h2>
+          <% } %>  
+      </h1>
+      
+      <nav aria-label="Navegação de página d-flex">
+        <ul class="pagination justify-content-center">
+          <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">Próximo</a></li>
+        </ul>
+      </nav>
+    </div>
+  </section>
+
     <%- include('partials/footer') %> 
-
     <script src="/javascripts/bootstrap.js"></script>
     </body>
 </html>

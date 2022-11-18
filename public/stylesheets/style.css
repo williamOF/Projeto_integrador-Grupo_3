@@ -1,8 +1,16 @@
 
 /*palheta de cores do site*/
+/*variaveis globais de cores*/
 :root{
   --azul-forte : #74b9ff;/*cor dedicada ao topo do header*/
-  --azul-claro : #DAF2FF;/*cor dedicada ao bottom do header*/
+  --azul-claro : #daf2ff;/*cor dedicada ao bottom do header*/
+  --bg-alfa :  rgba(255, 255, 255,.4);
+}
+
+/*cores app*/
+.box {
+  background-color: var(--bg-alfa);
+  box-shadow:  1px 1px 10px solid var(--bg-alfa) ;
 }
 
 /*definição do background da página em geral*/
@@ -16,6 +24,16 @@ body{
 .header-top{
   background-color: var(--azul-forte);
   padding: 5px 0 5px 0;
+}
+@media screen and (max-width : 1200px) {
+  .admin{
+    width: 170px;
+  }
+  .off a{
+    width: 75px;
+    height: 35px;
+    font-size: 10pt;
+  }
 }
 
 /*painel do usuario*/
@@ -68,10 +86,11 @@ body{
   .swap-bottom{
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
   }
 }
+
 
 /*pagina categoria*/
 .h-box{
