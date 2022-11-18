@@ -1,0 +1,23 @@
+
+/*header configurações*/
+
+/*se o tamnaho for menor que x entao esconda nav list e mostre o menu drop down*/
+@media screen and (max-width : 800px){
+    .swap-top{
+      display: none;
+    }
+    .swap-bottom{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+/*ajuste na view biblioteca responsividade*/
+@media screen and (max-width: 700px){
+    .nav-genero h3 {
+        display: none;
+    }
+    
+}

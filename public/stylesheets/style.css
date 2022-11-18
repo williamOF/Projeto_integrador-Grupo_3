@@ -1,42 +1,38 @@
-
-/*palheta de cores do site*/
-/*variaveis globais de cores*/
+/* ------------------ variaveis de cores ------------------*/
 :root{
   --azul-forte : #74b9ff;/*cor dedicada ao topo do header*/
   --azul-claro : #daf2ff;/*cor dedicada ao bottom do header*/
   --bg-alfa :  rgba(255, 255, 255,.4);
 }
 
-/*cores app*/
+/* ------------------ cores app ------------------*/
 .box {
   background-color: var(--bg-alfa);
   box-shadow:  1px 1px 10px solid var(--bg-alfa) ;
 }
 
-/*definição do background da página em geral*/
+/* ------------------ definição do background da página em geral ------------------*/
 body{
   background: rgb(2,0,36);
   background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
   height: 100vh;
 }
 
-/*formatação da header-top*/
+/* ------------------ formatação da header-top ------------------*/
 .header-top{
   background-color: var(--azul-forte);
   padding: 5px 0 5px 0;
 }
-@media screen and (max-width : 1200px) {
-  .admin{
-    width: 170px;
-  }
-  .off a{
-    width: 75px;
-    height: 35px;
-    font-size: 10pt;
-  }
+.admin{
+  width: 170px;
+}
+.off a{ /*se estiver off mude o tamanho*/
+width: 75px;
+height: 35px;
+font-size: 10pt;
 }
 
-/*painel do usuario*/
+/*------------------= painel do usuario ------------------*/
 .img-avatar{
   width: 50px;
   height: 50px;
@@ -60,12 +56,12 @@ body{
   color: var(--azul-forte);
 }
 
-/*formatação do bottom do header*/
+/*----------------- formatação do bottom do header -------------------*/
 .bg-menu-bottom{
   background-color: var(--azul-claro);
 }
 
-/*nav-menu do header*/
+/*nav-menu do header parte inferior*/
 .config-nav{
   display: flex;
   height: 40px;
@@ -75,32 +71,12 @@ body{
   border-bottom: solid 2px var(--azul-forte);
 }
 
-/*drop down menu configs*/
+/*--------------- drop down menu configs ------------------*/
 .swap-bottom{
   display: none;
 }
-@media screen and (max-width : 800px){
-  .swap-top{
-    display: none;
-  }
-  .swap-bottom{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-}
 
-
-/*pagina categoria*/
-.h-box{
-  height: 700px;
-}
-.img-heigth{
-  height: 100%;
-}
-
-/* formatação dos box dos livros  */
+/*----------------- formatação dos box dos livros -------------------*/
 .book-box{
   margin-left: auto;
 }

@@ -5,13 +5,18 @@
 <body>
   <%- include('partials/header.ejs')  %> 
 
-  <div id="myCarousel" class="carousel slide container mt-5 col-12" data-bs-ride="carousel">
+  <div id="myCarousel" class="carousel slide container" data-bs-ride="carousel">
     <div class="carousel-indicators">
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <% let arr = [] %> 
-      <% for(let p of destaque){ %>
-        <% arr.push(1) %> 
-        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="<%= arr.length %>" class="" aria-current="true" aria-label="Slide <%= p.id %> "></button>
+
+      <% let count = [] %>
+      <% for(let book of destaque) {%>
+        <% count.push(1) %> 
+
+        <% if(count.length == 1) {%>
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="<%= book.id %> "></button>
+        <% }else{%>
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="<%= count.length-1 %>" class="" aria-current="true" aria-label="Slide <%= book.id %> "></button>
+        <% } %>
       <% } %> 
       
     </div>
@@ -59,7 +64,7 @@
     <div class="row bg-light">
       <div class="text-center  mb-5">
         <div class="pt-2">
-          <img src="/images/banners/banner.png" class=" w-100 border" alt="baner">
+          <img src="/images/banners/banner.png" class=" w-75 border" alt="baner">
           <h2>Até 25% off em Livros e eBooks | Black Friday</h2>
         </div>
       </div>
