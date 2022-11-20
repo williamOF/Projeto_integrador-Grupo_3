@@ -1,7 +1,7 @@
 module.exports = {
     add: (req,res) => {
         const {bookInCart,qtd} = req.body
-        const session = req.session.bookInCart
+        const session = req.session.cart
 
         const carrinho ={
             id_livro: bookInCart,
@@ -13,7 +13,6 @@ module.exports = {
         }else{
             req.session.cart.push(carrinho)
         }
-
         res.redirect('/biblioteca')
     }
 }

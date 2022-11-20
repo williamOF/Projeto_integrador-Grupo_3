@@ -33,11 +33,27 @@ module.exports = {
         res.render('detalhes.ejs', {livro,admin: user})
     },
     carrinho: (req,res) => {
-        const user = req.session.usuario
+        const arrBooks = [] // um array que guardara todas as informações do livro via id passado pelo book in cart
+        const admin = req.session.usuario // armazena as informações do usuario 
+        const bookInCart = req.session.cart // so tem a informação do id do livro e da quantidade desejada pelo usuario
 
-        let destaques = produtos.filter(p => p.destaque == 1)
+        if(bookInCart !== undefined){
+            for(let book of bookInCart){
+                const {id_livro,qtd_livro} = book
+              
+                const searchBook = produtos.find(livro => livro.id == id_livro)
+                searchBook.qtd_incart = qtd_livro
+                
+                arrBooks.push(searchBook)
+            }  
+            res.render('carrinho', {produtos:arrBooks,admin})
+        }else{
+            
+            res.render('carrinho', {produtos:[],admin})
 
-        res.render('carrinho',{produtos:destaques,admin:user})
+            res.send('não tem livros no carrinho')
+        }
+
     },
     search : (req,res) => {
         const user = req.session.usuario
