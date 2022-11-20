@@ -7,18 +7,15 @@
 
   <div id="myCarousel" class="carousel slide container" data-bs-ride="carousel">
     <div class="carousel-indicators">
-
       <% let count = [] %>
       <% for(let book of destaque) {%>
         <% count.push(1) %> 
-
         <% if(count.length == 1) {%>
           <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="<%= book.id %> "></button>
         <% }else{%>
           <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="<%= count.length-1 %>" class="" aria-current="true" aria-label="Slide <%= book.id %> "></button>
         <% } %>
-      <% } %> 
-      
+      <% } %>
     </div>
     <div class="carousel-inner">
       <% let i = 0 %> 
@@ -41,7 +38,6 @@
                 <div class="carousel-text col-8">
                   <h2><%= p.titulo %> </h2>
                   <p class="p-2"><%= p.sinopse %> </p>
-                  
                 </div>
               </div>
             </div>
@@ -62,7 +58,7 @@
 
   <section class="container">
     <div class="row bg-light">
-      <div class="text-center  mb-5">
+      <div class="text-center ">
         <div class="pt-2">
           <img src="/images/banners/banner.png" class=" w-75 border" alt="baner">
           <h2>Até 25% off em Livros e eBooks | Black Friday</h2>
