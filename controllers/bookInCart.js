@@ -1,5 +1,5 @@
 module.exports = {
-    addCart: (req,res) => {
+    add: (req,res) => {
         const {bookInCart,qtd} = req.body
         const session = req.session.bookInCart
 
