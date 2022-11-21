@@ -13,6 +13,6 @@ module.exports = {
         }else{
             req.session.cart.push(carrinho)
         }
-        res.redirect('/biblioteca')
+        res.redirect('/carrinho')
     }
 }
