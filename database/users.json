@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "nome": "myke william oliveira feitosa",
+        "email": "maike.study@gmail.com",
+        "senha": "$2b$10$iUc814sopDuOZjJEu2XLcuh8q.Iw9QOknoaCKvWqOXWKtnhLXAyMe",
+        "avatar": "default.png"
+    },
+    {
+        "id": 2,
+        "nome": "joao pedro",
+        "email": "joao@email.com",
+        "senha": "$2b$10$iMBGw7Q7wCESdzljwNHCauV3rz7MRE0H3FhJ9F/5gq08.AwS/dlUe",
+        "avatar": "avatar-1668377476289-453231714jhin.jpg"
+    }
+]

@@ -1,18 +1,61 @@
 <header>
+    <style>
+        .img-avatar{
+            width: 50px;
+            height: 50px;
+        }
+        .user-text{
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-end;
+        }
+        .btn-link{
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+            padding: 2px 15px 2px 15px;
+            border-radius: 5px;
+            transition: background-color 600ms;
+            border: 1px black solid;
+        }
+        
+        .btn-link:hover{
+            background-color: var(--azul-claro);
+            color: var(--azul-forte);
+        }
+    
+    </style>
     <div class="p-3 color-a"> 
         <div class="container ">
             <div class=" config-header  ">
                 <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decorarion-none">
-                    <img src="images/icons/logoHome.png" alt="logo">
+                    <img src="/images/img/logo.png" alt="logo">
                 </a>
      
                 <form class=" ajust-left col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
                     <input type="search" class="form-control form-control-dark text-bg-light" placeholder="Search..." aria-label="Search" id="">
                 </form>
+                <% if(typeof admin == 'undefined') {%> 
                 <div class="text-end">
                     <a href="/admin/" class="btn btn-outline-light me-2">Login</a>
                     <a href="/admin/cadastro" class="btn btn-warning">Sing-Up</a>
                 </div>
+                <% }else{ %>
+                    <div class="col-4 d-flex align-items-center justy-itens-end">
+                        <div class="text-end w-100">
+                            <span><%= admin.nome %></span>
+                            
+                            <div class="mt-2">
+                                <a href="/admin/perfil" class="btn-link">perfil</a>
+                                <a href="/admin/sair" class="btn-link">Sair</a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class=" img-avatar me-2">
+                        <img src="/images/users/<%= admin.avatar %>" class="h-100 rounded-circle" alt="avatar">
+                    </div>
+                <% } %> 
                 
             </div>
         </div>    
