@@ -1,61 +1,66 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <%- include('partials/head')  %> 
-
+    <link rel="stylesheet" href="/stylesheets/biblioteca.css">
 <body>
-    <%- include('partials/header') %> 
+    <%- include('partials/header') %>
     <main class="bg-light container">
-        <div class=" text-center container mt-4 mb-2 p-2 border">
-            <h2>Categoria</h2>
-        </div>
-        <section class="container d-flex ">
-            <div class="col-2 me-2 col-sm col-lg">
-                <div class=" color-a2  text-center">
-                    <ul class="nav flex-column p-5 " >
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">Romance</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">Ciências</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">Aventura</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">Pedagógico</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">Contos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">Terror</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">Hístoricos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">Financeiros</a>
-                        </li>    
-                    </ul>
+        <section class="container row">
+            <div class="nav-genero border mt-2">
+                <div class=" text-center me-1">
+                    <h3>Generos </h3>
                 </div>
-                <div class="col-1" style="height: 400px;"></div>
+                <ul class="nav nav-tabs m-5" >
+                    <li class="nav-item">
+                        <a href="/biblioteca/romance" class="nav-link">Romance</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/biblioteca/religiosos" class="nav-link">Ciências</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/biblioteca/didaticos" class="nav-link">didáticos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/biblioteca/infantil" class="nav-link">infantil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/biblioteca/terror" class="nav-link">terror</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/biblioteca/ficção" class="nav-link">ficção</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/biblioteca/contos" class="nav-link">Contos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/biblioteca/ação" class="nav-link">Ação</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/biblioteca/poesia" class="nav-link">poesia</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/biblioteca/financas" class="nav-link">Financeiros</a>
+                    </li>    
+                </ul>
             </div>
-            <div class="col-10 bg-light">
-                <section class="container">
+            <div class="mt-2">
                     <div class="row">
                         <% for(let p of produtos){ %>
-                            <div class="col-12 col-sm col-lg-3 nav-item  mb-2">
-                            <a href="/showbook/<%= p.id %> " class="nav-link product-box">
-                                <img src="<%= p.capa %> " alt="capa-livro-<%= p.titulo %> " class="img-thumbnail">
-                                <div class="text-center">
-                                <h2><%= p.titulo %> </h2>
-                                <p>preço kindle:<%= p.preco[1] %> </p>
-                                </div>
-                            </a>
+                            <div class="col-12 col-sm col-lg-3 nav-item mb-5 book-box border">
+                              <a href="/showbook/<%= p.id %>" class="nav-link">
+                                <div class="img-book">
+                                  <div class="img-box">
+                                    <img src="<%= p.capa %> " alt="capa-livro-<%= p.titulo %> " class=" h-100">
+                                  </div>
+                                  <div class="ib-text">
+                                    <h2><%= p.titulo %> </h2>
+                                    <p>R$: <%= p.preco[0] %> </p>
+                                  </div>
+                                </div>       
+                              </a>
                             </div>
-                        <% } %>  
+                          <% } %>  
                     </div>
-                </section>
             </div>
         </section>
         <div class=" border-top m-5 p-2">

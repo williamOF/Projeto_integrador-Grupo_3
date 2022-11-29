@@ -5,36 +5,97 @@
 </head>
 <body>
     <%- include('partials/header') %> 
-    <main class="container bg-light">
-        <div class="col-8">
-            <h2 class="text-center">carrinho de compras</h2>
-            <div class="row">
-                <% if(typeof produtos !== 'undefined') {%>
-                    <% for(let p of produtos) {%>
-                        <div class="col-12 d-flex border m-2">
-
-                            <div class="m-2 img-thumbnail col-3" style="">
-                                <img class="w-100" src="<%= p.capa %> " alt="capa-livro<%= p.titulo %> ">
-                            </div>
-
-                            <div class=" col-9 " >
-                                <div>
-                                    <h2><%= p.titulo %> </h2>
-                                    <p>Editora: <%=p.editora %> </p>
-                                    <p>vendido por: <%= p.fornecedor %> </p>
-                                    <p>Em Estoque: <%= p.status %> </p>
-                                    <p>Este pedido é para presente
-                                        <input type="checkbox" name="quantidade" id="">
-                                    </p>                   
+    <main class="container bg-light ">
+        
+        <div class="col-12  border m-1 p-5 d-flex ">
+            <div class="col-8 border">
+                <h2 class="text-center">carrinho de compras</h2>
+                
+                    <% if(typeof produtos !== 'undefined') {%>
+                        <% for(let p of produtos) {%>
+                            <div class="d-flex border m-2">
+                                <div class="m-2 img-thumbnail col-3" style="">
+                                    <img class="w-100" src="<%= p.capa %> " alt="capa-livro<%= p.titulo %> ">
                                 </div>
-                             
+                                <div class=" col-9 " >
+                                    <div>
+                                        <h2><%= p.titulo %> </h2>
+                                        <p>Editora: <%=p.editora %> </p>
+                                        <p>vendido por: <%= p.fornecedor %> </p>
+                                        <p>Em Estoque: <%= p.status %> </p>
+                                        <p>para presente:
+                                            <input type="checkbox" name="para_presente" value="">
+                                        </p>
+                                        <p>Quantidade selecionada
+                                            <input type="numver"name="qtd_livro" style="width: 50px; border:none; background-color:rgba(255, 255, 255, 0); " value="<%= p.qtd_incart%>">
+                                        </p>  
+                                        <span>valor da unidade: 
+                                            <%= toThousand(p.preco[0]) %>R$ 
+                                        </span>                
+                                    </div>
+                                </div>
+                            </div>
+                        <% } %> 
+                        <div style="height: 200px;" class="w-100 pb-1 d-flex align-items-center justify-content-center">
+                            <div class="p-2 border " >
+                                <a class="link btn btn-light" href="/biblioteca">continuar comprando</a>    
+                            </div>
+                        </div>
+                    <% }else{%>
+                        <div class=" d-flex border m-2">
+                            <div style="height: 200px;" class="w-100 pb-1 d-flex align-items-center justify-content-center">
+                                <div class="p-2 border">
+                                    <a class="link btn btn-light" href="/biblioteca">Adicione livros ao carrinho</a>    
+                                </div>
                             </div>
                         </div>
                     <% } %> 
-                <% } %> 
-
+               
+            </div>
+            <div class="col-4 container">
+                <div class="border d-flex justify-content-center align-items-center flex-column">
+                    <% if(typeof produtos !== 'undefined') {%>
+                        <div class="text-center">
+                            <h2>finalize a compra</h2>
+                        </div>
+                        <div>
+                      
+                        <div>
+                            <p>valor total: <%= toThousand(price) %> R$</p>
+                        </div> 
+                        </div>
+                    <% }else{%>
+                        <div class="text-center">
+                            <h2>Veja também !</h2>
+                        </div>
+                        <div class="row  container p-1 border d-flex justify-content-evenly align-items-center">
+                            <% for(let d of destaque) {%>
+                                
+                                <div style="height: 220px ; " class=" border col-6 col-sm col-lg">
+                                    <a href="/showbook/<%= d.id %> ">
+                                        <img class="h-100 border"  src="<%= d.capa %> " alt="Capa livro <%= d.title %> ">    
+                                    </a>
+                                </div>
+                            <% } %> 
+                        </div>
+                    <% } %> 
+                </div>
             </div>
         </div>
+        <div class="mt-5 mb-5"></div>
+   
+        <div class="container m-1 border">
+            <div class="row">
+                <% for(let d of destaque) {%>
+                    <div style="height: 260px ; " class="col-2 border">
+                        <a href="/showbook/<%= d.id %> ">
+                            <img class="h-100 border"  src="<%= d.capa %> " alt="Capa livro <%= d.title %> ">    
+                        </a>
+                    </div>
+                <% } %> 
+            </div>
+        </div>
+
     </main>
 
     <%- include('partials/footer') %> 

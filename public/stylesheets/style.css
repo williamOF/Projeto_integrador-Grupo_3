@@ -1,54 +1,103 @@
-/*cores padroes*/
-
+/* ------------------ variaveis de cores ------------------*/
 :root{
-  --azul-forte : #74b9ff;
-  --azul-claro : #DAF2FF;
+  --azul-forte : #74b9ff;/*cor dedicada ao topo do header*/
+  --azul-claro : #daf2ff;/*cor dedicada ao bottom do header*/
+  --bg-alfa :  rgba(255, 255, 255,.4);
 }
 
+/* ------------------ cores app ------------------*/
+.box {
+  background-color: var(--bg-alfa);
+  box-shadow:  1px 1px 10px solid var(--bg-alfa) ;
+}
 
+/* ------------------ definição do background da página em geral ------------------*/
 body{
   background: rgb(2,0,36);
   background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
   height: 100vh;
 }
 
-
-main{
-  margin-top: 10px;
-}
-
-
-.color-a{
+/* ------------------ formatação da header-top ------------------*/
+.header-top{
   background-color: var(--azul-forte);
+  padding: 5px 0 5px 0;
 }
-.color-a2{
+.admin{
+  width: 170px;
+}
+.off a{ /*se estiver off mude o tamanho*/
+width: 75px;
+height: 35px;
+font-size: 10pt;
+}
+
+/*------------------= painel do usuario ------------------*/
+.img-avatar{
+  width: 50px;
+  height: 50px;
+}
+.user-text{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.btn-link{
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  padding: 2px 15px 2px 15px;
+  border-radius: 5px;
+  transition: background-color 600ms;
+  border: 1px black solid;
+}
+.btn-link:hover{
+  background-color: var(--azul-claro);
+  color: var(--azul-forte);
+}
+
+/*----------------- formatação do bottom do header -------------------*/
+.bg-menu-bottom{
   background-color: var(--azul-claro);
 }
-.config-header{
-  display: flex;
-  justify-content: space-between;
-}
-.ajust-left{
-  
- padding-left: 30%;
-}
 
+/*nav-menu do header parte inferior*/
 .config-nav{
   display: flex;
   height: 40px;
   justify-content: space-evenly;
-
 }
 .config-nav li:hover{
   border-bottom: solid 2px var(--azul-forte);
 }
 
-/*pagina categoria*/
-.h-box{
-  height: 700px;
+/*--------------- drop down menu configs ------------------*/
+.swap-bottom{
+  display: none;
 }
 
-.img-heigth{
-  height: 100%;
+/*----------------- formatação dos box dos livros -------------------*/
+.book-box{
+  margin-left: auto;
 }
-
+.book-box img:hover{
+   box-shadow: 0px 0px 15px var(--azul-forte);
+   -webkit-transform: scale(1.01);
+}
+.img-box{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 350px;
+   width: 100%;
+}
+.ib-text{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   height:100px;
+}
+.ib-text h2{
+   font-size: 14pt;
+}

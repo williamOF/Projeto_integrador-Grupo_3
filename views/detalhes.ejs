@@ -31,14 +31,18 @@
               <%=livro.sinopse%>
             </P>
           </div>
+          
           <div class="col-3 d-flex align-items-center justify-content-center">
-
-            <button id='add' type="submit">Adicionar ao carrinho</button>
+            <form action="/showbook/add" method="post">
+              <label for="qtd">quantas unidades</label>
+              <input type="number" value="1" min="1" name="qtd" id="qtd">
+              <input type="hidden" name="bookInCart" value="<%= livro.id %> "> 
+              <button id='add'type="submit">Adicionar ao carrinho</button>
+            </form>
           </div>
-
-
-        </div>
-
+             
+    </div> 
+    
       </main>
 
        
