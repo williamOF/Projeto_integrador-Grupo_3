@@ -13,5 +13,6 @@ router.get('/biblioteca/:genero?', indexController.biblioteca)
 router.get('/showbook/:id', indexController.produto)
 router.post('/showbook/add', bookInCart.add)
 router.get('/search' , indexController.search)
+router.get('/vendas', indexController.vendas)
 
 module.exports = router;

@@ -10,7 +10,7 @@
                         <input type="search" class="form-control" placeholder="Search..." aria-label="Search" name="search">
                     </form>
                 </div>
-                <div class="col-2 admin">
+                <div class="col-3 admin" style="width: 200px ;">
                     <% if(typeof admin == 'undefined') {%> 
                         <div class="text-center off">
                             <a href="/admin/" class="btn btn-outline-light me-2 ">Login</a>
@@ -29,7 +29,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class=" img-avatar">
+                                <div class=" img-avatar"> 
                                     <img src="/images/users/<%= admin.avatar %>" class="h-100 rounded-circle p-1" alt="avatar">
                                 </div>
                             </div>
@@ -54,7 +54,7 @@
                     <a href="#" class="nav-link ">coleções</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link ">novidades</a>
+                    <a href="/vendas" class="nav-link ">meus produtos</a>
                 </li>
                 <li class="nav-item">
                     <a href="/carrinho" class="nav-link ">carrinho</a>

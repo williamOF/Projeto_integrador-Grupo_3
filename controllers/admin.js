@@ -21,10 +21,15 @@ module.exports = {
         if(user){
             let  pass =  bcrypt.compareSync(senha, user.senha)
             if(pass){
+                if(user.email == "admin@email.com"){
+                    req.session.admin = true
+                }
                 req.session.usuario = user   
                 res.redirect('/')
             }
         }
+        
+        
         
     },
     sair: (req,res) =>{

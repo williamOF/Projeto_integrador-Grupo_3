@@ -5,8 +5,88 @@
 </head>
 <body>
     <%- include('partials/header') %>
-    <main>
-        <h3>estou em uma pagina admin geral</h3>
+    <main class="container">
+        
+        <div class="bg-light">
+            <nav>
+                <ul class="nav d-flex justify-content-center">
+                    <li class="nav-item btn btn-light">
+                        <a href="#" class="nav-link">Produtos</a>
+                    </li>
+                    <li class="nav-item btn btn-light">
+                        <a href="#" class="nav-link">Usuarios</a>
+                    </li>
+                    <li class="nav-item btn btn-light">
+                        <a href="#" class="nav-link">Vendas</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="bg-light text-center">
+            <h2 class="bg-info">Produtos</h2>
+            <nav>
+                <ul class="nav d-flex justify-content-center">
+                    <li class="nav-item"><a href="#" class="nav-link">Cadastrar</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Editar</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Deletar</a></li>
+                </ul>
+            </nav>
+            <h2>Cadastro de Produto</h2>
+            <div class=" container">
+                <div>
+                    <label for="titulo">titulo:</label>
+                    <input type="text" name="titulo" id="titulo">
+                </div>
+                <div>
+                    <label for="autor">autor:</label>
+                    <input type="text" name="autor" id="autor">
+                </div>
+                <div>
+                    <label for="editora">editora:</label>
+                    <input type="text" name="editora" id="editora">
+                </div>
+                <div>
+                    <label for="tell">contato:</label>
+                    <input type="text" name="tell" id="tell">
+                </div>
+                <div>
+                    <label for="txt">sinopse:</label>
+                    <textarea name="sinopse" id="txt" cols="30" rows="5"></textarea>
+                </div>
+                <div class="border">
+                    <h2>Detalhes do produto</h2>
+                    <div>
+                        <h2>valores</h2>
+                        <div>
+                            <label for="kindle">kindle:</label>
+                            <input type="number" name="kindle" id="kindle">
+                        </div>
+                        <div>
+                            <label for="cpdura">Capa dura:</label>
+                            <input type="number" name="capa_dura" id="cpdura">
+                        </div>
+                        <div>
+                            <label for="ed_especial">Edição Especial</label>
+                            <input type="number" name="edicao_especial" id="ed_especial">
+                        </div>
+                        <div class="p-5">
+                            <div>
+                                <label for="qtd">Estoque</label>
+                                <input type="number" name="estoque" id="qtd" min="1">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border">
+                    <label for="capa">Capa principal</label>
+                    <input type="file" name="capa" id="capa">
+                </div>
+                <div>
+                    <input type="submit" value="limpar">
+                    <input type="submit" value="cadastrar">
+                </div>
+            </div>
+        </div>
     </main>
     <%- include('partials/footer') %>     
 </body>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <%- include('partials/head') %> 
+<body>
+    <%- include('partials/header') %> 
+    <main class="container">
+       
+        <div class="bg-light">
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item"><a href="#" class="nav-link border m-1">cadastrar novo</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link border m-1">ver todos</a></li>
+                </ul>
+            </nav>
+
+            <div>
+                <form action="#" method="post" enctype="multipart/form-data" id="form_cadastro_item">
+                    <div class="container border" >
+                        <div class="row">
+                            <div class="col-12 text-center border-bottom">    
+                                <h2>Informaçoes do livro</h2>
+                            </div>
+                            <div class="col-3 me-3 text-end">
+                                <label for="title">titulo:</label>
+                            </div>
+                            <div class="col-8">
+                                <input type="text" name="titulo" id="title" class="w-100">
+                            </div>
+
+                            <div class="col-3 me-3 text-end">
+                                <label for="autor">autor:</label>
+                            </div>
+                            <div class="col-8">
+                                <input type="text" name="autor" id="autor" class="w-100">
+                            </div>
+
+                            <div class="col-3 me-3 text-end">
+                                <label for="editora">editora:</label>
+                            </div>
+                            <div class="col-8">
+                                <input type="text" name="editora" id="editora" class="w-100">
+                            </div>
+
+                            <div class="col-3 me-3 text-end">
+                                <label for="qtd_pag">quantidade de páginas:</label>
+                            </div>
+                            <div class="col-8">
+                                <input type="number" min="15" name="qtd_pag" id="qtd_pag" class="w-20">
+                            </div>
+
+                            <div class="col-3 me-3 text-end">
+                                <label for="dimensao">dimensões:</label>
+                            </div>
+                            <div class="col-8">
+                                <input type="text"  name="dimesao" id="dimensao" class="w-100">
+                            </div>
+
+                            <div class="col-3 me-3 text-end">
+                                <label for="data">data publicação:</label>
+                            </div>
+                            <div class="col-8">
+                                <input type="date"  name="data" id="data" >
+                            </div>
+                            
+                            <div class="col-3 me-3 text-end">
+                                <label for="idioma">idioma:</label>
+                            </div>
+                            <div class="col-8">
+                                <select name="idioma" id="idioma">
+                                    <option value="portugues">Portugês</option>
+                                    <option value="ingles">ingles</option>
+                                </select>
+                            </div>
+
+                            <div class="col-3 me-3 text-end">
+                                <label for="sinopse">sinopse:</label>
+                            </div>
+                            <div class="col-8">
+                              <textarea name="sinopse" id="sinopse" class="w-100" cols="50" rows="5"></textarea>
+                            </div>
+                            <div class="col-3 me-3 text-end">
+                                <label for="img">Imagems do livro</label>
+                            </div>
+                            <div class="col-8">
+                                <input type="file" name="img" id="img">
+                            </div>
+
+                        </div>
+
+                        <div class="col-12 text-center border-top">    
+                            <h2>Informaçoes de venda</h2>
+                        </div>
+                        <div class="row border-top p-1">
+                            <div class="col-3 me-3 text-end">
+                                <label for="kindle">Kindle:</label>
+                            </div>
+                            <div class="col-8">
+                                <input type="number" min="0" name="kindle" id="kindle" class="w-20">
+                            </div>
+
+                            <div class="col-3 me-3 text-end">
+                                <label for="comum">Capa comum:</label>
+                            </div>
+                            <div class="col-8">
+                                <input type="number" min="0" name="comum" id="comum" class="w-20">
+                            </div>
+
+                            <div class="col-3 me-3 text-end">
+                                <label for="especial">Edição especial:</label>
+                            </div>
+                            <div class="col-8">
+                                <input type="number" min="0" name="especial" id="especial" class="w-20">
+                            </div>
+
+                            <div class="col-3 me-3 text-end">
+                                <label for="estoque">em estoque:</label>
+                            </div>
+                            <div class="col-8">
+                                <input type="number" min="1" name="estoque" id="estoque" class="w-20">
+                            </div>
+                            <div class="col-3 me-3 text-end">
+                                <label for="entrega">tipo de entrega:</label>
+                            </div>
+                            <div class="col-8">
+                                <select name="entrega" id="entrega">
+                                    <option value="site">pelo noso site</option>
+                                    <option value="usuario">pessoal</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="d-flex justify-content-end">
+                            <div class="m-3">
+                                <input type="reset" value="limpar campos" class="btn btn-warning">
+                            </div>
+                            <div class="m-3">
+                                <button class="btn btn-info">Cadastrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <%- include('partials/footer') %>
+</body>
+</html>

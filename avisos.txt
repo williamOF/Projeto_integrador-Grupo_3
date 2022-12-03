@@ -1,5 +1,0 @@
-se houver algum erro  no envio de atualização para a branch remota, 
-aplicar este comando para atualizar a sua versao com a versao remota,
-e tente novamente usar o pull para enviar as atualizações.
-
-> git pull origin master --allow-unrelated-histories
