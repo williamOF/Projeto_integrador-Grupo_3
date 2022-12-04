@@ -79,5 +79,8 @@ module.exports = {
     }, 
     saleProd: (req,res) =>{
         res.render('sale')
+    },
+    saleAdd: (req,res) => {
+        res.redirect('/sale')
     }
 }

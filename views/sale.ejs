@@ -4,11 +4,10 @@
 <body>
     <%- include('partials/header') %> 
     <main class="container">
-       
         <div class="bg-light">
-        
+ 
             <div class="painel">
-                <form action="#" method="post" enctype="multipart/form-data" id="form_cadastro_item" class="form-cadastro">
+                <form action="/sale" method="post" enctype="multipart/form-data" id="form_cadastro_item" class="form-cadastro">
                     <div class="container border" >
                         <div class="row">
                             <div class="col-12 text-center border-bottom">    
@@ -101,7 +100,7 @@
                                     <label for="kindle">Kindle:</label>
                                 </div>
                                 <div class="col-8">
-                                    <input type="number" min="0" name="kindle" id="kindle" class="w-20">
+                                    <input type="number" min="0" value="0" name="kindle" id="kindle" class="w-20">
                                 </div>
                             </div>                            
                             <div class="row">
@@ -109,7 +108,7 @@
                                     <label for="common">Capa comum:</label>
                                 </div>
                                 <div class="col-8">
-                                    <input type="number" min="0" name="common" id="common" class="w-20">
+                                    <input type="number" min="0" value="0" name="common" id="common" class="w-20">
                                 </div>
                             </div>
                             <div class="row">
@@ -117,7 +116,7 @@
                                     <label for="special">Edição especial:</label>
                                 </div>
                                 <div class="col-8">
-                                    <input type="number" min="0" name="special" id="special" class="w-20">
+                                    <input type="number" min="0"  value="0" name="special" id="special" class="w-20">
                                 </div>
                             </div>
                             <div class="row">
