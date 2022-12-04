@@ -77,7 +77,7 @@ module.exports = {
             res.redirect('/')
         }
     }, 
-    vendas: (req,res) =>{
-        res.render('vendas')
+    saleProd: (req,res) =>{
+        res.render('sale')
     }
 }
