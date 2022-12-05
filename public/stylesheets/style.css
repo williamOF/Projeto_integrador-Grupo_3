@@ -3,6 +3,7 @@
   --azul-forte : #74b9ff;/*cor dedicada ao topo do header*/
   --azul-claro : #daf2ff;/*cor dedicada ao bottom do header*/
   --bg-alfa :  rgba(255, 255, 255,.4);
+  --select: rgba(160, 160, 160,.9);
 }
 
 /* ------------------ cores app ------------------*/

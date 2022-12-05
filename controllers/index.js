@@ -4,6 +4,9 @@ const path = require('path')
 const arquivo = path.join(__dirname , "../database/data.json")
 const produtos = JSON.parse(fs.readFileSync(arquivo, "utf-8"))
 
+//exports functions 
+const dataFormat = require('../functions/dataFormat')
+
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
@@ -81,6 +84,7 @@ module.exports = {
         res.render('sale')
     },
     saleAdd: (req,res) => {
+        
         res.redirect('/sale')
     }
 }
