@@ -14,10 +14,8 @@ module.exports = (req,res,next)=>{
         }
     }
     let result = verificar(req.body)
-    if( result !=undefined){
-
-        req.session.errors = result
-        res.redirect('/sale')
+    if( result != undefined){
+        next()
     }else{
         return next()
     }
