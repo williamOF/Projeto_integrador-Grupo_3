@@ -60,6 +60,7 @@ module.exports = {
                 price = price+(searchBook.preco[0]*qtd_livro)
             }
             
+            console.log(bookInCart)
            
             res.render('carrinho', {produtos:arrBooks, destaque, admin, toThousand, price})
         }else{

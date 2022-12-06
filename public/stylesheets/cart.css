@@ -1,0 +1,35 @@
+*{
+    padding: 0;
+}
+.flex-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+p{
+    font-size: 10pt;
+}
+h2{
+    font-size: 14pt;
+}
+.innerPrice{
+    height: 300px;
+}
+.innerPrice a{
+    margin-top: 25px;
+}
+.btn{
+    width: 150px;
+    color: #fff;
+}
+.btn:hover{
+    box-shadow: 0px 0px 15px rgba(0, 0, 0,.2);
+}
+.bt-number{
+    border: none;
+    width: 50px;
+    background-color: rgba(0, 0, 0, 0);
+    margin-left: 5px;
+    cursor: pointer;
+}
+
