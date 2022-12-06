@@ -1,7 +1,8 @@
 const fs = require('fs')
 const path = require('path');
 
-const calcularPreco = require('../functions/calc-preco');
+const calcPreco = require('../functions/calc-preco');
+const calcUnidade = require('../functions/calc-unidade');
 
 const arquivo = path.join(__dirname , "../database/data.json")
 const produtos = JSON.parse(fs.readFileSync(arquivo, "utf-8"))
@@ -29,7 +30,7 @@ module.exports = {
         if(carrinho !== undefined){
             for(let produto of carrinho){
                 let findBook = produtos.find(book => book.id == produto.id)
-                
+
                 findBook.qtd_unidades = produto.unidades
                 findBook.type_book = produto.type
                 findBook.type_price = calcUnidade(produto,findBook)
@@ -40,9 +41,10 @@ module.exports = {
         
         const admin = req.session.usuario 
         const destaque  = produtos.filter( p => p.destaque == 1 ) 
-        let valTotal = calcularPreco(livros);
+        let valTotal = calcPreco(livros);
         
         if(livros.length >0){
+            req.session.pedido = livros
             res.render('carrinho', {livros, destaque, valTotal, admin, toThousand})
         }else{
             res.render('carrinho', {livros:undefined, destaque, admin})
@@ -57,19 +59,28 @@ module.exports = {
         req.session.carrinho = novoCarrinho
 
         res.redirect('/carrinho')
+    },
+    finalizar: (req,res) => {
+        const admin = req.session.usuario
+        if(admin !== undefined){
+            
+            const localPedido = path.join(__dirname , "../database/pedidos.json")
+            const pedido = JSON.parse(fs.readFileSync(localPedido, "utf-8"))
+            
+            console.log(admin)
+            const addNovoPedido = {
+                id_pedido: pedido.length+1,
+                id_usuario: admin.id,
+                pedidos:req.session.pedido
+            }
+            console.log(addNovoPedido)
+            
+            req.session.carrinho = undefined
+            res.render('pedido')
+        }else{
+            res.redirect('/user/cadastro')
+        }
     }
 }
 
 
-const calcUnidade =(produto,findBook)=>{
-    let preco = 0
-    if(produto.type == 'kindle'){
-        preco += parseFloat(findBook.kindle)
-    }
-    if(produto.type == 'common'){
-        preco += parseFloat(findBook.common)
-    }else{
-        preco += parseFloat(findBook.special)
-    }
-    return preco;
-}
