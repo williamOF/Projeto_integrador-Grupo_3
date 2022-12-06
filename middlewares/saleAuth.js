@@ -15,7 +15,7 @@ module.exports = (req,res,next)=>{
     }
     let result = verificar(req.body)
     if( result != undefined){
-        next()
+        
     }else{
         return next()
     }

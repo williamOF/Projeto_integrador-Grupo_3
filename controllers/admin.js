@@ -29,8 +29,6 @@ module.exports = {
             }
         }
         
-        
-        
     },
     sair: (req,res) =>{
         req.session.usuario = undefined

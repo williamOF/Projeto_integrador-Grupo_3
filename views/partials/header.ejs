@@ -13,8 +13,8 @@
                 <div class="col-3 admin" style="width: 200px ;">
                     <% if(typeof admin == 'undefined') {%> 
                         <div class="text-center off">
-                            <a href="/admin/" class="btn btn-outline-light me-2 ">Login</a>
-                            <a href="/admin/cadastro" class="btn btn-warning ">Sing-Up</a>
+                            <a href="/user/" class="btn btn-outline-light me-2 ">Login</a>
+                            <a href="/user/cadastro" class="btn btn-warning ">Sing-Up</a>
                         </div>
                         <% }else{ %>
                             <div class="d-flex align-items-center">
@@ -24,8 +24,8 @@
                                         <% let name = fullName.split(" ")[0]+ " " + fullName.split(" ")[1] %> 
                                         <span class=""><b><%=name %></b></span>                          
                                         <div class="mt-2">
-                                            <a href="/admin/perfil" class="btn-link">perfil</a>
-                                            <a href="/admin/sair" class="btn-link">Sair</a>
+                                            <a href="/user/perfil" class="btn-link">perfil</a>
+                                            <a href="/user/sair" class="btn-link">Sair</a>
                                         </div>
                                     </div>
                                 </div>
@@ -54,7 +54,7 @@
                     <a href="#" class="nav-link ">coleções</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/sale" class="nav-link ">meus produtos</a>
+                    <a href="/adm/products" class="nav-link ">meus produtos</a>
                 </li>
                 <li class="nav-item">
                     <a href="/carrinho" class="nav-link ">carrinho</a>
@@ -69,7 +69,7 @@
                       <a class="dropdown-item" href="/biblioteca">biblioteca</a>
                       <a class="dropdown-item" href="#">mais vendidos</a>
                       <a class="dropdown-item" href="#">indicações</a>
-                      <a href="/sale" class="dropdown-item">meus produtos</a>
+                      <a href="/adm/products" class="dropdown-item">meus produtos</a>
                       <a href="/carrinho" class="dropdown-item">carrinho</a>
                     </div>
                   </div>

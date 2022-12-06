@@ -11,36 +11,48 @@
         <div>
             <div>
                 <h2 class="text-center p-3">carrinho</h2>
-                    <% if(typeof produtos !== 'undefined') {%>
+                    <% if(typeof livros !== 'undefined') {%>
                         <div class="row flex-center ">
-                            <% for(let p of produtos) {%>
+                            <% for(let p of livros) {%>
                                 <div class="col-8 flex-center p-2 m-2 border">
                                     <div class="col-4">
                                         <img class="w-100" src="<%= p.capa %> " alt="capa-livro<%= p.titulo %> ">
                                     </div>
                                     <div class="container" >
-                                        <div class="flex-center flex-column">
+                                        <div class="flex-center flex-column border p-2">
                                             <h2><%= p.titulo %> </h2>
                                             <p>Editora: <%=p.editora %> </p>
                                             <p>Em Estoque: <%= p.estoque %> unidades </p>
                                             <p>para presente:
                                                 <input type="checkbox" name="para_presente" value="">
                                             </p>
-                                            <p>Quantidade selecionada
-                                                <input type="number"name="qtd_livro" min="1" class="bt-number" value="<%= p.qtd_incart%>">
-                                            </p>  
-                                            <span>valor da unidade: 
+                                            <div class="d-flex p-2 flex-column border">
+                                                    <div>
+                                                        <label for="qtd">quantidade:</label>
+                                                        <input type="number" style="width: 50px;" name="qtd" min="1" value="<%= p.qtd_unidades %>">
+                                                    </div>
+                                            </div>
+                                            <span class="p-3">valor da unidade: 
                                                 <%= toThousand(p.preco[0]) %>R$ 
-                                            </span>     
+                                            </span>
                                             <div>
-                                                <a href="#" class="btn btn-warning mt-2">remover</a>
-                                            </div>           
+                                                <form action="/carrinho/remover/<%= p.id %>?_method=DELETE " method="post">
+                                                    <button class="btn btn-info">Remover</button>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             <% } %> 
                         </div>
-                
+                            <div class="innerPrice flex-center ">
+                                <div class="border p-5 text-center">
+                                    <h2>finalize a compra</h2>
+                                    <p>valor total: R$</p>
+                                    <a href="/finalizar" class="btn btn-info">comprar</a>
+                                    <a class="btn btn-info" href="/biblioteca">adicionar mais</a>
+                                </div>
+                            </div> 
                     <% }else{%>
                         <div class=" d-flex border m-2">
                             <div style="height: 200px;" class="w-100 pb-1 d-flex align-items-center justify-content-center">
@@ -53,16 +65,7 @@
                
             </div>
             <div class="row flex-center">
-                <% if(typeof produtos !== 'undefined') {%>
-                    <div class="innerPrice flex-center ">
-                        <div class="border p-5 text-center">
-                            <h2>finalize a compra</h2>
-                            <p>valor total: <%= toThousand(price) %> R$</p>
-                            <a href="/finalizar" class="btn btn-info">comprar</a>
-                            <a class="btn btn-info" href="/biblioteca">adicionar mais</a>
-                        </div>
-                    </div> 
-                <% }%>
+               
             </div>
         </div>
         <div class="mt-5 mb-5"></div>
@@ -81,7 +84,7 @@
         </div>
 
     </main>
-
+    <script src="/js/carrinho.js"></script>
     <%- include('partials/footer') %> 
 </body>
 </html>
