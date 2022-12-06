@@ -33,7 +33,7 @@
                                                     </div>
                                             </div>
                                             <span class="p-3">valor da unidade: 
-                                                <%= toThousand(p.preco[0]) %>R$ 
+                                                <%= toThousand(p.type_price) %>R$ 
                                             </span>
                                             <div>
                                                 <form action="/carrinho/remover/<%= p.id %>?_method=DELETE " method="post">
@@ -48,7 +48,7 @@
                             <div class="innerPrice flex-center ">
                                 <div class="border p-5 text-center">
                                     <h2>finalize a compra</h2>
-                                    <p>valor total: R$</p>
+                                    <p>valor total:<%= valTotal %>  R$</p>
                                     <a href="/finalizar" class="btn btn-info">comprar</a>
                                     <a class="btn btn-info" href="/biblioteca">adicionar mais</a>
                                 </div>
