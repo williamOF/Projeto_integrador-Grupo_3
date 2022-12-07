@@ -9,25 +9,19 @@ const {validationResult} = require('express-validator')
 const storage = path.resolve(__dirname, '../database/users.json');
 const Usuarios = JSON.parse(fs.readFileSync(storage, 'utf-8'));
 
+/* --------------function's required --------------*/ 
+const loginCadastro = require('../functions/loginCadastro') 
+
 module.exports = {
     login : (req,res) => {
         res.render('login')
     },
     loginAuth: (req,res) => {
-        const {email,senha} = req.body
+        const {email,password} = req.body
+        
+        let usuario = loginCadastro.loginAuth(email,password)
 
-        const user = Usuarios.find(user => user.email == email)
-
-        if(user){
-            let  pass =  bcrypt.compareSync(senha, user.senha)
-            if(pass){
-                if(user.email == "admin@email.com"){
-                    req.session.admin = true
-                }
-                req.session.usuario = user   
-                res.redirect('/')
-            }
-        }
+        console.log(usuario)
         
     },
     sair: (req,res) =>{
