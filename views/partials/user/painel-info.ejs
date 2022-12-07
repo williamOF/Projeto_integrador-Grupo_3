@@ -1,8 +1,77 @@
 <div>
     <form action="#">
         <div>
-            <label for=""></label>
+            <h2>Dados pessoais</h2>
         </div>
-
+        <div>
+            <input type="text" name="name" id="name" placeholder="Nome completo">
+        </div>
+        <div>
+            <input type="email" name="email" id="email" placeholder="Email contato">
+        </div>
+        <div>
+            <input type="tel" name="tel" id="tel" placeholder="Telefone">
+        </div>
+        <div>
+            <label for="age">Data de Nascimento</label><br>
+            <input type="date" name="age" id="age">
+        </div>
+        <div>
+            <input type="text" name="cpf" id="cpf" placeholder="Digite seu CPF">
+        </div>
+        <button>Salvar</button>
+    </form>
+    <form action="#">
+        <div>
+            <h2>Endereço</h2>
+        </div>
+        <div>
+            <select name="estado" id="estado">
+                <option disabled >Selecione um Estado</option>
+                <option value="SP">São Paulo</option>
+                <option value="AL">Alagoas</option>
+                <option value="BA">Bahia</option>
+                <option value="CE">Ceará</option>
+                <option value="ES">Espírito Santo</option>
+                <option value="MT">Mato Grosso</option>
+                <option value="MG">Minas Gerais</option>
+                <option value="RJ">Rio de Janeiro</option>
+                <option value="RN">Rio Grande do Norte</option>
+                <option value="TO">Tocantins</option>
+                <option value="DF">Distrito Federa</option>
+            </select>
+        </div>
+        <div>
+            <input type="text" name="city" id="city" placeholder="Cidade:">
+        </div>
+        <div>
+            <input type="text" name="disctrict" id="district" placeholder="Bairro:">
+        </div>
+        <div>
+            <input type="text" name="street" id="street" placeholder="Rua:">
+        </div>
+        <div>
+            <input type="text" name="additional" id="additional" placeholder="Complemento:">
+        </div>
+        <button>Salvar</button>
+    </form>
+    <form action="#">
+        <div>
+            <h2>cartões</h2>
+        </div>
+        <div>
+            <input type="text" name="number" id="number" placeholder="Número">
+        </div>
+        <div>
+            <input type="text" name="name" id="name" placeholder="Nome impresso">
+        </div>
+        <div>
+            <input type="number" max="3" min="3" name="cv" id="cv" placeholder="CV">
+        </div>
+        <div>
+            <label for="age">Data de Nascimento</label><br>
+            <input type="text" name="age" id="age">
+        </div>
+        <button>adicionar</button>
     </form>
 </div>
