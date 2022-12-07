@@ -1,6 +1,7 @@
 module.exports = {
     usuario:(req,res)=>{
-     
-        res.render('usuario-perfil')
+        let user = req.session.usuario
+
+        res.render('usuario-perfil',{admin:user})
     }
 }
