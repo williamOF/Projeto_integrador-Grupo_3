@@ -18,11 +18,14 @@ module.exports = {
     },
     loginAuth: (req,res) => {
         const {email,password} = req.body
-        
-        let usuario = loginCadastro.loginAuth(email,password)
+        let result = loginCadastro.loginAuth(email,password)       
 
-        console.log(usuario)
-        
+        if(result[0]){
+            req.session.usuario = result[1]
+            res.redirect('/')
+        }else{
+            res.render('login',{errors:[result[1]]})
+        }
     },
     sair: (req,res) =>{
         req.session.usuario = undefined

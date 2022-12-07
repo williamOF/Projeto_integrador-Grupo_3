@@ -13,7 +13,7 @@ const Usuarios = JSON.parse(fs.readFileSync(storage, 'utf-8'));
 module.exports = {
     loginAuth: (login,password)=>{
         let auth = true
-        let errors =[]
+        let errors =[false]
 
         if(login == ''){
             auth = false
@@ -42,7 +42,7 @@ module.exports = {
                 errors.push({msg:'senha incorreta'})
 
             }else{
-                return user;
+                return [true,user];
             }
         }
 
