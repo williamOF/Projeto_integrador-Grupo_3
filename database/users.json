@@ -9,7 +9,6 @@
     {
         "id": 2,
         "nome": "myke william oliveira feitosa",
-<<<<<<< HEAD
         "email": "william@email.com",
         "senha": "$2b$10$n0Q0/dM.X.4pKnJzvnQaJ.bzzIJDEwIOJ7fBPy5hvteJhoxtt6OiS",
         "avatar": "avatar-1668746900553-55433456kkkk.png"
@@ -19,10 +18,6 @@
         "nome": "anderson de souza silva",
         "email": "andersongrt50@gmail.com",
         "senha": "$2b$10$odyoygXP9MCGcvPM85ge1e0Lld.u/8q7R47qODoxsfBCYNHisGyw6",
-=======
-        "email": "admain@email.com",
-        "senha": "$2b$10$UX48Y/pd43mD0.2d4KigyuNpj/0BsNCiEtKZaUBg.saXH.eAS1N/6",
->>>>>>> 286d42160e353c8d44f3785f3be4695321e0cb7d
         "avatar": "default.png"
     }
 ]

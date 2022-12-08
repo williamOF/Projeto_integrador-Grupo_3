@@ -6,12 +6,10 @@ const bcrypt = require('bcrypt')
 //************---FUNCTIONS REQUIRED ---***************/
 const fsCrud = require('../functions/fs-crud')
 
-let tokenStorage = '../database/token-user.json'
+let tokenUser = '../database/token-user.json'
 let usersStorage = '../database/users.json'
 
 //-------------- obtendo json com dados de usuarios --------------/
-const storage = path.resolve(__dirname, '../database/users.json');
-const Usuarios = JSON.parse(fs.readFileSync(storage, 'utf-8'));
 
 /* --------------function's required --------------*/ 
 const loginCadastro = require('../functions/loginCadastro') 
@@ -23,16 +21,16 @@ module.exports = {
     },
     loginAuth: (req,res) => {
         const users = fsCrud.read(usersStorage)
-        console.log(users)
-
 
         const {email,password} = req.body
+        
         let result = loginCadastro.loginAuth(email,password)       
 
-        if(result[0]){
+        if(result){
+            fsCrud.create(tokenUser,result)
             req.session.usuario = result[1]
             res.redirect('/')
-        }else{
+        }else if (result[0]){
             res.render('login',{errors:[result[1]]})
         }
     },
@@ -89,7 +87,6 @@ module.exports = {
         const local = '../database/users.json'
         
         fsCrud.create(local, newUser)
-
 
         res.redirect('/user/perfil')  
     }

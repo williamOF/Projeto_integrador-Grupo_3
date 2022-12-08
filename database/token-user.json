@@ -1,1 +1,9 @@
-[]
+[
+    {
+        "id": 1,
+        "nome": "dh livros",
+        "email": "admin@email.com",
+        "senha": "$2b$10$rPnLRhcqbaGc1vmmaoh1leLP46sOrIeS4aOdYVCuayce9grGRDZ3q",
+        "avatar": "default.png"
+    }
+]
