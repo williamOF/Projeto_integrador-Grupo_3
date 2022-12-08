@@ -53,3 +53,11 @@
     
  }
  
+#recomendacoes{
+    width: 50px;
+    height: 60px;
+    padding-top: 10px;
+    background-color: white;
+    
+    text-align: center;
+}

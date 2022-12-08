@@ -29,10 +29,15 @@ module.exports = {
     },
     produto : (req,res) => {
         let id = req.params.id;
+        const listGenSelect  = req.params.genero;
+        const livroGenero = produtos.filter(gen => gen.genero == listGenSelect)
+        
 
         let livro = produtos.find(l => l.id == id);
-        res.render('detalhes.ejs', {livro})
+        res.render('detalhes.ejs', {livro});
+        
 
+        
         
 
         const user = req.session.usuario

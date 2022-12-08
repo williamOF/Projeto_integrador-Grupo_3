@@ -19,5 +19,12 @@
         "email": "william@email.com",
         "senha": "$2b$10$n0Q0/dM.X.4pKnJzvnQaJ.bzzIJDEwIOJ7fBPy5hvteJhoxtt6OiS",
         "avatar": "avatar-1668746900553-55433456kkkk.png"
+    },
+    {
+        "id": 4,
+        "nome": "anderson de souza silva",
+        "email": "andersongrt50@gmail.com",
+        "senha": "$2b$10$odyoygXP9MCGcvPM85ge1e0Lld.u/8q7R47qODoxsfBCYNHisGyw6",
+        "avatar": "default.png"
     }
 ]
