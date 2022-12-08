@@ -25,7 +25,6 @@ module.exports = {
     */
     
     create: ( local, newItem ) => {
-        console.log('here')
         const storage = path.resolve(__dirname,local)
         if(storage == undefined){
             return [{msg:'OPA! Nenhum arquivo com este nome detectado.'}]

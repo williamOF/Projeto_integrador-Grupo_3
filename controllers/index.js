@@ -4,8 +4,6 @@ const path = require('path')
 const arquivo = path.join(__dirname , "../database/data.json")
 const produtos = JSON.parse(fs.readFileSync(arquivo, "utf-8"))
 
-
-
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 module.exports = { 
@@ -25,22 +23,17 @@ module.exports = {
         if(listGenSelect){
             res.render('biblioteca', {produtos:livroGenero, admin:user})
         }else{
-            res.render('biblioteca', {produtos,admin:user })
+            res.render('biblioteca', {produtos, admin:user})
         }
+
     },
     produto : (req,res) => {
         let id = req.params.id;
         const listGenSelect  = req.params.genero;
         const livroGenero = produtos.filter(gen => gen.genero == listGenSelect)
         
-
         let livro = produtos.find(l => l.id == id);
         res.render('detalhes.ejs', {livro});
-        
-
-        
-        
-
         const user = req.session.usuario
 
         res.render('detalhes.ejs', {livro,admin: user})
@@ -60,7 +53,6 @@ module.exports = {
         }
     }, 
     saleProd: (req,res) =>{
-        
         res.render('sale')
 
     },

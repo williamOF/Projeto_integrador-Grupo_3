@@ -6,33 +6,27 @@ const bcrypt = require('bcrypt')
 //************---FUNCTIONS REQUIRED ---***************/
 const fsCrud = require('../functions/fs-crud')
 
+let usersDB = '../database/users.json'
 let tokenUser = '../database/token-user.json'
-let usersStorage = '../database/users.json'
-
-//-------------- obtendo json com dados de usuarios --------------/
 
 /* --------------function's required --------------*/ 
-const loginCadastro = require('../functions/loginCadastro') 
 
 module.exports = {
     login : (req,res) => {
         res.render('login')
 
     },
-    loginAuth: (req,res) => {
-        const users = fsCrud.read(usersStorage)
+    loginAuthorized: (req,res) => {
 
-        const {email,password} = req.body
-        
-        let result = loginCadastro.loginAuth(email,password)       
+        const {email} = req.body
 
-        if(result){
-            fsCrud.create(tokenUser,result)
-            req.session.usuario = result[1]
-            res.redirect('/')
-        }else if (result[0]){
-            res.render('login',{errors:[result[1]]})
-        }
+        let users = fsCrud.read(usersDB)
+        let user = users.find(user => user.email === email)
+
+        fsCrud.create(tokenUser,user)
+        req.session.usuario = user
+
+        res.redirect('/')
     },
     sair: (req,res) =>{
         req.session.usuario = undefined
