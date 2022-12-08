@@ -2,8 +2,12 @@ const path = require('path')
 const fs = require('fs')
 const bcrypt = require('bcrypt')
 
-//--- import middlware express-validation ---//
-const {validationResult} = require('express-validator')
+
+//************---FUNCTIONS REQUIRED ---***************/
+const fsCrud = require('../functions/fs-crud')
+
+let tokenStorage = '../database/token-user.json'
+let usersStorage = '../database/users.json'
 
 //-------------- obtendo json com dados de usuarios --------------/
 const storage = path.resolve(__dirname, '../database/users.json');
@@ -15,8 +19,13 @@ const loginCadastro = require('../functions/loginCadastro')
 module.exports = {
     login : (req,res) => {
         res.render('login')
+
     },
     loginAuth: (req,res) => {
+        const users = fsCrud.read(usersStorage)
+        console.log(users)
+
+
         const {email,password} = req.body
         let result = loginCadastro.loginAuth(email,password)       
 
@@ -37,13 +46,6 @@ module.exports = {
     },
     cadastro : (req,res) => {
         const {nome,email,re_email,senha,re_senha,avatar} = req.body
-
-        //-------------- express-validation result --------------/
-        const errors = validationResult(req);
-
-        if(!errors.isEmpty()){
-            return  res.render('cadastro', {errors:errors.mapped()})
-        }
 
         //-------------- my validation --------------/
         let arrErrors =[]
@@ -84,11 +86,11 @@ module.exports = {
             senha : bcrypt.hashSync(senha,10),
             avatar : file
         }
+        const local = '../database/users.json'
+        
+        fsCrud.create(local, newUser)
 
-        Usuarios.push(newUser)
-        const newArr = JSON.stringify(Usuarios, null, 4)
 
-        fs.writeFileSync(storage, newArr)
-        res.redirect('/admin/')  
+        res.redirect('/user/perfil')  
     }
 }

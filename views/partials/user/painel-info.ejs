@@ -1,32 +1,36 @@
-<div>
-    <form action="#">
+<div class="row box-info-forms ">
+   <div class="col-12">
+    <form action="#" class="border p-2 m-2">
         <div>
             <h2>Dados pessoais</h2>
         </div>
-        <div>
-            <input type="text" name="name" id="name" placeholder="Nome completo">
+        <div class="form-group mb-3">
+            <input type="text" name="name" id="name" placeholder="Nome completo"  class="form-control">
         </div>
-        <div>
-            <input type="email" name="email" id="email" placeholder="Email contato">
+        <div class="form-group mb-3">
+            <input type="email" name="email" id="email" placeholder="Email contato"  class="form-control">
         </div>
-        <div>
-            <input type="tel" name="tel" id="tel" placeholder="Telefone">
+        <div class="form-group mb-3">
+            <input type="tel" name="tel" id="tel" placeholder="Telefone"  class="form-control">
         </div>
-        <div>
+        <div class="form-group mb-3">
             <label for="age">Data de Nascimento</label><br>
-            <input type="date" name="age" id="age">
+            <input type="date" name="age" id="age"  class="form-control">
         </div>
-        <div>
-            <input type="text" name="cpf" id="cpf" placeholder="Digite seu CPF">
+        <div class="form-group mb-3">
+            <input type="text" name="cpf" id="cpf" placeholder="Digite seu CPF"  class="form-control">
         </div>
-        <button>Salvar</button>
+        <button class="btn btn-light border">Salvar</button>
     </form>
-    <form action="#">
+   </div>
+
+   <div class="col-12">
+    <form action="#" class="border p-2 m-2">
         <div>
             <h2>Endereço</h2>
         </div>
-        <div>
-            <select name="estado" id="estado">
+        <div class="form-group mb-3">
+            <select name="estado" id="estado" class="form-control">
                 <option disabled >Selecione um Estado</option>
                 <option value="SP">São Paulo</option>
                 <option value="AL">Alagoas</option>
@@ -41,37 +45,41 @@
                 <option value="DF">Distrito Federa</option>
             </select>
         </div>
-        <div>
-            <input type="text" name="city" id="city" placeholder="Cidade:">
+        <div class="form-group mb-3">
+            <input type="text" name="city" id="city" placeholder="Cidade:" class="form-control">
         </div>
-        <div>
-            <input type="text" name="disctrict" id="district" placeholder="Bairro:">
+        <div class="form-group mb-3">
+            <input type="text" name="disctrict" id="district" placeholder="Bairro:" class="form-control">
         </div>
-        <div>
-            <input type="text" name="street" id="street" placeholder="Rua:">
+        <div class="form-group mb-3">
+            <input type="text" name="street" id="street" placeholder="Rua:" class="form-control">
         </div>
-        <div>
-            <input type="text" name="additional" id="additional" placeholder="Complemento:">
+        <div class="form-group mb-3">
+            <input type="text" name="additional" id="additional" placeholder="Complemento:" class="form-control">
         </div>
-        <button>Salvar</button>
+        <button class="btn btn-light  border">Salvar</button>
     </form>
-    <form action="#">
+   </div>
+
+   <div class="col-12">
+    <form action="#" class="border p-2 m-2">
         <div>
             <h2>cartões</h2>
         </div>
-        <div>
-            <input type="text" name="number" id="number" placeholder="Número">
+        <div class="form-group mb-3">
+            <input type="text" name="number" id="number" placeholder="Número" class="form-control">
         </div>
-        <div>
-            <input type="text" name="name" id="name" placeholder="Nome impresso">
+        <div class="form-group mb-3">
+            <input type="text" name="name" id="name" placeholder="Nome impresso" class="form-control">
         </div>
-        <div>
-            <input type="number" max="3" min="3" name="cv" id="cv" placeholder="CV">
+        <div class="form-group mb-3">
+            <input type="number" min="0" name="cv" id="cv" placeholder="CV" class="form-control">
         </div>
-        <div>
-            <label for="age">Data de Nascimento</label><br>
-            <input type="text" name="age" id="age">
+        <div class="form-group mb-3">
+            <label for="val-thru" class="p-1">Validade</label><br>
+            <input type="text" name="val-thru" id="val-thru" class="form-control">
         </div>
-        <button>adicionar</button>
+        <button class="btn btn-light  border">adicionar</button>
     </form>
+   </div>
 </div>

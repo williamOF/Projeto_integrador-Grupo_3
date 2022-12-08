@@ -5,5 +5,12 @@
         "email": "admin@email.com",
         "senha": "$2b$10$rPnLRhcqbaGc1vmmaoh1leLP46sOrIeS4aOdYVCuayce9grGRDZ3q",
         "avatar": "default.png"
+    },
+    {
+        "id": 2,
+        "nome": "myke william oliveira feitosa",
+        "email": "admain@email.com",
+        "senha": "$2b$10$UX48Y/pd43mD0.2d4KigyuNpj/0BsNCiEtKZaUBg.saXH.eAS1N/6",
+        "avatar": "default.png"
     }
 ]

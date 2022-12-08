@@ -33,9 +33,7 @@ module.exports = {
 
         let livro = produtos.find(l => l.id == id);
         res.render('detalhes.ejs', {livro})
-
         
-
         const user = req.session.usuario
 
         res.render('detalhes.ejs', {livro,admin: user})

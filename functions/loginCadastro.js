@@ -2,18 +2,17 @@ const path = require('path')
 const fs = require('fs')
 const bcrypt = require('bcrypt')
 
-//--- import middlware express-validation ---//
-const {validationResult} = require('express-validator')
+//************---FUNCTIONS REQUIRED ---***************/
+const fsCrud = require('../functions/fs-crud')
 
-//-------------- obtendo json com dados de usuarios --------------/
-const storage = path.resolve(__dirname, '../database/users.json');
-const Usuarios = JSON.parse(fs.readFileSync(storage, 'utf-8'));
+//************--- Use Functions---***************/
+const usuers = fsCrud.read('../database/users.json')
 
+let auth = true
+let errors =[false]
 
 module.exports = {
-    loginAuth: (login,password)=>{
-        let auth = true
-        let errors =[false]
+    loginAuth: ( login, password ) => {
 
         if(login == ''){
             auth = false
@@ -28,7 +27,7 @@ module.exports = {
             return errors; 
         }
           
-        const user = Usuarios.find(usuario => usuario.email == login)
+        const user = usuers.find(usuario => usuario.email == login)
 
         if(user == undefined){
             auth = false
@@ -42,12 +41,9 @@ module.exports = {
                 errors.push({msg:'senha incorreta'})
 
             }else{
-                return [true,user];
+                return user;
             }
         }
-
-        if(!auth){
-            return errors; 
-        }
+        return errors
     }
 }

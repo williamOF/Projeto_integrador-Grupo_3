@@ -6,14 +6,12 @@
 }
 
 main{
-    height: 100vh;
     background: var(--bg-alfa);
     border-radius: 15px;
     padding: 15px;
 }
 .box-perfil{
     background-color: #fff;
-    height: 100%;
     display: flex
 }
 .side-left{
@@ -81,3 +79,11 @@ main{
     background-color: #fff;
     
 }
+/*FORMATAÇÃO DOS FORMULÁRIOS DO USUARIO */
+.box-info-forms h2{
+    font-size: 14pt;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    border-bottom: black 2px solid;
+}   

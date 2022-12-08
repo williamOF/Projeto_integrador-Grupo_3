@@ -24,6 +24,9 @@ module.exports = {
         res.redirect('/carrinho')
     },
     carrinho: (req,res) => {
+        const destaque  = produtos.filter( p => p.destaque == 1 ) 
+        const admin = req.session.usuario 
+
         let carrinho = req.session.carrinho
         let livros = []
 
@@ -39,8 +42,7 @@ module.exports = {
             }
         }
         
-        const admin = req.session.usuario 
-        const destaque  = produtos.filter( p => p.destaque == 1 ) 
+        
         let valTotal = calcPreco(livros);
         
         if(livros.length >0){
