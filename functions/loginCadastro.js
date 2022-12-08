@@ -13,7 +13,6 @@ let errors =[false]
 
 module.exports = {
     loginAuth: ( login, password ) => {
-
         if(login == ''){
             auth = false
             errors.push({msg:'campo de email está vazio'})
