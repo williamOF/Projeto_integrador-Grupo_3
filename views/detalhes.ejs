@@ -7,7 +7,7 @@
     <%- include('partials/header.ejs') %>
 
       <!--bg-ligth back-ground color white class bootstrap--->
-      <main class="container">
+      <main class="container d-flex flex-column ">
         <div class="text-center text-light">
           <h1>Detalhes do produto:</h1>
         </div>
@@ -49,8 +49,25 @@
             </form>
           </div>
              
+            
     </div> 
-    
+    <% if(typeof destaque != 'undefined'){%>
+      <div class="row">
+        <div class="titulo-recomendacao"><h2>Você também pode gostar desses:</h2></div>
+        
+        <% for(let d of destaque){ %>
+          <div class="col-2 bg-light border p-2 m-2">
+            <img  class= "w-100" src="<%=d.capa%>" alt="capa">
+            <h3><%=d.titulo%></h3>
+            <h4><%=d.preco%></h4>
+            <a  class="btn btn-info"href="/showbook/<%=d.id%>">Ver mais</a>
+          </div>
+              
+       <% } %> 
+
+      </div>
+
+    <%} %>
       </main>
         
 
