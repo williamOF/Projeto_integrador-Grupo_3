@@ -30,15 +30,9 @@ module.exports = {
     produto : (req,res) => {
         let id = req.params.id;
         const destaque  = produtos.filter( p => p.destaque === 1 )
-        console.log(destaque)
 
-        
         let livro = produtos.find(l => l.id == id);
         res.render('detalhes.ejs', {destaque, livro});
-        
-
-        
-        
 
         const user = req.session.usuario
 
