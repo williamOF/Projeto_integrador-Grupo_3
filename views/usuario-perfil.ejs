@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/head') %> 
+    <link rel="stylesheet" href="/stylesheets/usuario-perfil.css">
+</head>
+<body>
+
+    <%- include('partials/header') %> 
+
+    <main class="container">
+        <div class="box-perfil">
+            <div class="side-left col-4">
+
+                <div class="avatar-usuario col-8" >
+                    <img src="/images/users/default.png" alt="avatar-usuario">
+                    <h2>nome usuario</h2>
+                </div>
+                <div>
+                    <ul class="nav flex-column menu">
+                        <li><a class="nav-link btn btn-info carrinho" href="#">Meu carrinho</a></li>
+                        <li><a class="nav-link btn btn-info pedidos" href="#">Meus pedido</a></li>
+                        <li><a class="nav-link btn btn-info perfil-info" href="#">Minhas informaçoes</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="side-right col-8 ">
+                <div class="box-pedidos">
+                    <div class="pedidos-titulo">
+                        <h2>Todos os Pedidos</h2>
+                    </div>
+                    <div class="pedidos-list">
+                        <ul class="nav">
+                            <li class="nav-item col-4">Número do pedido</li>
+                            <li class="nav-item col-3" >Pagamento</li>
+                            <li class="nav-item col-2">status</li>
+                            <li class="nav-item col-2">Data</li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="box-info" class="none"><%- include('partials/user/painel-info') %></div>
+                <div id="box-carrinho" class="none"><%- include('partials/user/painel-carrinho') %></div>
+            </div>
+        </div>
+    </main>
+    <%- include('partials/footer') %> 
+    <script src="/js/app.js"></script>
+</body>
+</html>

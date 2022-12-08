@@ -3,6 +3,7 @@
   --azul-forte : #74b9ff;/*cor dedicada ao topo do header*/
   --azul-claro : #daf2ff;/*cor dedicada ao bottom do header*/
   --bg-alfa :  rgba(255, 255, 255,.4);
+  --select: rgba(160, 160, 160,.9);
 }
 
 /* ------------------ cores app ------------------*/
@@ -100,4 +101,18 @@ font-size: 10pt;
 }
 .ib-text h2{
    font-size: 14pt;
+}
+
+.errors{
+  font-size: 14pt;
+  text-align: center;    
+  background-color: rgba(255, 255, 255, 0.767);
+}
+.errors ul{
+  list-style: none;
+  padding: 5px;
+}
+.errors li{
+  border: 2px red solid;
+  color: red;
 }

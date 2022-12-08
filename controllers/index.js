@@ -5,6 +5,7 @@ const arquivo = path.join(__dirname , "../database/data.json")
 const produtos = JSON.parse(fs.readFileSync(arquivo, "utf-8"))
 
 
+
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 module.exports = { 
@@ -45,30 +46,6 @@ module.exports = {
         res.render('detalhes.ejs', {livro,admin: user})
 
     },
-    carrinho: (req,res) => {
-        const arrBooks = [] 
-        const admin = req.session.usuario 
-        const bookInCart = req.session.cart // so tem a informação do id do livro e da quantidade desejada pelo usuario
-
-        const destaque  = produtos.filter( p => p.destaque == 1 ) 
-
-        if(bookInCart !== undefined){ 
-            let price = 0
-            for(let book of bookInCart){ 
-                const {id_livro,qtd_livro} = book 
-                const searchBook = produtos.find(livro => livro.id == id_livro) 
-                searchBook.qtd_incart = qtd_livro
-                arrBooks.push(searchBook)
-                price = price+(searchBook.preco[0]*qtd_livro)
-            }
-            
-           
-            res.render('carrinho', {produtos:arrBooks, destaque, admin, toThousand, price})
-        }else{
-            //se nao houver nenhum item selecionado pelo usuario retorne undefined para a view
-            res.render('carrinho', {produtos:undefined, destaque, admin})
-        }
-    },
     search : (req,res) => {
         const user = req.session.usuario
         const query = req.query.search
@@ -81,5 +58,14 @@ module.exports = {
         }else{
             res.redirect('/')
         }
-    }    
+    }, 
+    saleProd: (req,res) =>{
+        
+        res.render('sale')
+
+    },
+    saleAdd: (req,res) => {
+        
+        res.redirect('/sale')
+    }
 }

@@ -33,10 +33,18 @@
           </div>
           
           <div class="col-3 d-flex align-items-center justify-content-center">
-            <form action="/showbook/add" method="post">
-              <label for="qtd">quantas unidades</label>
-              <input type="number" value="1" min="1" name="qtd" id="qtd">
-              <input type="hidden" name="bookInCart" value="<%= livro.id %> "> 
+            <form action="/carrinho/add" method="post">
+              <label for="unidades">quantas unidades</label>
+              <input type="hidden" value="<%= livro.id %>" name="id" > 
+              <div class="col-8 select">
+                <label for="book_type">Selecione o tipo do livro</label>
+                <select name="type" id="type">
+                    <option value="kindle">eBook</option>
+                    <option value="common">comum</option>
+                    <option value="especial">especial</option>
+                </select>
+            </div>
+              <input type="number" value="1" min="1" name="unidades">
               <button id='add'type="submit">Adicionar ao carrinho</button>
             </form>
           </div>

@@ -2,30 +2,39 @@ const path = require('path')
 const fs = require('fs')
 const bcrypt = require('bcrypt')
 
-//--- import middlware express-validation ---//
-const {validationResult} = require('express-validator')
+
+//************---FUNCTIONS REQUIRED ---***************/
+const fsCrud = require('../functions/fs-crud')
+
+let tokenStorage = '../database/token-user.json'
+let usersStorage = '../database/users.json'
 
 //-------------- obtendo json com dados de usuarios --------------/
 const storage = path.resolve(__dirname, '../database/users.json');
 const Usuarios = JSON.parse(fs.readFileSync(storage, 'utf-8'));
 
+/* --------------function's required --------------*/ 
+const loginCadastro = require('../functions/loginCadastro') 
+
 module.exports = {
     login : (req,res) => {
         res.render('login')
+
     },
     loginAuth: (req,res) => {
-        const {email,senha} = req.body
+        const users = fsCrud.read(usersStorage)
+        console.log(users)
 
-        const user = Usuarios.find(user => user.email == email)
 
-        if(user){
-            let  pass =  bcrypt.compareSync(senha, user.senha)
-            if(pass){
-                req.session.usuario = user   
-                res.redirect('/')
-            }
+        const {email,password} = req.body
+        let result = loginCadastro.loginAuth(email,password)       
+
+        if(result[0]){
+            req.session.usuario = result[1]
+            res.redirect('/')
+        }else{
+            res.render('login',{errors:[result[1]]})
         }
-        
     },
     sair: (req,res) =>{
         req.session.usuario = undefined
@@ -37,13 +46,6 @@ module.exports = {
     },
     cadastro : (req,res) => {
         const {nome,email,re_email,senha,re_senha,avatar} = req.body
-
-        //-------------- express-validation result --------------/
-        const errors = validationResult(req);
-
-        if(!errors.isEmpty()){
-            return  res.render('cadastro', {errors:errors.mapped()})
-        }
 
         //-------------- my validation --------------/
         let arrErrors =[]
@@ -84,11 +86,11 @@ module.exports = {
             senha : bcrypt.hashSync(senha,10),
             avatar : file
         }
+        const local = '../database/users.json'
+        
+        fsCrud.create(local, newUser)
 
-        Usuarios.push(newUser)
-        const newArr = JSON.stringify(Usuarios, null, 4)
 
-        fs.writeFileSync(storage, newArr)
-        res.redirect('/admin/')  
+        res.redirect('/user/perfil')  
     }
 }
