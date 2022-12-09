@@ -1,23 +1,40 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-    <%- include('partials/head') %> 
+    <%- include('partials/head') %>
+    <link rel="stylesheet" href="/stylesheets/login.css">
 <body>
 
     <%- include('partials/header') %> 
-    <main class="container bg-light">
-        <form action="/user/" method="post" class="p-5" >
-           
-            <div class="form-group mb-3">
-                <input type="email" class="form-control" name="email" id="email" placeholder="informe seu email de login">
+    <main class="container">
+        <div class="row">
+            <div class="box-logo-login">
+                <img src="/img/pg_web/logo.png" alt="logo-icon">
             </div>
-            <div class="form-group mb-3">
-                <input type="password" class="form-control mb-3" name="password" id="senha" placeholder="digite sua senha">
+            <div class="col-12">
+                <form action="/user/" method="post" class="p-5" >
+                    <div class="form-group mb-3">
+                        <input type="email" class="form-control" required name="email" id="email" placeholder="informe seu email de login">
+                        <div class="danger">
+                            <% if(locals.errors && errors.email) {%>
+                                <span><%= errors.email.msg %> </span>
+                            <% } %> 
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <input type="password" class="form-control mb-3" required name="password" id="senha" placeholder="digite sua senha">
+                        <div class="danger">
+                            <% if(locals.errors && errors.password) {%>
+                                <span><%= errors.password.msg %> </span>
+                            <% } %> 
+                        </div>
+                    </div>
+                    <div>
+                        <button class="btn btn-info">Entrar</button>
+                    </div>
+                </form>
+               
             </div>
-            <div>
-                <button class="btn btn-info">Entrar</button>
-            </div>
-        </form>
-       
+        </div>
     </main>
     <%- include('partials/footer') %> 
 </body>

@@ -7,16 +7,13 @@ const perfilController = require('../controllers/perfilController')
 
 // FUNCTIONS IMPORT FROM ROUTER
 const upload = require('../functions/upload-avatar');
-
-// -----------  middlewares --------------- //
-const checkFieldsLogin = require('../middlewares/check_fields_login');
-
+const checkFields = require('../functions/check-fields')
 
 router.get('/cadastro', adminController.viewCadastro)
 router.post('/cadastro' ,upload.single('avatar'), adminController.cadastro)
 
 router.get('/', adminController.login)
-router.post('/', checkFieldsLogin ,adminController.loginAuthorized)
+router.post('/',checkFields, adminController.loginAuthorized)
 router.get('/sair',adminController.sair)
 
 router.get('/perfil', perfilController.usuario)

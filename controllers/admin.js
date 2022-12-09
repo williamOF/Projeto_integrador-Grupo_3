@@ -2,14 +2,14 @@ const path = require('path')
 const fs = require('fs')
 const bcrypt = require('bcrypt')
 
-
 //************---FUNCTIONS REQUIRED ---***************/
+const {validationResult} = require('express-validator')
 const fsCrud = require('../functions/fs-crud')
+const loginAuth = require('../functions/loginAuth')
 
+//------------- declared variable ----------------//
 let usersDB = '../database/users.json'
 let tokenUser = '../database/token-user.json'
-
-/* --------------function's required --------------*/ 
 
 module.exports = {
     login : (req,res) => {
@@ -17,16 +17,25 @@ module.exports = {
 
     },
     loginAuthorized: (req,res) => {
+        const result = validationResult(req)
+         
+        if( result.errors.length > 0){
+            res.render('login',{errors:result.mapped()})
+            
+        }else{
+            let {authorized,con} = loginAuth(req)
+           
+            if(authorized){
+                fsCrud.create(tokenUser,con)
+                req.session.usuario = con
+        
+                res.redirect('/')
 
-        const {email} = req.body
-
-        let users = fsCrud.read(usersDB)
-        let user = users.find(user => user.email === email)
-
-        fsCrud.create(tokenUser,user)
-        req.session.usuario = user
-
-        res.redirect('/')
+            }else{
+                
+                res.render('login', {errors:con})
+            }
+        }
     },
     sair: (req,res) =>{
         req.session.usuario = undefined
