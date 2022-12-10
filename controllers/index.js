@@ -11,8 +11,7 @@ module.exports = {
         const user = req.session.usuario
 
         const destaque  = produtos.filter( p => p.destaque === 1 )
-
-        res.render('home.ejs', {produtos, destaque, admin:user})
+       res.render('home.ejs', {produtos, destaque, admin:user})
     },
     biblioteca : (req,res) => {
         const user = req.session.usuario

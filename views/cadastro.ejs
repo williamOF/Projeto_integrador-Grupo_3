@@ -1,72 +1,79 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <%- include('partials/head') %> 
+    <link rel="stylesheet" href="/stylesheets/formularios.css">
 <body>
-    <style>
-        main{
-            background-color: rgba(255, 255, 255,.4);
-            height: 80vh;
-        }
-        .ajust-center{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-    </style>
     <%- include('partials/header') %> 
-    <main class="container col-12 ">
-        <div class="p-5 ajust-center ">
-            <form action="/user/cadastro" method="post"  enctype="multipart/form-data" class="">
-
-                <div class="mb-5 ajust-center ">
-                    <img src="/images/img/logo.png" alt="">
-                </div>
-                <div>
-                    <ul>
-                        <% if(typeof errors !== 'undefined') {%>
-                            <% for(let error in errors) {%>
-                                <li>
-                                    <b>
-                                        <%= error %> 
-                                    </b>
-                                    <%= errors[error].msg %> 
-                                </li>         
+    <main class="container">
+        <div class="row">
+            <div class="box-logo-forms">
+                <img src="/images/img/logoForms.png" alt="logo-icon">
+            </div>
+            <div class="col-8" style="margin: 15px auto 0px auto;">
+                <form action="/user/cadastro" method="post" enctype="multipart/form-data" class="p-2">
+                    <div class="form-group">
+                        <label for="name">Nome completo:</label>
+                        <input type="text" name="name" id="name" class="form-control" value="<%= locals.oldData ? oldData.name : '' %>" >
+                        <div class="danger text-end">
+                            <% if(locals.errors && errors.name) {%>
+                                   <span><%= errors.name.msg %> </span>
                             <% } %> 
-                        <% } %> 
-                    </ul>
-                </div>
-                <div class="mb-3 form-group">
-                    <input type="text" class="form-control" name="nome" id="nome" required placeholder="nome completo">
-                </div>
-                <div class="mb-3 form-group">
-                    <input type="email" class="form-control" name="email" id="email" required placeholder="digite um email">
-                </div>
-                <div class="mb-3 form-group">
-                    <input type="email" class="form-control" name="re_email" id="re_email" required placeholder="confirme seu email">
-                </div>
-                <div class="mb-3 form-group">
-                    <input type="password" class="form-control" name="senha" id="senha" required placeholder="digite uma senha">
-                </div>
-                <div class="mb-3 form-group">
-                    <input type="password" class="form-control" name="re_senha" id="re_senha" required placeholder="confirme sua senha">
-                </div>
-                <div class="mb-3 border p-2 bg-light form-group">
-                    <div>
-                        <label for="avatar">
-                            <span>escolha um avatar</span>
-                        </label>
+                        </div>
                     </div>
-                    <div class="mt-3">
-                        <input type="file" class="form-control-file" name="avatar" id="avatar">
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" name="email" id="email" class="form-control"  value="<%= locals.oldData ? oldData.email : '' %>" >
+                        <div class="danger text-end">
+                            <% if(locals.errors && errors.email) {%>
+                                   <span><%= errors.email.msg %> </span>
+                            <% } %> 
+                        </div>
                     </div>
-                </div>
-                <div class="m-5 ajust-center">
-                    <button type="" class="btn btn-info text-light">Cadastrar-se</button>
-                </div>
-            </form>
+                    <div class="form-group">
+                        <label for="re_email">Confirme seu email:</label>
+                        <input type="email" name="re_email" id="re_email" class="form-control"  value="<%= locals.oldData ? oldData.email : '' %>" >
+                        <div class="danger text-end">
+                            <% if(locals.errors && errors.re_email) {%>
+                                   <span><%= errors.re_email.msg %> </span>
+                            <% } %> 
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="psw">Senha:</label>
+                        <input type="password" name="password" id="psw" class="form-control">
+                        <div class="danger text-end">
+                            <% if(locals.errors && errors.password) {%>
+                                   <span><%= errors.password.msg %> </span>
+                            <% } %> 
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="re_psw">Confirme sua senha:</label>
+                        <input type="password" name="re_password" id="re_psw" class="form-control">
+                        <div class="danger text-end">
+                            <% if(locals.errors && errors.re_password) {%>
+                                   <span><%= errors.re_password.msg %> </span>
+                            <% } %> 
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="avatar">Imagem do usuario</label>
+                        <input type="file" name="avatar" id="avatar" class="form-control">
+                        <div class="danger text-end">
+                            <% if(locals.errors && errors.avatar) {%>
+                                   <span><%= errors.avatar.msg %> </span>
+                            <% } %> 
+                        </div>
+                    </div>
+                    <div class="button-group">
+                        <input type="submit" value="cadastre-se" class="btn btn-info">
+                        <input type="reset" value="limpar campos"  class="btn btn-light border">
+                    </div>
+                </form>
+            </div>
+            <div class="boxSpacing"></div>
         </div>
     </main>
     <%- include('partials/footer') %> 
-
 </body>
 </html>

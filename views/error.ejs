@@ -2,13 +2,21 @@
 <html lang="pt-br">
 <head>
 	<meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Houston - We have an ERROR!</title>
+	<title>Opa! não vejo nada aqui</title>
 	<style>
 		html, body {
 			font-size: 10px;
 			font-family: sans-serif;
-			background-color: #dddddd;
+			background-color: #000000;
+			overflow-y: hidden;
+			overflow-x: hidden;
+		}
+		body{
+			width: 100vw;
+			height: 100vh;
 		}
 		h1 {
 			font-size: 3.2em;
@@ -30,8 +38,30 @@
 		p {
 			font-size: 1.5em;
 		}
+		.d-error{
+			height: 90vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.font{
+			font-size: 14pt;
+			padding: 15px;
+			color: #fff;
+		}
 	</style>
 </head>
 <body>
+	<div class="d-error row" >
+		<div class=" col-4">
+			<img src="/images/img/error-w.png" class="w-100" alt="error-img">
+		</div>
+		<div class="text-center font">
+			<span>Error encontrado por favor retorne ao início </span>
+		</div>
+		<div class=" text-center">
+			<a href="/" class="btn btn-light">Retornar a página principal</a>
+		</div>
+	</div>
 </body>
 </html>

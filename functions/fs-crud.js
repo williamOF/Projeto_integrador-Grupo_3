@@ -82,17 +82,20 @@ module.exports = {
         if(storage == undefined){
             return [{msg:'OPA! Nenhum arquivo com este nome detectado.'}]
         }
-
-        const db = JSON.parse(fs.readFileSync(storage, 'utf-8'))
-        const item = db.find(p=> p.id == id)
-        
-        if( item !== undefined){
-
-            const newDB = db.filter(p=> p.id != id)
-            fs.writeFileSync( storage,JSON.stringify( newDB, null , 4) )
-
+        if(!id){
+            const db = JSON.parse(fs.readFileSync(storage, 'utf-8'))
+            const item = db.find(p=> p.id == id)
+            
+            if( item !== undefined){
+    
+                const newDB = db.filter(p=> p.id != id)
+                fs.writeFileSync( storage,JSON.stringify( newDB, null , 4) )
+    
+            }else{
+                return [{msg:"um erro inesperado ocorreu!"}]
+            }
         }else{
-            return [{msg:"um erro inesperado ocorreu!"}]
+           throw new Error ('precisa de um id')
         }
     }
 }

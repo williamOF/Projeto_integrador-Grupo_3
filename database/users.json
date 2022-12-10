@@ -1,23 +1,16 @@
 [
     {
-        "id": 1,
-        "nome": "dh livros",
-        "email": "admin@email.com",
-        "senha": "$2b$10$rPnLRhcqbaGc1vmmaoh1leLP46sOrIeS4aOdYVCuayce9grGRDZ3q",
+        "id": 4,
+        "name": "anderson de souza silva",
+        "email": "andersongrt50@gmail.com",
+        "password": "$2b$10$odyoygXP9MCGcvPM85ge1e0Lld.u/8q7R47qODoxsfBCYNHisGyw6",
         "avatar": "default.png"
     },
     {
         "id": 2,
-        "nome": "myke william oliveira feitosa",
-        "email": "william@email.com",
-        "senha": "$2b$10$n0Q0/dM.X.4pKnJzvnQaJ.bzzIJDEwIOJ7fBPy5hvteJhoxtt6OiS",
-        "avatar": "avatar-1668746900553-55433456kkkk.png"
-    },
-    {
-        "id": 4,
-        "nome": "anderson de souza silva",
-        "email": "andersongrt50@gmail.com",
-        "senha": "$2b$10$odyoygXP9MCGcvPM85ge1e0Lld.u/8q7R47qODoxsfBCYNHisGyw6",
+        "name": "fulano teste",
+        "email": "fulano@emai.com",
+        "password": "$2b$10$2TLf13eInBP.h7TUEVypjOOEUHTZ1Th6kTFJLieD6m.irPWhE6hTy",
         "avatar": "default.png"
     }
 ]

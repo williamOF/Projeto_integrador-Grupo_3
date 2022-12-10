@@ -10,8 +10,8 @@ const loginAuth = (req) =>{
     if(!user){
       return {authorized:false,con:{email:{msg:"usuario não encontrado"}}}
     }else{
-        let check = bcrypt.compareSync( password , user.senha)
-
+        let check = bcrypt.compareSync( password , user.password)
+ 
         if(!check){
             return {authorized:false,con:{password:{msg:"senha incorreta"}}}
         }else{

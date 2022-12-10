@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <%- include('partials/head') %>
-    <link rel="stylesheet" href="/stylesheets/login.css">
+    <link rel="stylesheet" href="/stylesheets/formularios.css">
 <body>
-
     <%- include('partials/header') %> 
     <main class="container">
         <div class="row">
-            <div class="box-logo-login">
-                <img src="/img/pg_web/logo.png" alt="logo-icon">
+            <div class="box-logo-forms">
+                <img src="/images/img/logoForms.png" alt="logo-icon">
             </div>
             <div class="col-12">
                 <form action="/user/" method="post" class="p-5" >
-                    <div class="form-group mb-3">
+                    <div class="form-group">
                         <input type="email" class="form-control" required name="email" id="email" placeholder="informe seu email de login">
                         <div class="danger">
                             <% if(locals.errors && errors.email) {%>
@@ -20,7 +19,7 @@
                             <% } %> 
                         </div>
                     </div>
-                    <div class="form-group mb-3">
+                    <div class="form-group">
                         <input type="password" class="form-control mb-3" required name="password" id="senha" placeholder="digite sua senha">
                         <div class="danger">
                             <% if(locals.errors && errors.password) {%>
@@ -32,8 +31,8 @@
                         <button class="btn btn-info">Entrar</button>
                     </div>
                 </form>
-               
             </div>
+            <div class="boxSpacing"></div>
         </div>
     </main>
     <%- include('partials/footer') %> 

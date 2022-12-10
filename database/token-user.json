@@ -5,5 +5,12 @@
         "email": "admin@email.com",
         "senha": "$2b$10$rPnLRhcqbaGc1vmmaoh1leLP46sOrIeS4aOdYVCuayce9grGRDZ3q",
         "avatar": "default.png"
+    },
+    {
+        "id": 2,
+        "name": "fulano teste",
+        "email": "fulano@emai.com",
+        "password": "$2b$10$2TLf13eInBP.h7TUEVypjOOEUHTZ1Th6kTFJLieD6m.irPWhE6hTy",
+        "avatar": "default.png"
     }
 ]
