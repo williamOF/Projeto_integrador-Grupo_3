@@ -12,58 +12,98 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 module.exports = {
     add: (req,res) => {
-        let adm = req.session.usuario
+        const {id_livro, type, estoque, qtd} = req.body
 
-        const {id, type, unidades} = req.body
-        
-        let fromCart = {
-            id_cart: req.session.cart ? req.session.cart.length+1 : 1 ,
-            id_product:id,
-            type,
-            unidades
+        const  DataProducts =  fscrud.read('../database/data.json')
+        let book = DataProducts.find(prod => prod.id == id_livro)
+
+        if(book && book.estoque > qtd){
+
+            let fromCart = {
+                id_cart: req.session.cart ? req.session.cart.length+1 : 1 ,
+                id_product: id_livro ,
+                type,
+                unidades:qtd
+            }
+            
+            if(!req.session.cart){
+                req.session.cart = [fromCart]
+
+            } else {
+                req.session.cart.push(fromCart)
+            }
+            return res.redirect('/carrinho')
+            
+        }else{
+
+            let newError = {error:{msg:"imposível adicionar o livro ao carrinho produto não encontrado"}}
+            return res.render('error',{
+                error:newError
+            })
         }
 
-        if(!req.session.cart){
-            req.session.cart = [fromCart]
-
-        } else {
-            req.session.cart.push(fromCart)
-        }
-        console.log(req.session.cart)
-
-        return res.redirect('/carrinho')
-       
     },
     carrinho: (req,res) => {
         const destaque  = produtos.filter( p => p.destaque == 1 ) 
-        const admin = req.session.usuario 
-        
-        let cart = req.session.cart
         const DataProducts = fscrud.read('../database/data.json')
+        const admin = req.session.usuario 
+        let cart = req.session.cart
         let arrayProductsDetails = []
 
         if(cart){
             for(book of cart) {
-                console.log(book)
                 let seekBook = DataProducts.find(p => p.id == book.id_product)
+                
+                let vKindle = parseFloat(seekBook.kindle);
+                let vCommon = parseFloat(seekBook.common);
+                let vSpecial = parseFloat(seekBook.special);
+                let lastPrice = 0
+                let valUnidade = 0
+
+                switch (book.type) {
+                    case 'kindle':
+                        lastPrice = vKindle * parseInt(book.unidades)
+                        valUnidade = vKindle
+                        break;
+                    case 'common':
+                        lastPrice = vCommon * parseInt(book.unidades)
+                        valUnidade = vCommon
+                        break;
+                    case 'special':
+                        lastPrice = vSpecial * parseInt(book.unidades)
+                        valUnidade = vSpecial
+                        break;
+                    case "all-types":
+                        valUnidade = vCommon + vKindle + vSpecial
+                        lastPrice = valUnidade * parseInt(book.unidades)
+                        break;
+                    default:
+                        break;
+                }
+
                 let addCart = {
                     id_pedido: book.id_cart,
                     type_selected: book.type,
                     qtd_selected: book.unidades,
+                    valUnidade,
+                    valorDoPedido:toThousand(lastPrice),
                     product: seekBook
                 }
-                arrayProductsDetails.push(addCart) 
-                
+                arrayProductsDetails.push(addCart)
             }
         } 
-        console.log(arrayProductsDetails)
+
+        let valorTotalCompra= 0
+        for(pedido of arrayProductsDetails){
+            valorTotalCompra += parseFloat(pedido.valorDoPedido) 
+        }
 
         res.render('carrinho',{
             destaque,
             produtos:arrayProductsDetails,
-            admin
+            admin,
+            price:toThousand(valorTotalCompra)
         })
-      
     },
     remover: (req,res) =>{
         let {id} = req.params

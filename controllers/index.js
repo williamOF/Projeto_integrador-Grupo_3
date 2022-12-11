@@ -1,5 +1,6 @@
 const fs = require('fs')
-const path = require('path')
+const path = require('path');
+const fsCrud = require('../functions/fs-crud');
 
 const arquivo = path.join(__dirname , "../database/data.json")
 const produtos = JSON.parse(fs.readFileSync(arquivo, "utf-8"))
@@ -8,10 +9,14 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 module.exports = { 
     home : (req,res) => {
-        const user = req.session.usuario
+        const DataProducts = fsCrud.read('../database/data.json')
+        const recommend = DataProducts.filter(book => book.destaque == 1)
 
-        const destaque  = produtos.filter( p => p.destaque === 1 )
-       res.render('home.ejs', {produtos, destaque, admin:user})
+        res.render('home', {
+            destaque:recommend,
+            admin: req.session.usuario,
+            books: DataProducts 
+        })
     },
     biblioteca : (req,res) => {
         const user = req.session.usuario

@@ -76,8 +76,9 @@
                             <span>Enviado por dh.livros</span>
                             <span>Vendido por dh.livros</span>
                         </div>
-                       <form action="#" class="form-list-product">
+                       <form action="/carrinho/add" method="post" class="form-list-product">
                             <input type="hidden" name="type" class="type-book">
+                            <input type="hidden" name="id_livro" value="<%= livro.id %> " >
                             <div class="mt-3 mb-3">
                                 <input type="hidden" name="estoque" class="qtd-estoque" value="<%= livro.estoque %> ">
                                 <div class="row">

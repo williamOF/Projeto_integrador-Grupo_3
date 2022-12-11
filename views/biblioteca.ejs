@@ -4,75 +4,77 @@
     <link rel="stylesheet" href="/stylesheets/biblioteca.css">
 <body>
     <%- include('partials/header') %>
-    <main class="bg-light container">
-        <section class="container row">
-            <div class="nav-genero border mt-2">
-                <div class=" text-center me-1">
-                    <h3>Generos </h3>
+    <main class="container">
+        <div class="bg-white row p-2 m-0">
+            <section class="row">
+                <div class="nav-genero border mt-2">
+                    <div class=" text-center me-1">
+                        <h3>Generos </h3>
+                    </div>
+                    <ul class="nav nav-tabs m-5" >
+                        <li class="nav-item">
+                            <a href="/biblioteca/romance" class="nav-link">Romance</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/biblioteca/religiosos" class="nav-link">Ciências</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/biblioteca/didaticos" class="nav-link">didáticos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/biblioteca/infantil" class="nav-link">infantil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/biblioteca/terror" class="nav-link">terror</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/biblioteca/ficção" class="nav-link">ficção</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/biblioteca/contos" class="nav-link">Contos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/biblioteca/ação" class="nav-link">Ação</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/biblioteca/poesia" class="nav-link">poesia</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/biblioteca/financas" class="nav-link">Financeiros</a>
+                        </li>    
+                    </ul>
                 </div>
-                <ul class="nav nav-tabs m-5" >
-                    <li class="nav-item">
-                        <a href="/biblioteca/romance" class="nav-link">Romance</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/biblioteca/religiosos" class="nav-link">Ciências</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/biblioteca/didaticos" class="nav-link">didáticos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/biblioteca/infantil" class="nav-link">infantil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/biblioteca/terror" class="nav-link">terror</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/biblioteca/ficção" class="nav-link">ficção</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/biblioteca/contos" class="nav-link">Contos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/biblioteca/ação" class="nav-link">Ação</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/biblioteca/poesia" class="nav-link">poesia</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/biblioteca/financas" class="nav-link">Financeiros</a>
-                    </li>    
-                </ul>
-            </div>
-            <div class="mt-2">
+                <div class="mt-2">
                     <div class="row">
                         <% for(let p of produtos){ %>
                             <div class="col-12 col-sm col-lg-3 nav-item mb-5 book-box border">
-                              <a href="/showbook/<%= p.id %>" class="nav-link">
+                                <a href="/showbook/<%= p.id %>" class="nav-link">
                                 <div class="img-book">
-                                  <div class="img-box">
+                                    <div class="img-box">
                                     <img src="<%= p.capa %> " alt="capa-livro-<%= p.titulo %> " class=" h-100">
-                                  </div>
-                                  <div class="ib-text">
+                                    </div>
+                                    <div class="ib-text">
                                     <h2><%= p.titulo %> </h2>
                                     <p>R$: <%= p.preco[0] %> </p>
-                                  </div>
+                                    </div>
                                 </div>       
-                              </a>
+                                </a>
                             </div>
-                          <% } %>  
+                        <% } %>  
                     </div>
-            </div>
-        </section>
-        <div class=" border-top m-5 p-2">
-        <nav aria-label="Navegação de página d-flex">
-            <ul class="pagination justify-content-center">
-            <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">Próximo</a></li>
-            </ul>
-        </nav>
+                </div>
+            </section>
+            <div class="">
+            <nav aria-label="Navegação de página d-flex">
+                <ul class="pagination justify-content-center">
+                <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Próximo</a></li>
+                </ul>
+            </nav>
+        </div>
     </div>
     </main>
     <%- include('partials/footer') %> 
