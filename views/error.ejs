@@ -57,7 +57,11 @@
 			<img src="/images/img/error-w.png" class="w-100" alt="error-img">
 		</div>
 		<div class="text-center font">
-			<span>Error encontrado por favor retorne ao início </span>
+			<% if(locals.error && error.type) {%>
+				<strong><%= error.type.msg %></strong>	 
+			<% }else{%>
+				<strong><%= error %> </strong>
+			<% } %>   
 		</div>
 		<div class=" text-center">
 			<a href="/" class="btn btn-light">Retornar a página principal</a>

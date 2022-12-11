@@ -13,10 +13,10 @@ let tokenUser = '../database/token-user.json'
 const avatarStorage = '../public/images/users' 
 
 module.exports = {
-    login : (req,res) => {
+    loginGet : (req,res) => {
         res.render('login')
     },
-    loginAuthorized: (req,res) => {
+    loginPost: (req,res) => {
         const result = validationResult(req)
          
         if( result.errors.length > 0){
@@ -39,10 +39,10 @@ module.exports = {
         res.redirect('/')
         
     },
-    viewCadastro: (req,res) => {
+    cadastroGet: (req,res) => {
         res.render('cadastro')
     },
-    cadastro : (req,res) => {
+    cadastroPost : (req,res) => {
         const result = validationResult(req)
 
         if(result.errors.length > 0){
@@ -79,9 +79,15 @@ module.exports = {
             }
         }
     },
-    usuario:(req,res)=>{
+    perfilGet:(req,res)=>{
         let user = req.session.usuario
+   
+        if(user){
 
-        res.render('usuario-perfil',{admin:user})
+            res.render('usuario-perfil',{admin:user})
+        }else{
+            const error  = { type :{msg:'Página de perfil não autoriazada por favor faça o login antes !'}}
+            res.render('error',{error})
+        }
     }
 }

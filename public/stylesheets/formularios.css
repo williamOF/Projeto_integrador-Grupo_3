@@ -6,7 +6,6 @@ main{
     align-items: center;
     background-color: var(--bg-alfa);
     border-radius: 5px;
-
 }
 div.row{
     height: max-content;

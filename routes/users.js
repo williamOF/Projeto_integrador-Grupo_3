@@ -9,13 +9,13 @@ const usersControler = require('../controllers/usersControler')
 const upload = require('../middlewares/upload-avatar');
 const checkFields = require('../middlewares/check-fields');
 
-router.get('/cadastro', usersControler.viewCadastro)
-router.post('/cadastro', upload.single('avatar'), checkFields.singUp, usersControler.cadastro)
+router.get('/cadastro', usersControler.cadastroGet)
+router.post('/cadastro', upload.single('avatar'), checkFields.singUp, usersControler.cadastroPost)
 
-router.get('/', usersControler.login)
-router.post('/', checkFields.login, usersControler.loginAuthorized)
+router.get('/', usersControler.loginGet)
+router.post('/', checkFields.login, usersControler.loginPost)
 router.get('/sair',usersControler.sair)
 
-router.get('/perfil', usersControler.usuario)
+router.get('/perfil', usersControler.perfilGet)
 
 module.exports = router;

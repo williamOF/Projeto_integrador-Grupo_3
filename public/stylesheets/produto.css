@@ -1,0 +1,116 @@
+/*formatação da main*/
+main{
+  padding: 10px;
+  width: 100%;
+  background-color: var(--bg-alfa);
+  border-radius: 5px;
+}
+
+/*formatação na CAIXA DA IMAGEM */
+.box-img-product{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+}
+.box-img-product img{
+  width: 350px;
+  padding: 10px;
+  margin: 10px auto 10px auto;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+/*formatação na CAIXA DE DETALHES DO PRODUTO*/
+.box-product{
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.box-details div{
+  padding: 5px;
+  margin: 0px;
+}
+
+/*formatação na seleção de quantidade de produto*/
+#qtd{
+    width: 60px;
+    padding: 2px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 10px auto 10px 10px ;
+}
+
+/*formatação em seleção do produto kindle common ou special*/
+.product-type{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: rgba(243, 218, 163, 0.541);
+  border: 1px solid rgba(0, 0, 0,.2);
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 2px;
+}
+.product-type:hover{
+  background-color: rgb(245, 205, 118);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0,.4);
+}
+
+/*formatação no preço do produto*/
+.price-style{
+  font-size: 20pt;
+ padding: 10px;
+  font-weight: bolder;
+}
+.price{
+  margin-left: 10px;
+}
+
+/*cores para indicar se está disponível ou não os produtos selecionados*/
+.true{
+  color: rgba(113, 179, 14, 0.8);
+  font-size: 14pt;
+  font-weight: bolder;
+}
+.false{
+ color: rgba(155, 0, 0,.8);
+ font-size: 14pt;
+ font-weight: bolder;
+}
+
+
+/*formatação para o texto sinopse do livro*/
+.sinopse{
+  padding: 10px;
+  background-color: rgba(221, 221, 221,.4);
+  border-radius: 5px;
+  margin: 15px auto 15px auto !important;
+}
+.enfase{
+  color: red;
+  padding: 10px;
+  border: 1px #dddd solid;
+  width: max-content;
+  margin: 10px 0 10px 0;
+}
+
+/*responsividade*/
+@media screen and (min-width : 575px) {
+
+  .box-img-product{
+    width: 350px!important;
+  }
+  .box-img-product img{
+    padding: 0px !important;
+  }
+  .box-product{
+    justify-content: space-evenly !important;
+  }
+
+  #box-details{
+    width: 600px;
+    margin: 0!important;
+  }
+}

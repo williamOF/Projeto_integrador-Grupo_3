@@ -11,32 +11,35 @@
         <div>
             <div>
                 <h2 class="text-center p-3">carrinho</h2>
-                    <% if(typeof livros !== 'undefined') {%>
+                    <% if(locals.produtos.length >0) {%>
                         <div class="row flex-center ">
-                            <% for(let p of livros) {%>
+                            <% for(let index of produtos) {%>
                                 <div class="col-8 flex-center p-2 m-2 border">
                                     <div class="col-4">
-                                        <img class="w-100" src="<%= p.capa %> " alt="capa-livro<%= p.titulo %> ">
+                                        <img class="w-100" src="<%= index.product.capa %> " alt="capa-livro<%= index.product.titulo %> ">
                                     </div>
                                     <div class="container" >
                                         <div class="flex-center flex-column border p-2">
-                                            <h2><%= p.titulo %> </h2>
-                                            <p>Editora: <%=p.editora %> </p>
-                                            <p>Em Estoque: <%= p.estoque %> unidades </p>
+                                            <h2><%= index.product.titulo %> </h2>
+                                            <p>Editora: <%=index.product.editora %> </p>
+                                            <p>Em Estoque: <%= index.product.estoque %> unidades </p>
                                             <p>para presente:
                                                 <input type="checkbox" name="para_presente" value="">
                                             </p>
                                             <div class="d-flex p-2 flex-column border">
                                                     <div>
                                                         <label for="qtd">quantidade:</label>
-                                                        <input type="number" style="width: 50px;" name="qtd" min="1" value="<%= p.qtd_unidades %>">
+                                                        <input type="number" style="width: 50px;" name="qtd" min="1" value="<%= index.qtd_selected %>">
                                                     </div>
                                             </div>
+                                            <div>
+                                                <span>Tipo de livro: <strong><%= index.type_selected %></strong> </span>
+                                            </div>
                                             <span class="p-3">valor da unidade: 
-                                                <%= toThousand(p.type_price) %>R$ 
+                                                R$ 
                                             </span>
                                             <div>
-                                                <form action="/carrinho/remover/<%= p.id %>?_method=DELETE " method="post">
+                                                <form action="/carrinho/remover/<%= index.id_pedido %>?_method=DELETE " method="post">
                                                     <button class="btn btn-info">Remover</button>
                                                 </form>
                                             </div>
@@ -48,7 +51,7 @@
                             <div class="innerPrice flex-center ">
                                 <div class="border p-5 text-center">
                                     <h2>finalize o pedido</h2>
-                                    <p>valor total:<%= valTotal %>  R$</p>
+                                    <p>valor total:  R$</p>
                                     <a href="/carrinho/finalizar" class="btn btn-info">comprar</a>
                                     <a class="btn btn-info" href="/biblioteca">adicionar mais</a>
                                 </div>
@@ -71,15 +74,20 @@
         <div class="mt-5 mb-5"></div>
         <div class="container border">
             <div class="row">
-                
-                <div><h2 class="text-center p-3">destaques do dia</h2></div>
-                <% for(let d of destaque) {%>
-                    <div class="col-4 col-sm col-lg border">
-                        <a href="/showbook/<%= d.id %> ">
-                            <img class="w-100" src="<%= d.capa %> " alt="Capa livro <%= d.title %> ">    
-                        </a>
-                    </div>
-                <% } %> 
+                <div>
+                    <h2 class="text-center p-3">destaques do dia</h2>
+                </div>
+                <div class="row p-3">
+                    <% if(locals.destaque) {%>
+                        <% for(let d of destaque) {%>
+                            <div class="col-4 col-sm col-lg border">
+                                <a href="/showbook/<%= d.id %> ">
+                                    <img class="w-100" src="<%= d.capa %> " alt="Capa livro <%= d.title %> ">    
+                                </a>
+                            </div>
+                        <% } %> 
+                    <% } %> 
+                </div>
             </div>
         </div>
 

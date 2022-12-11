@@ -3,7 +3,7 @@ var router = express.Router();
 
 // importação dos controllers
 const indexController = require('../controllers/index');
-const carrinhoController = require('../controllers/carrinhoControler')
+const purchasController = require('../controllers/purchasController')
 
 /* GET home page. */
 router.get('/',  indexController.home);
@@ -12,11 +12,11 @@ router.get('/search', indexController.search)
 router.get('/showbook/:id', indexController.produto)
 
 
-router.get('/carrinho', carrinhoController.carrinho)
-router.post('/carrinho/add', carrinhoController.add)
-router.get('/carrinho/finalizar', carrinhoController.finalizar)
+router.get('/carrinho', purchasController.carrinho)
+router.post('/carrinho/add', purchasController.add)
+router.get('/carrinho/finalizar', purchasController.finalizar)
 
-router.delete('/carrinho/remover/:id', carrinhoController.remover)
+router.delete('/carrinho/remover/:id', purchasController.remover)
 
 
 module.exports = router;

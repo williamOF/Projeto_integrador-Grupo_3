@@ -28,14 +28,21 @@ module.exports = {
     },
     produto : (req,res) => {
         let id = req.params.id;
-        const destaque  = produtos.filter( p => p.destaque === 1 )
-
-        let livro = produtos.find(l => l.id == id);
-        res.render('detalhes.ejs', {destaque, livro});
-
-        const user = req.session.usuario
-
-        res.render('detalhes.ejs', {livro,admin: user})
+        
+        if(id){
+            const destaque  = produtos.filter( p => p.destaque === 1 )
+            const admin  = req.session.usuario
+    
+            let livro = produtos.find(l => l.id == id);
+    
+            res.render('produto', {
+                livro,
+                admin,
+                recommend:destaque
+            })
+        }else{
+            res.render('produto', {admin})
+        }
 
     },
     search : (req,res) => {
@@ -50,13 +57,5 @@ module.exports = {
         }else{
             res.redirect('/')
         }
-    }, 
-    saleProd: (req,res) =>{
-        res.render('sale')
-
-    },
-    saleAdd: (req,res) => {
-        
-        res.redirect('/sale')
     }
 }

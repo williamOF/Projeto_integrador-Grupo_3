@@ -1,0 +1,33 @@
+[
+    [
+        {
+            "id_cart": 1,
+            "id_user": 3,
+            "cart": [
+                {
+                    "id": 1,
+                    "titulo": "Senhor das moscas",
+                    "sinopse": "Depois de um acidente de avião, um grupo de estudantes chega a uma ilha. Eles acabam se dividindo em dois grupos. Enquanto um é organizado, o outro recorre à selvageria e usa o medo do desconhecido para controlar os outros.",
+                    "autor": "Willian golding",
+                    "idioma": "português",
+                    "capa": "/capas/book/Senhor.jpg",
+                    "preco": [
+                        25
+                    ],
+                    "kindle": "52.30",
+                    "common": "100.00",
+                    "special": "0",
+                    "destaque": 1,
+                    "estoque": 200,
+                    "genero": "romance",
+                    "editora": "Alfaguara",
+                    "data_publicado": "25-03-2004",
+                    "dimensoes": "23.4x 14.6x 1.4 cm",
+                    "numero_paginas": "224",
+                    "type_selected": "kindle",
+                    "qtd_selected": "1"
+                }
+            ]
+        }
+    ]
+]
