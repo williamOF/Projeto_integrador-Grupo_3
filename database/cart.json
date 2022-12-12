@@ -1,10 +1,43 @@
 [
     [
         {
-            "id_cart": 1,
-            "id_user": 3,
-            "cart": [
-                {
+            "id_pedido": 1,
+            "type_selected": "kindle",
+            "qtd_selected": "1",
+            "valUnidade": 52.3,
+            "valorDoPedido": "52.3",
+            "product": {
+                "id": 1,
+                "titulo": "Senhor das moscas",
+                "sinopse": "Depois de um acidente de avião, um grupo de estudantes chega a uma ilha. Eles acabam se dividindo em dois grupos. Enquanto um é organizado, o outro recorre à selvageria e usa o medo do desconhecido para controlar os outros.",
+                "autor": "Willian golding",
+                "idioma": "português",
+                "capa": "/capas/book/Senhor.jpg",
+                "preco": [
+                    25
+                ],
+                "kindle": "52.30",
+                "common": "100.00",
+                "special": "250.00",
+                "destaque": 1,
+                "estoque": 200,
+                "genero": "romance",
+                "editora": "Alfaguara",
+                "data_publicado": "25-03-2004",
+                "dimensoes": "23.4x 14.6x 1.4 cm",
+                "numero_paginas": "224"
+            }
+        }
+    ],
+    [
+        [
+            {
+                "id_pedido": 1,
+                "type_selected": "kindle",
+                "qtd_selected": "1",
+                "valUnidade": 52.3,
+                "valorDoPedido": "52.3",
+                "product": {
                     "id": 1,
                     "titulo": "Senhor das moscas",
                     "sinopse": "Depois de um acidente de avião, um grupo de estudantes chega a uma ilha. Eles acabam se dividindo em dois grupos. Enquanto um é organizado, o outro recorre à selvageria e usa o medo do desconhecido para controlar os outros.",
@@ -16,18 +49,47 @@
                     ],
                     "kindle": "52.30",
                     "common": "100.00",
-                    "special": "0",
+                    "special": "250.00",
                     "destaque": 1,
                     "estoque": 200,
                     "genero": "romance",
                     "editora": "Alfaguara",
                     "data_publicado": "25-03-2004",
                     "dimensoes": "23.4x 14.6x 1.4 cm",
-                    "numero_paginas": "224",
-                    "type_selected": "kindle",
-                    "qtd_selected": "1"
+                    "numero_paginas": "224"
                 }
-            ]
+            }
+        ],
+        {
+            "id_pedido": 1,
+            "type_selected": "kindle",
+            "qtd_selected": "1",
+            "valUnidade": 35.3,
+            "valorDoPedido": "35.3",
+            "product": {
+                "id": 2,
+                "titulo": "O iluminado",
+                "sinopse": "Jack Torrance se torna caseiro de inverno do isolado Hotel Overlook, nas montanhas do Colorado, na esperança de curar seu bloqueio de escritor. Ele se instala com a esposa Wendy e o filho Danny, que é atormentando por premonições. Jack não consegue escrever e as visões de Danny se tornam mais perturbadoras. O escritor descobre os segredos sombrios do hotel e começa a se transformar em um maníaco homicida, aterrorizando sua família.",
+                "autor": "Stephen king",
+                "preco": [
+                    15,
+                    25,
+                    23
+                ],
+                "capa": "/capas/book/iluminado.jpg",
+                "estoque": 200,
+                "kindle": "35.30",
+                "common": "68.00",
+                "special": "45",
+                "destaque": 1,
+                "genero": "romance",
+                "editora": "Suma",
+                "data_publicado": "19-11-2012",
+                "dimensoes": "23 x 16 x 2.2 cm",
+                "numero_paginas": "464",
+                "continuacao": "livro 1",
+                "idioma": "português"
+            }
         }
     ]
 ]

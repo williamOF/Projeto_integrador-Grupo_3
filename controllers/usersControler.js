@@ -24,11 +24,11 @@ module.exports = {
             
         }else{
             let {authorized,con} = loginAuth(req)
+
             if(authorized){
                 fsCrud.create(tokenUser,con)
                 req.session.usuario = con
                 return res.redirect('/')
-
             }else{
                 res.render('login', {errors:con})
             }

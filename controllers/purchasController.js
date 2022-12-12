@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path');
 
-const fscrud = require('../functions/fs-crud')
+const fsCrud = require('../functions/fs-crud')
 const calcPreco = require('../functions/calc-preco');
 const calcUnidade = require('../functions/calc-unidade');
 
@@ -14,7 +14,7 @@ module.exports = {
     add: (req,res) => {
         const {id_livro, type, estoque, qtd} = req.body
 
-        const  DataProducts =  fscrud.read('../database/data.json')
+        const  DataProducts =  fsCrud.read('../database/data.json')
         let book = DataProducts.find(prod => prod.id == id_livro)
 
         if(book && book.estoque > qtd){
@@ -45,7 +45,9 @@ module.exports = {
     },
     carrinho: (req,res) => {
         const destaque  = produtos.filter( p => p.destaque == 1 ) 
-        const DataProducts = fscrud.read('../database/data.json')
+        const DataProducts = fsCrud.read('../database/data.json')
+        let cartDb = fsCrud.read('../database/cart.json')
+
         const admin = req.session.usuario 
         let cart = req.session.cart
         let arrayProductsDetails = []
@@ -89,14 +91,19 @@ module.exports = {
                     valorDoPedido:toThousand(lastPrice),
                     product: seekBook
                 }
+
+                
                 arrayProductsDetails.push(addCart)
+                cartDb.push(addCart)
             }
         } 
 
+        
         let valorTotalCompra= 0
         for(pedido of arrayProductsDetails){
             valorTotalCompra += parseFloat(pedido.valorDoPedido) 
         }
+        
 
         res.render('carrinho',{
             destaque,
@@ -117,23 +124,8 @@ module.exports = {
         return res.redirect('/carrinho')
     },
     finalizar: (req,res) => {
-        const admin = req.session.usuario
-        if(admin !== undefined){
-            
-            const localPedido = path.join(__dirname , "../database/pedidos.json")
-            const pedido = JSON.parse(fs.readFileSync(localPedido, "utf-8"))
-            
-            const addNovoPedido = {
-                id_pedido: pedido.length+1,
-                id_usuario: admin.id,
-                pedidos:req.session.pedido
-            }
-            
-            req.session.carrinho = undefined
-            res.render('pedido')
-        }else{
-            res.redirect('/user/cadastro')
-        }
+        console.log(req.body)
+        res.render('pedido')
     }
 }
 

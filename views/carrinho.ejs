@@ -43,7 +43,7 @@
                                                 </span>
                                                 <div>
                                                     <form action="/carrinho/remover/<%= index.id_pedido %>?_method=DELETE " method="post">
-                                                        <button class="btn btn-info">Remover</button>
+                                                        <button class="btn btn-danger">Remover</button>
                                                     </form>
                                                 </div>
                                             </div>
@@ -53,12 +53,18 @@
                             </div>
                                 <div class="innerPrice flex-center ">
                                     <div class="border p-5 text-center">
-                                        <h2>finalize o pedido</h2>
-                                        <% if(locals.price) {%>
-                                            <p>valor total: R$ <%= price %> </p>
-                                        <% } %>  
-                                        <a href="/carrinho/finalizar" class="btn btn-info">comprar</a>
-                                        <a class="btn btn-info" href="/biblioteca">adicionar mais</a>
+                                        <form action="/carrinho/finalizar" method="post">
+                                            <h2>finalize o pedido</h2>
+                                            <div>
+                                            </div>
+                                            <% if(locals.price) {%>
+                                                <p>valor total: R$ <%= price %> </p>
+                                            <% } %> 
+                                            <button type="submit" class="btn btn-info">comprar</button>
+                                            <div>
+                                                <a class="btn btn-warning" href="/biblioteca">adicionar mais</a>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div> 
                         <% }else{%>
