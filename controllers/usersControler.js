@@ -3,7 +3,6 @@ const {validationResult} = require('express-validator')
 
 //************---Models required ---***************/
 const {Users, Books} = require ('../database/models')
-const dataFormat = require('../functions/dataFormat')
 
 module.exports = {
     loginGet : (req,res) => {
@@ -86,21 +85,22 @@ module.exports = {
         }
     },
     perfilGet:(req,res)=>{
+
         if(req.session.admin){
             res.render('usuario-perfil',{admin: req.session.admin})
         }else{
             const error  = { type :{msg:'Página de perfil não autoriazada por favor faça o login antes !'}}
             res.render('error',{error})
         }
+        
     },
     adminProductsGet: (req,res)=>{
 
-     res.render('adm-products',{admin:req.session.admin})
+        res.render('adm-products',{admin:req.session.admin})
+
     },
     adminProductsPost: async (req,res) => {
         const result = validationResult(req)
-
-        console.log(result)
 
         if(result.errors.length > 0){
             res.render('adm-products',{
@@ -108,7 +108,6 @@ module.exports = {
                 oldData:req.body
             })
         }else{
-
             if(!req.file){
                 return res.render('adm-products',{
                     errors:result.mapped(),
@@ -133,7 +132,6 @@ module.exports = {
                 inventory: req.body.inventory,
                 language: req.body.language
             })
-
             await newBook.save()
 
             let sucessMsg = {sucess:{msg:'produto cadastrado com sucesso!'}}

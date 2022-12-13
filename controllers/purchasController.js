@@ -1,7 +1,5 @@
 const {Books} = require('../database/models')
 
-const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-
 module.exports = {
     add: async (req,res) => {
         const {id_book, type, qtd} = req.body
@@ -33,7 +31,6 @@ module.exports = {
                 default:
                     break;
             }
-           
 
             let inCart = {
                 id_cart: req.session.cart ? req.session.cart.length + 1 : 1 ,
@@ -85,7 +82,6 @@ module.exports = {
         return res.redirect('/carrinho')
     },
     finalizar: (req,res) => {
-        console.log(req.body)
         res.render('pedido')
     }
 }

@@ -87,5 +87,4 @@ window.addEventListener('load', ()=>{
         selectType.value = 'all-types' 
     })
     
-
 })

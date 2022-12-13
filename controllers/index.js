@@ -1,5 +1,3 @@
-
-//*********-------Models dadabase------***********/
 const {Books} = require ('../database/models')
 
 module.exports = { 

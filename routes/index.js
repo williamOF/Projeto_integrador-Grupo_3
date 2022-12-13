@@ -11,12 +11,10 @@ router.get('/biblioteca/:genero?', indexController.biblioteca)
 router.get('/search', indexController.search)
 router.get('/showbook/:id', indexController.produto)
 
-
 router.get('/carrinho', purchasController.carrinho)
 router.post('/carrinho/add', purchasController.add)
 router.get('/carrinho/finalizar', purchasController.finalizar)
 
 router.delete('/carrinho/remover/:id', purchasController.remover)
-
 
 module.exports = router;
