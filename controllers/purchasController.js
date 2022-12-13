@@ -1,14 +1,6 @@
-const fs = require('fs')
-const path = require('path');
-
-const fsCrud = require('../functions/fs-crud')
-
-const arquivo = path.join(__dirname , "../database/database/data.json")
-const produtos = JSON.parse(fs.readFileSync(arquivo, "utf-8"))
+const {Books} = require('../database/models')
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-
-const {Books} = require('../database/models')
 
 module.exports = {
     add: async (req,res) => {
