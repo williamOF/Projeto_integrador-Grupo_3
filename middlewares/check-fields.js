@@ -64,5 +64,67 @@ module.exports = {
             }
             return true;
         })
+    ],
+    checkBook:[
+        check('title').notEmpty().withMessage('*Este campo não pode estar vazio').bail()
+            .isLength({max:120}).withMessage('*Este campo execeu o limite máximo de caracteres permitidos').bail()
+            .trim().bail(),
+            
+        check('author').notEmpty().withMessage('*Este campo não pode estar vazio').bail()
+            .isLength({max:80}).withMessage('*Este campo execeu o limite máximo de caracteres permitidos').bail()
+            .trim().bail(),
+
+        check('publishing_company').notEmpty().withMessage('*Este campo não pode estar vazio').bail()
+            .isLength({max:80}).withMessage('*Este campo execeu o limite máximo de caracteres permitidos').bail()
+            .trim().bail(),
+        
+        check('edition').notEmpty().withMessage('*Este campo não pode estar vazio').bail()
+            .trim().bail(),
+
+        check('synopsis').notEmpty().withMessage('*Este campo não pode estar vazio').bail()
+            .trim().bail(),
+
+        check('genre').notEmpty().withMessage('*Este campo não pode estar vazio').bail()
+            .isLength({max:120}).withMessage('*Este campo execeu o limite máximo de caracteres permitidos').bail()
+            .trim().bail(), 
+            
+        check('kindle_price').notEmpty().withMessage('*Este campo não pode estar vazio').bail()
+            .trim().bail(),  
+        
+        check('common_price').notEmpty().withMessage('*Este campo não pode estar vazio').bail()
+            .trim().bail(),  
+        
+            check('special_price').notEmpty().withMessage('*Este campo não pode estar vazio').bail()
+            .trim().bail(),   
+
+        check('publication_date').notEmpty().withMessage('*Este campo não pode estar vazio').bail()
+            .trim().bail(), 
+
+        check('language').notEmpty().withMessage('*Este campo não pode estar vazio').bail()
+            .trim().bail(),  
+        
+        check('inventory').notEmpty().withMessage('*Este campo não pode estar vazio').bail()
+            .isLength({min:1}).withMessage('Este campo execeu o limite máximo de caracteres permitidos').bail()
+            .trim().bail(), 
+            
+        check('number_pages').notEmpty().withMessage('*preencha o campo').bail()
+            .trim().bail(),  
+
+        check('front_cover').custom((value, {req}) =>{
+            let file = req.file;
+            let acceptedExtensions = ['.jpg','.png','.gif'];
+
+            if(!file){
+                throw new Error(`precisa de selecionar um arquivo`)
+            }else{
+                let fileExtensions = path.extname(file.originalname);
+    
+                if(!acceptedExtensions.includes(fileExtensions)){
+                    throw new Error(`As extensões de arquivo permitidos são ${acceptedExtensions.join(', ')}`)
+                }
+            return true;
+            }
+
+        })
     ]
 }

@@ -20,7 +20,7 @@
                             <div class="d-flex align-items-center">
                                 <div class="d-flex align-items-center justy-itens-end on">
                                     <div class="text-center w-100">
-                                        <% let fullName = admin.name %> 
+                                        <% let fullName = admin.userName %> 
                                         <% let name = fullName.split(" ")[0]+ " " + fullName.split(" ")[1] %> 
                                         <span class=""><b><%= name %></b></span>                          
                                         <div class="mt-2">
@@ -30,7 +30,7 @@
                                     </div>
                                 </div>
                                 <div class=" img-avatar"> 
-                                    <img src="/images/users/<%= admin.avatar %>" class="h-100 rounded-circle p-1" alt="avatar">
+                                    <img src="/images/users/<%= admin.userAvatar %>" class="h-100 rounded-circle p-1" alt="avatar">
                                 </div>
                             </div>
                         <% } %>

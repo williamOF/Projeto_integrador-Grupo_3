@@ -1,66 +1,76 @@
 const fs = require('fs')
 const path = require('path');
-const fsCrud = require('../functions/fs-crud');
 
-const arquivo = path.join(__dirname , "../database/data.json")
-const produtos = JSON.parse(fs.readFileSync(arquivo, "utf-8"))
-
-const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+//*********-------Models dadabase------***********/
+const {Books} = require ('../database/models')
 
 module.exports = { 
-    home : (req,res) => {
-        const DataProducts = fsCrud.read('../database/data.json')
-        const recommend = DataProducts.filter(book => book.destaque == 1)
+    home : async (req,res) => { 
+        const books = await Books.findAll()
 
         res.render('home', {
-            destaque:recommend,
-            admin: req.session.usuario,
-            books: DataProducts 
+            books,
+            admin: req.session.admin,
         })
     },
-    biblioteca : (req,res) => {
-        const user = req.session.usuario
-        const listGenSelect  = req.params.genero
-        
-        const livroGenero = produtos.filter(gen => gen.genero == listGenSelect)
+    biblioteca :async (req,res) => {
+        const admin = req.session.admin
+        const genre  = req.params.genero
+        let books = await Books.findAll()
 
-        if(listGenSelect){
-            res.render('biblioteca', {produtos:livroGenero, admin:user})
-        }else{
-            res.render('biblioteca', {produtos, admin:user})
-        }
-
-    },
-    produto : (req,res) => {
-        let id = req.params.id;
-        
-        if(id){
-            const destaque  = produtos.filter( p => p.destaque === 1 )
-            const admin  = req.session.usuario
-    
-            let livro = produtos.find(l => l.id == id);
-    
-            res.render('produto', {
-                livro,
+        if(genre){
+            let booksGenre = await Books.findAll({ where: {genre:genre} })
+            return res.render('biblioteca',{
                 admin,
-                recommend:destaque
+                books:booksGenre
             })
+
         }else{
-            res.render('produto', {admin})
+            return res.render('biblioteca',{
+                admin,
+                books
+            })
         }
-
     },
-    search : (req,res) => {
-        const user = req.session.usuario
-        const query = req.query.search
-        const destaque  = produtos.filter( p => p.destaque === 1 )
-
-        let booksFilter = produtos.filter( book => book.titulo.toLowerCase().includes(query.toLowerCase()));
+    produto: async (req,res) => {
+        const admin = req.session.admin
+        const emphasis = await Books.findAll({ where: {genre: 'fiction'}})
         
-        if(booksFilter){
-            res.render('home', {produtos:booksFilter, destaque, admin:user})
+
+        let id_book = req.params.id
+        
+        if(id_book){
+            const book = await Books.findByPk(id_book)
+                
+            res.render('produto', {
+                book,
+                emphasis,
+                admin
+            })
+
         }else{
-            res.redirect('/')
+            const error = {error:{msg:"não encontramos nada com este id !"}}
+            res.render('error', {errors:error})
+        }
+    },
+    search : async (req,res) => {
+        const query = req.query.search
+        const admin = req.session.admin
+
+        const emphasis = await Books.findAll({ where: {genre: 'fiction'}})
+        const booksArray = await Books.sequelize.query(`SELECT * FROM books WHERE title LIKE '%${query}_%'`)
+
+        let books = booksArray.shift()
+
+        if(books.length > 0 ){
+            return res.render('home',{
+                admin,
+                books,
+                emphasis
+            })
+
+        }else{
+           return res.redirect('/')
         }
     }
 }

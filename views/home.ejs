@@ -9,26 +9,30 @@
       <section class="container">
         <div class="row bg-light">
           <div class="text-center ">
-            <div class="pt-2">
-              <h2>Até 25% off em Livros e eBooks | Black Friday</h2>
+            <div class="pt-5 mb-5">
+              <h2>Até 25% off em Livros e eBooks </h2>
             </div>
           </div>
-          <% for(let p of books){ %>
+          
+          <% if(locals.books) {%>
+            <% for(let book of books) {%>
+              
               <div class="col-12 col-sm col-lg-3 nav-item mb-5 book-box border">
-                <a href="/showbook/<%= p.id %>" class="nav-link">
+                <a href="/showbook/<%= book.id_books %> " class="nav-link">
                   <div class="img-book">
                     <div class="img-box">
-                      <img src="<%= p.capa %> " alt="capa-livro-<%= p.titulo %> " class=" h-100">
+                      <img src="/img-books/<%= book.front_cover %>" alt="capa_<%= book.title %>" class=" h-100">
                     </div>
                     <div class="ib-text">
-                      <h2><%= p.titulo %> </h2>
-                      <p>R$: <%= p.preco[0] %> </p>
+                      <h2><%= book.title %></h2>
+                      <p>R$: <%= book.kindle_price %> </p>
                     </div>
                   </div>       
                 </a>
               </div>
+              <% } %> 
           <% } %>  
- 
+         
           <nav aria-label="Navegação de página d-flex">
             <ul class="pagination justify-content-center">
               <li class="page-item"><a class="page-link" href="#">Anterior</a></li>

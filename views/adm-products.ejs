@@ -6,11 +6,18 @@
     <%- include('partials/header') %> 
     <main class="container">
         <div class="sale-box">
-            <form action="/adm/products" method="post" enctype="multipart/form-data" id="form_cadastro_item" class="form-cadastro">
+            <form action="/user/perfil/admin" method="post" enctype="multipart/form-data" id="form_cadastro_item" class="form-cadastro">
                 <div class="box-inputs">
                     <div class="row container">
                         <div class="text-center">    
                             <h2>Informaçoes do livro</h2>
+                        </div>
+                        <div>
+                            <% if(locals.sucess) {%>
+                                <div class="sucess">
+                                    <h2><%= sucess.msg %></h2>
+                                </div>
+                            <% } %>  
                         </div>
                    
                         <div class="row">
@@ -18,7 +25,12 @@
                                 <label for="title">titulo:</label>
                             </div>
                             <div class="col-8">
-                                <input type="text" name="title" id="title" class="w-100">
+                                <input type="text" name="title" id="title"  class="w-100" value="<%= locals.oldData ? oldData.title : '' %>" >
+                                <div class="col-8 danger col-8  text-end">
+                                    <% if(locals.errors && errors.title) {%>
+                                           <span><%= errors.title.msg %> </span>
+                                    <% } %> 
+                                </div>
                             </div>
                         </div>
                         <div class="row">
@@ -26,7 +38,12 @@
                                 <label for="author">autor:</label>
                             </div>
                             <div class="col-8">
-                                <input type="text" name="author" id="author" class="w-100">
+                                <input type="text" name="author" id="author" class="w-100"  value="<%= locals.oldData ? oldData.author : '' %>" >
+                                <div class="col-8 danger col-8  text-end">
+                                    <% if(locals.errors && errors.author) {%>
+                                           <span><%= errors.author.msg %> </span>
+                                    <% } %> 
+                                </div>
                             </div>
                         </div>
                         <div class="row">
@@ -34,15 +51,25 @@
                                 <label for="pb_company">editora:</label>
                             </div>
                             <div class="col-8">
-                                <input type="text" name="pb_company" id="pb_company" class="w-100">
+                                <input type="text" name="publishing_company" id="pb_company" class="w-100"  value="<%= locals.oldData ? oldData.publishing_company: '' %>" >
+                                <div class="col-8 danger col-8  text-end">
+                                    <% if(locals.errors && errors.publishing_company) {%>
+                                           <span><%= errors.publishing_company.msg %> </span>
+                                    <% } %> 
+                                </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-3 text-end">
-                                <label for="dimension">dimensões:</label>
+                                <label for="dimensions">dimensões:</label>
                             </div>
                             <div class="col-8">
-                                <input type="text"  name="dimension" id="dimension" class="w-100">
+                                <input type="text"  name="dimensions" id="dimensions" class="w-100"  value="<%= locals.oldData ? oldData.dimensions : '' %>" >
+                                <div class="danger col-8  text-end">
+                                    <% if(locals.errors && errors.dimensions) {%>
+                                           <span><%= errors.dimensions.msg %> </span>
+                                    <% } %> 
+                                </div>
                             </div>
                         </div>
                         
@@ -51,8 +78,13 @@
                             <div class="col-3 text-end">
                                 <label for="qt_pages">páginas:</label>
                             </div>
-                            <div class="col-1">
-                                <input type="number" min="15" name="qt_pages" id="qt_pages" >
+                            <div class="col-8">
+                                <input type="number" min="15" name="number_pages" id="qt_pages"  value="<%= locals.oldData ? oldData.number_pages : '' %>">
+                                <div class="danger col-8  text-end">
+                                    <% if(locals.errors && errors.number_pages) {%>
+                                           <span><%= errors.number_pages.msg %> </span>
+                                    <% } %> 
+                                </div>
                             </div>
                         </div>
 
@@ -61,7 +93,12 @@
                                 <label for="date_pb">publicação:</label>
                             </div>
                             <div class="col-1">
-                                <input type="date_pb"  name="data_pb" id="data" >
+                                <input type="date"  name="publication_date" id="data"  value="<%= locals.oldData ? oldData.publication_date : '' %>">
+                                <div class="danger col-8  text-end">
+                                    <% if(locals.errors && errors.publication_date) {%>
+                                           <span><%= errors.publication_date.msg %> </span>
+                                    <% } %> 
+                                </div>
                             </div>
                         </div>
                         <div class="row">
@@ -69,7 +106,12 @@
                                 <label for="edition">edição:</label>
                             </div>
                             <div class="col-1">
-                                <input type="number" min="1" name="edition" id="edition" >
+                                <input type="number" min="1" name="edition" id="edition"  value="<%= locals.oldData ? oldData.edition : '' %>" >
+                                <div class="danger col-8  text-end">
+                                    <% if(locals.errors && errors.edition) {%>
+                                           <span><%= errors.edition.msg %> </span>
+                                    <% } %> 
+                                </div>
                             </div>
                         </div>
                         <div class="row">
@@ -77,10 +119,15 @@
                                 <label for="lang">idioma:</label>
                             </div>
                             <div class="col-8 select">
-                                <select name="lang" id="lang">
+                                <select name="language" id="lang">
                                     <option value="portugues">Portugês</option>
                                     <option value="ingles">ingles</option>
                                 </select>
+                                <div class="danger col-8  text-end">
+                                    <% if(locals.errors && errors.language) {%>
+                                           <span><%= errors.language.msg %> </span>
+                                    <% } %> 
+                                </div>
                             </div>
                         </div>
                         <div class="row textarea">
@@ -89,6 +136,11 @@
                             </div>
                             <div class="col-8">
                                 <textarea name="synopsis" id="synopsis" class="w-100" cols="50" rows="5"></textarea>
+                                <div class="danger col-8  text-end">
+                                    <% if(locals.errors && errors.synopsis) {%>
+                                           <span><%= errors.synopsis.msg %> </span>
+                                    <% } %> 
+                                </div>
                             </div>
                         </div>
                         <div class="row">
@@ -97,7 +149,36 @@
                             </div>
                             <div class="col-8">
                                 <label for="img" id="label-file" class="btn btn-light">selecionar arquivo</label>
-                                <input type="file" name="img" id="img">
+                                <input type="file" name="front_cover" id="img">
+                                <div class="danger col-8  text-end">
+                                    <% if(locals.errors && errors.front_cover) {%>
+                                           <span><%= errors.front_cover.msg %> </span>
+                                    <% } %> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3 text-end">
+                                <label for="gen">Genero:</label>
+                            </div>
+                            <div class="col-8">
+                                <select name="genre" id="gen">
+                                    <option disabled>Selecione um Genero</option>
+                                    <option value="poetry">poesia</option>
+                                    <option value="novel">romance</option>
+                                    <option value="cousebook">didaticos </option>
+                                    <option value="storybook">infantil </option>
+                                    <option value="terror">terror</option>
+                                    <option value="fiction">ficção</option>
+                                    <option value="action">ação</option>
+                                    <option value="fantasy">fantasia</option>
+                                    <option value="finance">finanças</option>
+                                </select>
+                                <div class="danger col-8  text-end">
+                                    <% if(locals.errors && errors.genre) {%>
+                                           <span><%= errors.genre.msg %> </span>
+                                    <% } %> 
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -110,7 +191,12 @@
                                 <label for="kindle">Kindle:</label>
                             </div>
                             <div class="col-8">
-                                <input type="number" placeholder="oferta" min="0" id="kindle" class="w-20">
+                                <input type="number" placeholder="oferta" min="0" name="kindle_price" id="kindle" class="w-20"  value="<%= locals.oldData ? oldData.kindle_price : '' %>" >
+                                <div class="danger col-8  text-end">
+                                    <% if(locals.errors && errors.kindle_price) {%>
+                                           <span><%= errors.kindle_price.msg %> </span>
+                                    <% } %> 
+                                </div>
                             </div>
                         </div>                            
                         <div class="row">
@@ -118,7 +204,12 @@
                                 <label for="common">Comum:</label>
                             </div>
                             <div class="col-8">
-                                <input type="number"  placeholder="oferta" min="0"  name="common" id="common" class="w-20">
+                                <input type="number" placeholder="oferta" min="0"  name="common_price" id="common" class="w-20"  value="<%= locals.oldData ? oldData.common_price : '' %>" >
+                                <div class="danger col-8  text-end">
+                                    <% if(locals.errors && errors.common_price) {%>
+                                           <span><%= errors.common_price.msg %> </span>
+                                    <% } %> 
+                                </div>
                             </div>
                         </div>
                         <div class="row">
@@ -126,7 +217,12 @@
                                 <label for="special">Especial:</label>
                             </div>
                             <div class="col-8">
-                                <input type="number"  placeholder="oferta" min="0"  name="special" id="special" class="w-20">
+                                <input type="number" placeholder="oferta" min="0"  name="special_price" id="special" class="w-20"  value="<%= locals.oldData ? oldData.special_price : '' %>" >
+                                <div class="danger col-8  text-end">
+                                    <% if(locals.errors && errors.special_price) {%>
+                                           <span><%= errors.special_price.msg %> </span>
+                                    <% } %> 
+                                </div>
                             </div>
                         </div>
                         <div class="row">
@@ -134,18 +230,12 @@
                                 <label for="inventory">Estoque:</label>
                             </div>
                             <div class="col-8">
-                                <input type="number"  placeholder="unidades disponíveis" min="1" name="inventory" id="inventory" class="w-20">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-3 text-end">
-                                <label for="delivery">Entrega:</label>
-                            </div>
-                            <div class="col-8">
-                                <select name="delivery" id="delivery">
-                                    <option value="site">pelo noso site</option>
-                                    <option value="usuario">pessoal</option>
-                                </select>
+                                <input type="number" placeholder="unidades disponíveis" min="1" name="inventory" id="inventory" class="w-20"  value="<%= locals.oldData ? oldData.inventory : '' %>" >
+                                <div class="danger col-8  text-end">
+                                    <% if(locals.errors && errors.inventory) {%>
+                                           <span><%= errors.inventory.msg %> </span>
+                                    <% } %> 
+                                </div>
                             </div>
                         </div>
                     </div>

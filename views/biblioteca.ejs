@@ -13,54 +13,55 @@
                     </div>
                     <ul class="nav nav-tabs m-5" >
                         <li class="nav-item">
-                            <a href="/biblioteca/romance" class="nav-link">Romance</a>
+                            <a href="/biblioteca/novel" class="nav-link">Romance</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/biblioteca/religiosos" class="nav-link">Ciências</a>
+                            <a href="/biblioteca/fiction" class="nav-link">ficção</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/biblioteca/didaticos" class="nav-link">didáticos</a>
+                            <a href="/biblioteca/cousebook" class="nav-link">didáticos</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/biblioteca/infantil" class="nav-link">infantil</a>
+                            <a href="/biblioteca/storybook" class="nav-link">infantil</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/biblioteca/terror" class="nav-link">terror</a>
+                            <a href="/biblioteca/action" class="nav-link">terror</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/biblioteca/ficção" class="nav-link">ficção</a>
+                            <a href="/biblioteca/ficção" class="nav-link">ação</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/biblioteca/contos" class="nav-link">Contos</a>
+                            <a href="/biblioteca/fantasy" class="nav-link">fantasia</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/biblioteca/ação" class="nav-link">Ação</a>
+                            <a href="/biblioteca/finance" class="nav-link">finanças</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/biblioteca/poesia" class="nav-link">poesia</a>
+                            <a href="/biblioteca/poetry" class="nav-link">poesia</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="/biblioteca/financas" class="nav-link">Financeiros</a>
-                        </li>    
                     </ul>
                 </div>
                 <div class="mt-2">
                     <div class="row">
-                        <% for(let p of produtos){ %>
-                            <div class="col-12 col-sm col-lg-3 nav-item mb-5 book-box border">
-                                <a href="/showbook/<%= p.id %>" class="nav-link">
-                                <div class="img-book">
-                                    <div class="img-box">
-                                    <img src="<%= p.capa %> " alt="capa-livro-<%= p.titulo %> " class=" h-100">
-                                    </div>
-                                    <div class="ib-text">
-                                    <h2><%= p.titulo %> </h2>
-                                    <p>R$: <%= p.preco[0] %> </p>
-                                    </div>
-                                </div>       
-                                </a>
-                            </div>
-                        <% } %>  
+                        <% if(locals.books){ %>
+                            <% for(let book of books) {%>
+
+                                <div class="col-12 col-sm col-lg-3 nav-item mb-5 book-box border">
+                                    <a href="/showbook/<%= book.id_books %> " class="nav-link">
+                                    <div class="img-book">
+                                        <div class="img-box">
+                                            <img src="/img-books/<%= book.front_cover %>  " alt="capa_<%= book.title %>" class=" h-100">
+                                        </div>
+                                        <div class="ib-text">
+                                            <h2><%= book.title %></h2>
+                                            <p>R$: <%= book.kindle_price %> </p>
+                                        </div>
+                                    </div>       
+                                    </a>
+                                </div>
+                                
+                            <% } %> 
+                        <% } %> 
                     </div>
                 </div>
             </section>

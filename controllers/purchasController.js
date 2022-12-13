@@ -2,38 +2,44 @@ const fs = require('fs')
 const path = require('path');
 
 const fsCrud = require('../functions/fs-crud')
-const calcPreco = require('../functions/calc-preco');
-const calcUnidade = require('../functions/calc-unidade');
 
-const arquivo = path.join(__dirname , "../database/data.json")
+const arquivo = path.join(__dirname , "../database/database/data.json")
 const produtos = JSON.parse(fs.readFileSync(arquivo, "utf-8"))
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
+const {Books} = require('../database/models')
+
 module.exports = {
-    add: (req,res) => {
-        const {id_livro, type, estoque, qtd} = req.body
+    add: async (req,res) => {
+        const {id_book, type, qtd} = req.body
 
-        const  DataProducts =  fsCrud.read('../database/data.json')
-        let book = DataProducts.find(prod => prod.id == id_livro)
+        const DataBook = await Books.findByPk(id_book)
+        const book = DataBook.dataValues
 
-        if(book && book.estoque > qtd){
+        console.log(type)
 
-            let fromCart = {
-                id_cart: req.session.cart ? req.session.cart.length+1 : 1 ,
-                id_product: id_livro ,
-                type,
-                unidades:qtd
-            }
-            
-            if(!req.session.cart){
-                req.session.cart = [fromCart]
+       if(book.inventory > qtd){
 
-            } else {
-                req.session.cart.push(fromCart)
-            }
-            return res.redirect('/carrinho')
-            
+        let price = 0
+
+        switch (type) {
+            case 'kindle':
+                price = book.kindle_price * parseInt(qtd)
+                break;
+            case 'common':
+                price = book.common_price * parseInt(qtd)
+                break;
+            case 'special':
+                price = book.special_price * parseInt(qtd)
+                break;
+            case 'all-types':
+                price = (book.special_price + book.common_price + book.kindle_price) * parseInt(qtd)
+                break;
+            default:
+                break;
+        }
+          
         }else{
 
             let newError = {error:{msg:"imposível adicionar o livro ao carrinho produto não encontrado"}}
@@ -45,10 +51,9 @@ module.exports = {
     },
     carrinho: (req,res) => {
         const destaque  = produtos.filter( p => p.destaque == 1 ) 
-        const DataProducts = fsCrud.read('../database/data.json')
-        let cartDb = fsCrud.read('../database/cart.json')
-
-        const admin = req.session.usuario 
+        const DataProducts = fsCrud.read('../database/database/data.json')
+        let cartDb = fsCrud.read('../database/database/cart.json')
+      
         let cart = req.session.cart
         let arrayProductsDetails = []
 
@@ -108,7 +113,7 @@ module.exports = {
         res.render('carrinho',{
             destaque,
             produtos:arrayProductsDetails,
-            admin,
+            admin:req.session.admin,
             price:toThousand(valorTotalCompra)
         })
     },

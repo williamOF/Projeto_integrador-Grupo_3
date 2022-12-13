@@ -8,30 +8,30 @@
     <%- include('partials/header')  %> 
     <main class="container">
       <div class="bg-white p-2">
-        <% if(locals.livro) {%>
+        <% if(locals.book) {%>
             <div class="row box-product">
-                <div class="box-img-product ">
-                    <img src="<%= livro.capa %> " alt="" class="img-thumbnail">
+                <div class="box-img-product">
+                    <img src="/img-books/<%= book.front_cover %>" alt="" class="img-thumbnail">
                     <div class="box-product-type p-3 row">
                         <div class="col-6 p-1">
                             <div class="product-type" id="btn-kindle" >
                                 <span>Kindle</span>
-                                <input type="hidden" name="kindle" class="kindle" value="<%= livro.kindle %>">
-                                <strong><%= livro.kindle %> </strong>
+                                <input type="hidden" name="kindle" class="kindle" value="<%= book.kindle_price%>">
+                                <strong><%= book.kindle_price %> </strong>
                             </div>
                         </div>
                         <div class="col-6 p-1">
                             <div class="product-type" id="btn-common">
                                 <span>capa comum</span>
-                                <input type="hidden" name="common" class="common" value="<%= livro.common %>">
-                                <strong><%= livro.common %> </strong>
+                                <input type="hidden" name="common" class="common" value="<%= book.common_price %>">
+                                <strong><%= book.common_price %> </strong>
                             </div>
                         </div>
                         <div class="col-12 p-1">
                             <div class="product-type" id="btn-special">
                                 <span>formato especial</span>
-                                <input type="hidden" name="special" class="special" value="<%= livro.special %>">
-                                <strong><%= livro.especial %> </strong>
+                                <input type="hidden" name="special" class="special" value="<%= book.special_price %>">
+                                <strong><%= book.special_price %> </strong>
                             </div>
                         </div>
                     </div>
@@ -47,10 +47,10 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><%= livro.editora %></td>
-                                    <td><%= livro.idioma %></td>
-                                    <td><%= livro.numero_paginas %></td>
-                                    <td><%= livro.dimensoes %></td>
+                                    <td><%= book.publishing_company %></td>
+                                    <td><%= book.language %></td>
+                                    <td><%= book.number_pages %></td>
+                                    <td><%= book.dimensions %></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -78,9 +78,9 @@
                         </div>
                        <form action="/carrinho/add" method="post" class="form-list-product">
                             <input type="hidden" name="type" class="type-book">
-                            <input type="hidden" name="id_livro" value="<%= livro.id %> " >
+                            <input type="hidden" name="id_book" value="<%= book.id_books %>">
                             <div class="mt-3 mb-3">
-                                <input type="hidden" name="estoque" class="qtd-estoque" value="<%= livro.estoque %> ">
+                                <input type="hidden" name="inventory" class="qtd-estoque" value="<%= book.inventory %>">
                                 <div class="row">
                                     <label for="select" class="status-estoque"></label>
                                     <select name="qtd" id="qtd" class="select-estoque">
@@ -104,22 +104,22 @@
                         <div class="enfase">
                             <strong>Sobre este livro</strong>
                         </div>
-                        <p><%= livro.sinopse %> </p>
+                        <p><%= book.synopsis %></p>
                     </div>
                 </div>
             </div>
         <% } %>
-        <% if(locals.recommend) {%>
+        <% if(locals.emphasis) {%>
             <div class="container border">
                 <div class="row">
                     <div>
                         <h2 class="text-center p-3">Recomendações</h2>
                     </div>
                     <div class="row m-0 p-3">
-                        <% for(let prod of recommend) {%>
-                            <div class="col-4 col-sm col-lg border">
-                                <a href="/showbook/<%= prod.id %> ">
-                                    <img class="w-100" src="<%= prod.capa %> " alt="img-<%= prod.title %> ">    
+                        <% for(let book of emphasis) {%>
+                            <div class="col-4 col-sm col-lg-2 border">
+                                <a href="/showbook/<%= book.id_books %> ">
+                                    <img class="w-100" src="/img-books/<%= book.front_cover %>" alt="img-<%= book.title %>">    
                                 </a>
                             </div>
                         <% } %> 
