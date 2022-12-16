@@ -41,3 +41,27 @@ input{
     align-items: center;
     justify-content: center;
 }
+
+/* login css*/
+
+.createAcc{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    margin: 15px auto 10px auto;
+    padding: 5px;
+    height: 100px;
+}
+.createAcc a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    width: max-content;
+    border: solid rgba(179, 179, 179, 0.664) 1px;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.createAcc a:hover {
+    background-color:#ffc107c0;   
+}

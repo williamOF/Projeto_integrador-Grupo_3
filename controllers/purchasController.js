@@ -1,68 +1,41 @@
-const {Books} = require('../database/models')
+const {Books,Cart} = require('../database/models')
 
 module.exports = {
     add: async (req,res) => {
         const {id_book, type, qtd} = req.body
-        const cart = req.session.cart
+        const admin = req.session.admin
+
+        if(admin){
         
-        const DataBook = await Books.findByPk(id_book)
-        const book = DataBook.dataValues
-        
-       if(book.inventory > qtd){
-            let price = 0
-            let unit_price =0
-            switch (type) {
-                case 'kindle':
-                    price = book.kindle_price * parseInt(qtd)
-                    unit_price = book.kindle_price
-                    break;
-                case 'common':
-                    price = book.common_price * parseInt(qtd)
-                    unit_price = book.common_price
-                    break;
-                case 'special':
-                    price = book.special_price * parseInt(qtd)
-                    unit_price = book.special_price
-                    break;
-                case 'all-types':
-                    price = (book.special_price + book.common_price + book.kindle_price) * parseInt(qtd)
-                    unit_price = (book.special_price + book.common_price + book.kindle_price)
-                    break;
-                default:
-                    break;
-            }
-
-            let inCart = {
-                id_cart: req.session.cart ? req.session.cart.length + 1 : 1 ,
-                purchase_value: price,
-                unit_price,
-                qtd_products: qtd,
-                type_selected: type,
-                id_books:book.id_books
-            } 
-
-            if(cart == undefined){
-                req.session.cart = [inCart]
-            }else{
-                req.session.cart.push(inCart)
-            }
-
-            return res.redirect('/carrinho')
-          
-        }else{
-
-            let newError = {error:{msg:"imposível adicionar o livro ao carrinho produto não encontrado"}}
-            return res.render('error',{
-                error:newError
+            await Cart.create({
+                qtd_items:qtd,
+                type_selected:type,
+                fk_id_books: id_book,
+                fk_id_user: admin.id_user,
             })
+
+        }else{
+            const error = {email:{msg:'faça login para continuar comprando'}}
+            return res.render('login',{errors:error})
         }
 
     },
     carrinho: async (req,res) => {
         const emphasis = await Books.findAll({ where: {genre: 'fiction'}})
-        let cart = req.session.cart
-        console.log(cart)
+       
         let admin = req.session.admin
+
+        if(admin){
+            let cart_user = await Cart.findAll({include:{association:'books'},where:{fk_id_user: admin.id_user}})
+
+           cart_user.forEach(element => {
+                console.log(element.books.dataValues)
+           });
+
+
+        }else{
+          
+        }
        
         res.render('carrinho',{
             emphasis,
@@ -70,6 +43,7 @@ module.exports = {
             admin,
             price:'toThousand(shopping_value)'
         })
+        
     },
     remover: (req,res) =>{
         let {id} = req.params

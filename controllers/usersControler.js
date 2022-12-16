@@ -19,15 +19,15 @@ module.exports = {
 
                 let passwordTru = bcrypt.compareSync(password, user[0].dataValues.password)
                 if(passwordTru){
-
+                    
                     let userData = user[0].dataValues
-
                     let admin = {
+                        id_user : userData.id_user,
                         userName : userData.username,
                         userEmail: userData.email,
                         userAvatar: userData.user_avatar
                     }
-
+                    
                     req.session.admin = admin
 
                     return res.redirect('/')
