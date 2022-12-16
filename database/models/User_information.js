@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) =>{
         },
         full_name:DataTypes.STRING,
         email:DataTypes.STRING,
-        tellphone:DataTypes.STRING,
+        telephone:DataTypes.STRING,
         birth_date:DataTypes.STRING,
         user_cpf:DataTypes.STRING,
         city:DataTypes.STRING,
@@ -16,12 +16,17 @@ module.exports = (sequelize, DataTypes) =>{
         district:DataTypes.STRING,
         road:DataTypes.STRING,
         complements:DataTypes.STRING,
-        users_id_user:DataTypes.INTEGER,
+        fk_id_user:DataTypes.INTEGER,
     },
     {
-        tablename:'user_information',
-        timeStamps: true
+        tableName: "user_information",
+        timestamps: false
     })
+
+    User_information.associate = ( models ) =>{
+        User_information.belongsTo( models.Users ,{foreignKey: "fk_id_user", as:"users" })
+        User_information.hasMany(models.Delivery, {foreignKey: 'fk_id_user_information', as: 'delivery'})
+    }
 
     return User_information 
 }

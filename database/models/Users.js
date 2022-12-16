@@ -17,6 +17,18 @@ const Users = (sequelize, DataTypes) =>{
         user_avatar:DataTypes.STRING
     })
 
+    Users.associate = (models) => {
+        Users.hasMany(models.Cred_card, { foreignKey: 'fk_id_user', as: 'card' })
+        Users.hasMany(models.User_information, {foreignKey: 'fk_id_user', as: 'information'})
+        Users.belongsToMany(models.Books, {
+            as:'cart_item',
+            through: 'cart',
+            foreignKey:'fk_id_books',
+            otherKey: 'fk_id_user',
+            timestamps: false
+        })
+    }
+  
     return Users
 }
 

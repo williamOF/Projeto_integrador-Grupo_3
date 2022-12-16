@@ -10,13 +10,23 @@ module.exports = (sequelize, DataTypes) =>{
         unit_price:DataTypes.FLOAT,
         type_selected:DataTypes.STRING,
         qtd_products:DataTypes.INTEGER,
-        users_id_user:DataTypes.INTEGER,
-        books_id_books:DataTypes.INTEGER
+        fk_id_cart:DataTypes.INTEGER,
     },
     {
-        tablename:'shopping_cart',
+        tableName:'shopping_cart',
         timeStamps: true
     })
 
+    Shopping_cart.associate = (models) => {
+        Shopping_cart.hasMany(models.Payment, {foreignKey: 'fk_id_shopping_cart', as:'payment'})
+        Shopping_cart.belongsTo(models.Cart, {
+            as:'cart',
+            through: 'cart',
+            foreignKey:'fk_id_cart',
+            timestamps: false
+        })
+    }
+
+ 
     return Shopping_cart 
 }

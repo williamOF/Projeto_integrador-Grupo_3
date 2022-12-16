@@ -5,9 +5,6 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema mydb
--- -----------------------------------------------------
--- -----------------------------------------------------
 -- Schema bookshop-of-dreams
 -- -----------------------------------------------------
 
@@ -66,69 +63,44 @@ DEFAULT CHARACTER SET = utf8mb3;
 
 
 -- -----------------------------------------------------
+-- Table `bookshop-of-dreams`.`cart`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `bookshop-of-dreams`.`cart` (
+  `id_cart` INT NOT NULL AUTO_INCREMENT,
+  `status` VARCHAR(45) NULL DEFAULT NULL,
+  `fk_id_books` INT NOT NULL,
+  `fk_id_user` INT NOT NULL,
+  PRIMARY KEY (`id_cart`),
+  INDEX `fk_cart_books1_idx` (`fk_id_books` ASC) VISIBLE,
+  INDEX `fk_cart_users1_idx` (`fk_id_user` ASC) VISIBLE,
+  CONSTRAINT `fk_cart_books1`
+    FOREIGN KEY (`fk_id_books`)
+    REFERENCES `bookshop-of-dreams`.`books` (`id_books`),
+  CONSTRAINT `fk_cart_users1`
+    FOREIGN KEY (`fk_id_user`)
+    REFERENCES `bookshop-of-dreams`.`users` (`id_user`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 9
+DEFAULT CHARACTER SET = utf8mb3;
+
+
+-- -----------------------------------------------------
 -- Table `bookshop-of-dreams`.`cred_card`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `bookshop-of-dreams`.`cred_card` (
-  `id_cred_cart` INT NOT NULL AUTO_INCREMENT,
+  `id_cred_card` INT NOT NULL AUTO_INCREMENT,
   `number` VARCHAR(25) NOT NULL,
   `card_name` VARCHAR(80) NOT NULL,
   `card_cv` VARCHAR(3) NOT NULL,
   `card_validity` VARCHAR(5) NOT NULL,
-  `users_id_user` INT NOT NULL,
-  PRIMARY KEY (`id_cred_cart`),
-  INDEX `fk_cred_cart_users1_idx` (`users_id_user` ASC) VISIBLE,
+  `fk_id_user` INT NOT NULL,
+  PRIMARY KEY (`id_cred_card`),
+  INDEX `fk_cred_cart_users1_idx` (`fk_id_user` ASC) VISIBLE,
   CONSTRAINT `fk_cred_cart_users1`
-    FOREIGN KEY (`users_id_user`)
+    FOREIGN KEY (`fk_id_user`)
     REFERENCES `bookshop-of-dreams`.`users` (`id_user`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb3;
-
-
--- -----------------------------------------------------
--- Table `bookshop-of-dreams`.`shopping_cart`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `bookshop-of-dreams`.`shopping_cart` (
-  `id_shopping_cart` INT NOT NULL AUTO_INCREMENT,
-  `purchase_value` FLOAT NOT NULL,
-  `unit_price` FLOAT NOT NULL,
-  `type_selected` VARCHAR(45) NOT NULL,
-  `qtd_products` INT NOT NULL,
-  `createdAt` TIMESTAMP NULL DEFAULT NULL,
-  `updatedAt` TIMESTAMP NULL DEFAULT NULL,
-  `deletedAt` TIMESTAMP NULL DEFAULT NULL,
-  `users_id_user` INT NOT NULL,
-  `books_id_books` INT NOT NULL,
-  PRIMARY KEY (`id_shopping_cart`),
-  INDEX `fk_shopping_cart_users1_idx` (`users_id_user` ASC) VISIBLE,
-  INDEX `fk_shopping_cart_books1_idx` (`books_id_books` ASC) VISIBLE,
-  CONSTRAINT `fk_shopping_cart_books1`
-    FOREIGN KEY (`books_id_books`)
-    REFERENCES `bookshop-of-dreams`.`books` (`id_books`),
-  CONSTRAINT `fk_shopping_cart_users1`
-    FOREIGN KEY (`users_id_user`)
-    REFERENCES `bookshop-of-dreams`.`users` (`id_user`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb3;
-
-
--- -----------------------------------------------------
--- Table `bookshop-of-dreams`.`payment`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `bookshop-of-dreams`.`payment` (
-  `id_payment` INT NOT NULL AUTO_INCREMENT,
-  `purchase_value` FLOAT NULL DEFAULT NULL,
-  `payment_form` VARCHAR(45) NULL DEFAULT NULL,
-  `payment_authorized` VARCHAR(45) NULL DEFAULT NULL,
-  `shopping_cart_id_shopping_cart` INT NOT NULL,
-  `create_time` TIMESTAMP NULL DEFAULT NULL,
-  `update_time` TIMESTAMP NULL DEFAULT NULL,
-  `deleted_time` TIMESTAMP NULL DEFAULT NULL,
-  PRIMARY KEY (`id_payment`),
-  INDEX `fk_payment_shopping_cart1_idx` (`shopping_cart_id_shopping_cart` ASC) VISIBLE,
-  CONSTRAINT `fk_payment_shopping_cart1`
-    FOREIGN KEY (`shopping_cart_id_shopping_cart`)
-    REFERENCES `bookshop-of-dreams`.`shopping_cart` (`id_shopping_cart`))
-ENGINE = InnoDB
+AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8mb3;
 
 
@@ -148,16 +120,17 @@ CREATE TABLE IF NOT EXISTS `bookshop-of-dreams`.`user_information` (
   `district` VARCHAR(30) NULL DEFAULT NULL,
   `road` VARCHAR(30) NULL DEFAULT NULL,
   `complements` VARCHAR(35) NULL DEFAULT NULL,
-  `users_id_user` INT NOT NULL,
+  `fk_id_user` INT NOT NULL,
   `createdAt` TIMESTAMP NULL DEFAULT NULL,
   `updatedAt` TIMESTAMP NULL DEFAULT NULL,
   `deletedAt` TIMESTAMP NULL DEFAULT NULL,
   PRIMARY KEY (`id_user_information`),
-  INDEX `fk_user_information_users_idx` (`users_id_user` ASC) VISIBLE,
+  INDEX `fk_user_information_users_idx` (`fk_id_user` ASC) VISIBLE,
   CONSTRAINT `fk_user_information_users`
-    FOREIGN KEY (`users_id_user`)
+    FOREIGN KEY (`fk_id_user`)
     REFERENCES `bookshop-of-dreams`.`users` (`id_user`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8mb3;
 
 
@@ -167,21 +140,89 @@ DEFAULT CHARACTER SET = utf8mb3;
 CREATE TABLE IF NOT EXISTS `bookshop-of-dreams`.`delivery` (
   `id_delivery` INT NOT NULL AUTO_INCREMENT,
   `status` VARCHAR(30) NULL DEFAULT NULL,
-  `payment_id_payment` INT NOT NULL,
-  `user_information_id_user_information` INT NOT NULL,
-  `created_time` TIMESTAMP NULL DEFAULT NULL,
-  `update_time` TIMESTAMP NULL DEFAULT NULL,
-  `deleted_time` TIMESTAMP NULL DEFAULT NULL,
-  PRIMARY KEY (`id_delivery`, `payment_id_payment`),
-  INDEX `fk_delivery_payment1_idx` (`payment_id_payment` ASC) VISIBLE,
-  INDEX `fk_delivery_user_information1_idx` (`user_information_id_user_information` ASC) VISIBLE,
-  CONSTRAINT `fk_delivery_payment1`
-    FOREIGN KEY (`payment_id_payment`)
-    REFERENCES `bookshop-of-dreams`.`payment` (`id_payment`),
+  `fk_id_user_information` INT NOT NULL,
+  `createdAt` TIMESTAMP NULL DEFAULT NULL,
+  `updatedAt` TIMESTAMP NULL DEFAULT NULL,
+  `deletedAt` TIMESTAMP NULL DEFAULT NULL,
+  PRIMARY KEY (`id_delivery`),
+  INDEX `fk_delivery_user_information1_idx` (`fk_id_user_information` ASC) VISIBLE,
   CONSTRAINT `fk_delivery_user_information1`
-    FOREIGN KEY (`user_information_id_user_information`)
+    FOREIGN KEY (`fk_id_user_information`)
     REFERENCES `bookshop-of-dreams`.`user_information` (`id_user_information`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 2
+DEFAULT CHARACTER SET = utf8mb3;
+
+
+-- -----------------------------------------------------
+-- Table `bookshop-of-dreams`.`requests`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `bookshop-of-dreams`.`requests` (
+  `id_requests` INT NOT NULL AUTO_INCREMENT,
+  `status` VARCHAR(45) NULL DEFAULT NULL,
+  `fk_id_users` INT NOT NULL,
+  `fk_id_books` INT NOT NULL,
+  PRIMARY KEY (`id_requests`),
+  INDEX `fk_demanded_users1_idx` (`fk_id_users` ASC) VISIBLE,
+  INDEX `fk_id_books_idx` (`fk_id_books` ASC) VISIBLE,
+  CONSTRAINT `fk_id_users`
+    FOREIGN KEY (`fk_id_users`)
+    REFERENCES `bookshop-of-dreams`.`users` (`id_user`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 2
+DEFAULT CHARACTER SET = utf8mb3;
+
+
+-- -----------------------------------------------------
+-- Table `bookshop-of-dreams`.`shopping_cart`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `bookshop-of-dreams`.`shopping_cart` (
+  `id_shopping_cart` INT NOT NULL AUTO_INCREMENT,
+  `purchase_value` DECIMAL(10,0) NOT NULL,
+  `unit_price` DECIMAL(10,0) NOT NULL,
+  `type_selected` VARCHAR(45) NOT NULL,
+  `qtd_products` INT NOT NULL,
+  `fk_id_cart` INT NOT NULL,
+  `createdAt` TIMESTAMP NULL DEFAULT NULL,
+  `updatedAt` TIMESTAMP NULL DEFAULT NULL,
+  `deletedAt` TIMESTAMP NULL DEFAULT NULL,
+  `fk_id_request` INT NULL DEFAULT NULL,
+  PRIMARY KEY (`id_shopping_cart`),
+  INDEX `fk_id_demanded_idx` (`fk_id_cart` ASC) VISIBLE,
+  INDEX `fk_id_request_idx` (`fk_id_request` ASC) VISIBLE,
+  CONSTRAINT `fk_id_request`
+    FOREIGN KEY (`fk_id_request`)
+    REFERENCES `bookshop-of-dreams`.`requests` (`id_requests`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 7
+DEFAULT CHARACTER SET = utf8mb3;
+
+
+-- -----------------------------------------------------
+-- Table `bookshop-of-dreams`.`payment`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `bookshop-of-dreams`.`payment` (
+  `id_payment` INT NOT NULL AUTO_INCREMENT,
+  `purchase_value` FLOAT NULL DEFAULT NULL,
+  `payment_form` VARCHAR(45) NULL DEFAULT NULL,
+  `payment_authorized` VARCHAR(45) NULL DEFAULT NULL,
+  `fk_id_shopping_cart` INT NOT NULL,
+  `createtdAt` TIMESTAMP NULL DEFAULT NULL,
+  `updatedAt` TIMESTAMP NULL DEFAULT NULL,
+  `deletedAt` TIMESTAMP NULL DEFAULT NULL,
+  `fk_id_delivery` INT NULL DEFAULT NULL,
+  `paymentcol` VARCHAR(45) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_payment`),
+  INDEX `fk_payment_shopping_cart1_idx` (`fk_id_shopping_cart` ASC) VISIBLE,
+  INDEX `fk_id_delivery_idx` (`fk_id_delivery` ASC) VISIBLE,
+  CONSTRAINT `fk_id_delivery`
+    FOREIGN KEY (`fk_id_delivery`)
+    REFERENCES `bookshop-of-dreams`.`delivery` (`id_delivery`),
+  CONSTRAINT `fk_payment_shopping_cart1`
+    FOREIGN KEY (`fk_id_shopping_cart`)
+    REFERENCES `bookshop-of-dreams`.`shopping_cart` (`id_shopping_cart`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8mb3;
 
 

@@ -61,6 +61,7 @@ module.exports = {
     carrinho: async (req,res) => {
         const emphasis = await Books.findAll({ where: {genre: 'fiction'}})
         let cart = req.session.cart
+        console.log(cart)
         let admin = req.session.admin
        
         res.render('carrinho',{

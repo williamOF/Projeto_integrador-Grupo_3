@@ -28,9 +28,19 @@ module.exports = (sequelize, DataTypes) =>{
         language:DataTypes.STRING,
     },
     {
-        tablename: 'books',
+        tableName: 'books',
         timeStamps: true
     })
+
+    Books.associate = (models) => {
+        Books.belongsToMany(models.Users, {
+            as:'cart_user',
+            through: 'cart',
+            foreignKey:'fk_id_user',
+            otherKey: 'fk_id_books',
+            timestamps: false
+        })
+    }
 
     return Books
 }

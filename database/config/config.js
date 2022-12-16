@@ -1,6 +1,6 @@
 require('dotenv').config()
 
-module.exports ={
+module.exports = {
     "username": process.env.DBUSER,
     "password": process.env.DBPASS,
     "port": process.env.DBPORT,
