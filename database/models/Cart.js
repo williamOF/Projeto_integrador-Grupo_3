@@ -6,6 +6,8 @@ module.exports = (sequelize, DataTypes) =>{
             autoIncrement:true,
             allowNull:false
         },
+        item_price:DataTypes.DECIMAL,
+        request_price:DataTypes.DECIMAL,
         qtd_items:DataTypes.INTEGER,
         type_selected:DataTypes.STRING,
         fk_id_books:DataTypes.INTEGER,

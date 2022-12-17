@@ -11,38 +11,36 @@
             <div>
                 <div>
                     <h2 class="text-center p-3">carrinho</h2>
-                        <% if(locals.shopping_cart.length > 0) {%>
+                        <% if(locals.products.length > 0) {%>
                             <div class="row flex-center ">
-                                <% for(let item of shopping_cart){%>
+                                <% for(let item of products){%>
                                     <div class="col-8 flex-center p-2 m-2 border">
                                         <div class="col-4">
-                                            <img class="w-100" src="/img-books/ " alt="capa-livro<%= %> ">
+                                            <img class="w-100" src="/img-books/<%= item.books.front_cover   %>  " alt="capa-livro<%= %> ">
                                         </div>
                                         <div class="container" >
                                             <div class="flex-center flex-column  p-2">
-                                                <h2><%= %> </h2>
-                                                <p>Editora: <%= %> </p>
-                                                <p>Em Estoque: <% %> unidades </p>
-                                                <p>para presente:
-                                                    <input type="checkbox" name="para_presente" value="">
-                                                </p>
+                                                <h2><%= item.books.title %> </h2>
+                                                <p>Editora: <%=item.books.publishing_company %> </p>
+                                                <p>Disnopível</p>
+                                                
                                                 <div class="d-flex p-2 flex-column border">
                                                         <div>
                                                             <label for="qtd">quantidade:</label>
-                                                            <input type="number" style="width: 50px;" disabled name="qtd" min="1" value="<%= item.qtd_products %>">
+                                                            <input type="number" style="width: 50px;" disabled name="qtd" min="1" value="<%= item.qtd_items %>">
                                                         </div>
                                                 </div>
                                                 <div>
-                                                    <span>Tipo de livro: <strong><%= %></strong> </span>
+                                                    <span>Tipo de livro: <strong><%= item.type_selected %></strong> </span>
                                                 </div>
                                                 <span class="p-3">valor da unidade: 
-                                                    R$ <%= %> 
+                                                    R$ <%= item.item_price %> 
                                                 </span>
                                                 <span class="p-3">valor do pedido: 
-                                                    R$ <%= %> 
+                                                    R$ <%= item.request_price %> 
                                                 </span>
                                                 <div>
-                                                    <form action="/carrinho/remover/<%= %>?_method=DELETE " method="post">
+                                                    <form action="/carrinho/remover/<%= item.id_cart %>?_method=DELETE " method="post">
                                                         <button class="btn btn-danger">Remover</button>
                                                     </form>
                                                 </div>
@@ -52,6 +50,12 @@
                                 <% } %> 
                             </div>
                                 <div class="innerPrice flex-center ">
+                                    <div>
+                                        <form action="/carrinho/clean" method="get ">
+                                            <h2>limpar carrinho</h2>
+                                            <button class="btn btn-danger">Limpar</button>
+                                        </form>
+                                    </div>
                                     <div class="border p-5 text-center">
                                         <form action="/carrinho/finalizar" method="post">
                                             <h2>finalize o pedido</h2>
