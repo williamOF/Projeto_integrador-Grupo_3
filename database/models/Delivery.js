@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) =>{
     })
 
     Delivery.associate = (models) => {
-        Delivery.belongsTo(models.User_information, {foreignKey:'fk_id_user_information',as:'user_information'})
+       
         Delivery.hasMany(models.Payment, {foreignKey:'fk_id_delivery', as:'payment'})
      }
 

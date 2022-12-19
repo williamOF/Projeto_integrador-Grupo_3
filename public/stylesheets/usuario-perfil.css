@@ -82,3 +82,9 @@
     text-align: center;
     border-bottom: black 2px solid;
 }   
+
+
+/*avatar do usuario*/
+.avatar{
+    border-radius: 100%;
+}

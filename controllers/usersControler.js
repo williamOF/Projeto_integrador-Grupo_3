@@ -2,7 +2,7 @@ const bcrypt = require('bcrypt')
 const {validationResult} = require('express-validator')
 
 //************---Models required ---***************/
-const {Users, Books} = require ('../database/models')
+const {Users, Books, User_information} = require ('../database/models')
 
 module.exports = {
     loginGet : (req,res) => {
@@ -84,15 +84,85 @@ module.exports = {
             }
         }
     },
-    perfilGet:(req,res)=>{
+    perfilGet: async (req,res)=>{
+        let admin = req.session.admin
 
-        if(req.session.admin){
-            res.render('usuario-perfil',{admin: req.session.admin})
+        if(admin){
+
+            let id = admin.id_user
+            let user = await Users.findByPk(id,{ include:{association:'information'} })
+            let info = user.information
+
+            if(info.length == 0 ){
+                console.log('nada ')
+                let info = [{
+                    dataValues:{
+                        full_name:null,
+                        email:null,
+                        telephone:null,
+                        birth_date:null,
+                        user_cpf:null,
+                        state:null,
+                        city:null,
+                        district:null,
+                        road:null,
+                        complements:null}
+                }]
+                return res.render('usuario-perfil',{admin, user, info})
+            }
+
+            res.render('usuario-perfil',{admin,user,info })
+
         }else{
             const error  = { type :{msg:'Página de perfil não autoriazada por favor faça o login antes !'}}
             res.render('error',{error})
         }
         
+    },
+    perfilPost: async (req,res) =>{
+        let {full_name, email, telephone, birth_date, user_cpf, state, city, district, road, complements} = req.body
+        
+        let admin = req.session.admin
+
+        if(admin){
+            let id = admin.id_user
+            let user = await Users.findByPk(id,{ include:{association:'information'}})
+            let info = user.information
+            if(info.length == 0){
+                
+                let infoUser = await User_information.create({
+                    full_name,
+                    email,
+                    telephone,
+                    birth_date,
+                    user_cpf,
+                    state,
+                    city,
+                    district,
+                    road,
+                    complements,
+                    fk_id_user:admin.id_user
+                })
+                await infoUser.save()
+            }else{
+                let updateInfo = await User_information.update({
+                    full_name,
+                    email,
+                    telephone,
+                    birth_date,
+                    user_cpf,
+                    state,
+                    city,
+                    district,
+                    road,
+                    complements
+                },{
+                    where:{ fk_id_user: admin.id_user }
+                })
+            }
+        }
+       return res.redirect('/user/perfil')
+
     },
     adminProductsGet: (req,res)=>{
 

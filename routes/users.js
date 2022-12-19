@@ -17,6 +17,9 @@ router.post('/', checkFields.login, usersControler.loginPost)
 router.get('/sair',usersControler.sair)
 
 router.get('/perfil', usersControler.perfilGet)
+router.post('/perfil', usersControler.perfilPost)
+
+
 router.get('/perfil/admin', usersControler.adminProductsGet)
 router.post('/perfil/admin', uploadBookImg.single('front_cover'), checkFields.checkBook, usersControler.adminProductsPost)
 

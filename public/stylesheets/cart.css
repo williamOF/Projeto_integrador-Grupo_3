@@ -85,7 +85,6 @@
     margin: 20px 0 0 0;
 }
 
-
 @media screen and (max-width: 700px){
     .conteudo{
         display: flex;
@@ -94,7 +93,6 @@
         width: 100%;
     }
 }
-
 
 @media screen and (max-width: 575px){
     .box-pedido{
