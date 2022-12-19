@@ -29,7 +29,12 @@ module.exports = {
                     }
                     
                     req.session.admin = admin
-
+                    
+                    let admPage = user[0].dataValues.admin
+                    if(admPage){
+                        return res.redirect('/user/perfil/admin')
+                    }
+                   
                     return res.redirect('/')
 
                 }else{

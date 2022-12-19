@@ -14,7 +14,8 @@ const Users = (sequelize, DataTypes) =>{
         },
         password:DataTypes.STRING,
         username:DataTypes.STRING,
-        user_avatar:DataTypes.STRING
+        user_avatar:DataTypes.STRING,
+        admin:DataTypes.STRING,
     })
 
     Users.associate = (models) => {
