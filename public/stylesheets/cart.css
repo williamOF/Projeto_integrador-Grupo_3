@@ -1,35 +1,104 @@
-*{
-    padding: 0;
+
+/*back ground da pagina*/
+.bg-page{
+    background-color: #fff;
 }
-.flex-center{
+
+/*box do conteudo do carrinho e finalização de pedido*/
+.d-page{
+    display: flex;
+    justify-content: space-around;
+    align-items:  flex-start;
+}
+
+/*conteudo do carrinho*/
+.conteudo{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin-bottom: 15px;
+    box-shadow: 0px 0px 15px #ddd;
+    padding: 5px;
+}
+
+/*box pedido*/
+.box-pedido{
+    padding: 5px;
+    margin-right: 15px;
+    text-align: center;
+    box-shadow: 0px 0px 15px #ddd;
+}
+.text-pedido{
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+}
+.bt-pedido{
+    margin: 10px auto 10px auto;
+}
+
+/*formatação da imagem dos livros em carrinho*/
+.c-img-box{
+    width: 175px;
+}
+
+/*formatação das descrições dos livros em carrinho*/
+.list-normal{
+    list-style: none;
+}
+.title-book{
+    display: flex;
+    flex-direction: column;
+}
+.title-book span{
+    font-weight: 600;
+    font-size: 18pt;
+}
+.title-book label{
+    font-size: 12pt;
+    font-weight: 600;
+    color: rgb(136, 135, 135);
+}
+
+/*formatação para links na pagina*/
+.link-normal{
+    text-decoration: none;
+    font-weight: 500;
+    color: black;
+    transition: all 200ms;
+}
+.link-normal:hover{
+    color: red;
+}
+.a-link:hover{
+    font-weight: 700;
+}
+.text-msg{
+    text-align: center;
+    width: 400px;
+    height: 400px;
+}
+.centralize{
     display: flex;
     align-items: center;
     justify-content: center;
-}
-p{
-    font-size: 10pt;
-}
-h2{
-    font-size: 14pt;
-}
-.innerPrice{
-    height: 300px;
-}
-.innerPrice a{
-    margin-top: 25px;
-}
-.btn{
-    width: 150px;
-    color: #fff;
-}
-.btn:hover{
-    box-shadow: 0px 0px 15px rgba(0, 0, 0,.2);
-}
-.bt-number{
-    border: none;
-    width: 50px;
-    background-color: rgba(0, 0, 0, 0);
-    margin-left: 5px;
-    cursor: pointer;
+    margin: 20px 0 0 0;
 }
 
+
+@media screen and (max-width: 700px){
+    .conteudo{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+    }
+}
+
+
+@media screen and (max-width: 575px){
+    .box-pedido{
+        width: 80%;
+        margin: auto;
+    }
+}

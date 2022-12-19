@@ -7,97 +7,87 @@
 <body>
     <%- include('partials/header') %> 
     <main class="container ">
-        <div class="bg-white">
-            <div>
-                <div>
-                    <h2 class="text-center p-3">carrinho</h2>
-                        <% if(locals.products.length > 0) {%>
-                            <div class="row flex-center ">
-                                <% for(let item of products){%>
-                                    <div class="col-8 flex-center p-2 m-2 border">
-                                        <div class="col-4">
-                                            <img class="w-100" src="/img-books/<%= item.books.front_cover   %>  " alt="capa-livro<%= %> ">
-                                        </div>
-                                        <div class="container" >
-                                            <div class="flex-center flex-column  p-2">
-                                                <h2><%= item.books.title %> </h2>
-                                                <p>Editora: <%=item.books.publishing_company %> </p>
-                                                <p>Disnopível</p>
-                                                
-                                                <div class="d-flex p-2 flex-column border">
-                                                        <div>
-                                                            <label for="qtd">quantidade:</label>
-                                                            <input type="number" style="width: 50px;" disabled name="qtd" min="1" value="<%= item.qtd_items %>">
-                                                        </div>
-                                                </div>
-                                                <div>
-                                                    <span>Tipo de livro: <strong><%= item.type_selected %></strong> </span>
-                                                </div>
-                                                <span class="p-3">valor da unidade: 
-                                                    R$ <%= item.item_price %> 
-                                                </span>
-                                                <span class="p-3">valor do pedido: 
-                                                    R$ <%= item.request_price %> 
-                                                </span>
-                                                <div>
-                                                    <form action="/carrinho/remover/<%= item.id_cart %>?_method=DELETE " method="post">
-                                                        <button class="btn btn-danger">Remover</button>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
+        <div class="bg-page">
+            <div class="p-2"></div>
+            <div class="container ">
+                <% if(locals.products.length > 0) {%>
+                    <form action="#" method="post">
+                        <div class="row d-flex align-items-center justify-content-center">
+                            <% for(let item of products){%>
+                                <div class="conteudo col-10">
+                                    <div class="c-img-box">
+                                        <img class="w-100" src="/img-books/<%= item.books.front_cover %>" alt="capa-livro<%= %> ">
                                     </div>
-                                <% } %> 
-                            </div>
-                                <div class="innerPrice flex-center ">
                                     <div>
-                                        <form action="/carrinho/clean" method="get ">
-                                            <h2>limpar carrinho</h2>
-                                            <button class="btn btn-danger">Limpar</button>
-                                        </form>
+                                        <ul class="list-normal">
+                                            <li class="title-book">
+                                                <span><%= item.books.title %></span>
+                                                <label>Por -<%=item.books.author %></label>
+                                            </li>
+                                            <li>
+                                                <span><strong><%= item.type_selected %></strong></span>
+                                            </li>
+                                            <li>
+                                                <span>preço da unidade <strong><%= item.item_price %></strong></span>
+                                            </li>
+                                            <li>
+                                                <span>valor do pedido <strong>R$ <%= item.request_price %></strong></span>
+                                            </li>
+                                            <li>
+                                                <span>
+                                                    Qtd: <strong><%= item.qtd_items %> | </strong>
+                                                </span>
+                                                <a href="/carrinho/remover/<% item.id_cart %>" class="link-normal">remover</a>
+                                            </li>
+                                        </ul>
                                     </div>
-                                    <div class="border p-5 text-center">
-                                        <form action="/carrinho/finalizar" method="post">
-                                            <h2>finalize o pedido</h2>
-                                            <div>
-                                            </div>
-                                            <% if(locals.price) {%>
-                                                <p>valor total: R$ <%= price %> </p>
-                                            <% } %> 
-                                            <button type="submit" class="btn btn-info">comprar</button>
-                                            <div>
-                                                <a class="btn btn-warning" href="/biblioteca">adicionar mais</a>
-                                            </div>
-                                        </form>
+                                </div>
+                            <% } %>
+                            <div class="col-10 text-end">
+                                <a href="/carrinho/clean" class="link-normal">Limpar carrinho</a>
+                            </div> 
+                            <div class="col-6 box-pedido mb-5">
+                                <div>
+                                    <div class="text-pedido">
+                                        <h4>Finalize o seu pedido</h4>
+                                        <div>
+                                            <p>frete gratis, na primeira compra!</p>
+                                            
+                                            <span>Total: <strong> R$ <%= price %></strong> </span>
+                                        </div>
                                     </div>
-                                </div> 
-                        <% }else{%>
-                            <div class=" d-flex border m-2">
-                                <div style="height: 200px;" class="w-100 pb-1 d-flex align-items-center justify-content-center">
-                                    <div class="p-2 border">
-                                        <a class="link btn btn-info" href="/biblioteca">Adicione livros ao carrinho</a>    
+                                    
+                                    <div class="bt-pedido">
+                                        <a href="/carrinho/finalizar" class="btn btn-info">Finalizar pedido</a>
+                                    </div>
+                                    <div class="bt-pedido mt-3">
+                                        <a href="/biblioteca" class="nav-link a-link" >Continuar comprando</a>
                                     </div>
                                 </div>
                             </div>
-                        <% } %> 
-                   
-                </div>
-                <div class="row flex-center">
-                   
-                </div>
-            </div>
-            <div class="mt-5 mb-5"></div>
-            <div class="container border">
-                <div class="row">
-                    <div>
-                        <h2 class="text-center p-3">destaques do dia</h2>
+                        </div>
+                    </form>
+                  
+                <% }else{%>
+                    <div class="centralize">
+                        <div class="text-msg">
+                            <p>Opa! Acabei de ver aqui você ainda não possui nenhum item em seu carrinho, mas não desanime, vá agora mesmo encontrar o seu mais novo companheiro. e desfrute de histórias apaixonantes e vibrantes.</p>
+                            <a class="link btn btn-info" href="/biblioteca">Encontrar livro</a>    
+                        </div>
                     </div>
-                    <div class="row p-3 m-0">
+                <% } %> 
+            </div>
+            <div>
+                <div>
+                    <div class="text-center">
+                        <h4>adicionados recentemente</h4>
+                    </div>
+                    <div class="row centralize border">
                         <% if(locals.emphasis) {%>
                             <% for(let product of emphasis) {%>
-                                <div class="col-4 col-sm col-lg border">
-                                    <a href="/showbook/<%= product.id_books %> ">
-                                        <img class="w-100" src="/img-books/<%= product.front_cover %> " alt="Capa livro <%= product.title %> ">    
+                                <div class="col-2">
+                                    <a href="/showbook/<%= product.id_books %>" class="img-box-max">
+                                        <img class="w-100" src="/img-books/<%= product.front_cover %>" alt="Capa livro <%= product.title %>">    
                                     </a>
                                 </div>
                             <% } %> 
