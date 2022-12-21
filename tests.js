@@ -1,8 +1,8 @@
-const { Users,Books ,User_information, Delivery, Cred_card,Payment,Shopping_cart,Cart } = require('./database/models')
+const { Users,Books ,User_information,Cred_card, Cart,Purchase } = require('./database/models')
 
 const teste = async () =>{
 
-   const modelsTeste = await Shopping_cart.findAll({include:{association:'payment'}})
+   const modelsTeste = await Purchase.findAll()
 
     //const modelsTeste = await Payment.findAll()
     console.log(modelsTeste)

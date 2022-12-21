@@ -15,7 +15,7 @@ router.get('/carrinho', purchasController.carrinho)
 router.post('/carrinho/add', purchasController.add)
 router.get('/carrinho/finalizar', purchasController.finalizar)
 
-router.delete('/carrinho/remover/:id', purchasController.remover)
+router.get('/carrinho/remover/:id', purchasController.remover)
 router.get('/carrinho/clean', purchasController.clean)
 
 module.exports = router;
