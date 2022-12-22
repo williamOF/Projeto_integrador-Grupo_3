@@ -64,9 +64,10 @@ module.exports = {
     },
     clean: async (req, res) => {
         let admin = req.session.admin
+        console.log('limpe tudo ')
 
         if(admin){
-            await Cart.destroy({where:{fk_id_user:admin.id_user}})
+            await Cart.destroy({where:{fk_id_user: admin.id_user,status:'pending'}})
         }
         
         res.redirect('/carrinho')
