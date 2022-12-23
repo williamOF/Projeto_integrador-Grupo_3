@@ -44,7 +44,8 @@
 
 .side-right{
     display: flex;
-    flex-direction: column;
+    height: 100%;
+    flex-direction: flex;
     justify-content: center;
     align-items: center;
 }
@@ -87,4 +88,11 @@
 /*avatar do usuario*/
 .avatar{
     border-radius: 100%;
+}
+
+/*box de espaço para perfil do usuario*/
+
+.box-space{
+    height: 30vh;
+    width: 100%;
 }

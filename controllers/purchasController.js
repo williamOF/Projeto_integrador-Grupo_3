@@ -1,4 +1,4 @@
-const {Books, Cart, Purchase} = require('../database/models')
+const {Books, Cart} = require('../database/models')
 
 /* functions is exported */
 const cal_price = require('../functions/calc_price_book')
@@ -64,7 +64,6 @@ module.exports = {
     },
     clean: async (req, res) => {
         let admin = req.session.admin
-        console.log('limpe tudo ')
 
         if(admin){
             await Cart.destroy({where:{fk_id_user: admin.id_user,status:'pending'}})
@@ -81,30 +80,20 @@ module.exports = {
             
             for(let item of cart){
                 if(item.books.inventory > item.qtd_items){
+
+                    //subtraia items do estoque e atualize os dados no banco de dados
                     let subInventory = item.books.inventory - item.qtd_items
                     await Books.update({inventory:subInventory},{where:{id_books:item.books.id_books}})
                 
-                    await Purchase.create({
-                        fk_id_cart: item.id_cart,
-                        purchase_value: item.request_price,
-                        form_payment: 'boleto',
-                        status_payment: 'approved',
-                        status_delivery: 'acaminho'
-                    })
-
                     await Cart.update({
-                        status:'approved'
+                        status:'approved',
+                        form_payment: 'boleto',
+                        status_payment: 'aprovado',
+                        status_delivery: 'acaminho'
                     }, {where: {id_cart:item.id_cart} })
-
-                    return res.render('pedido')
-                   
-                }else{
-                    let error = {msg:{error:'não tem quantidades suficientes no stoque'}}
-                    //return res.render('error',{errors:error})
-                    return  console.log(error)
                 }
-
             }
+            return res.redirect('/')
         }
     }
 }

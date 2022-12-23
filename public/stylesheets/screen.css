@@ -21,3 +21,30 @@
     }
     
 }
+/*perfil de usuario scren*/
+/*---- formatação do box-space ---*/
+@media screen and (max-width: 700px){
+  .box-space{
+    height: 0vh !important;
+    width: 100%;
+  }
+  .box-perfil{
+    flex-direction: column;
+  }
+  .side-left{
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  .avatar-usuario img{
+    display: none;
+  }
+  .avatar-usuario{
+    margin-bottom: 0 !important;
+  }
+  .menu{
+    flex-direction: row !important;
+  }
+  .side-right{
+    width: 100%;
+  }
+}

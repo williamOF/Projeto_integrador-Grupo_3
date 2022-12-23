@@ -11,21 +11,21 @@
     <main class="container">
         <div class="box-perfil">
             <div class="side-left col-4">
-
                 <div class="avatar-usuario col-8" >
                     <img src="/images/users/<%= user.user_avatar %> " alt="avatar-usuario" class="avatar">
                     <h2><%= user.username %> </h2>
-                    <div>
+                    <div style="display: none ;">
                         <a href="/user/perfil/admin" class="btn btn-warning">Pagina do administrador</a>
                     </div>
                 </div>
                 <div>
                     <ul class="nav flex-column menu">
-                        <li><a class="nav-link btn btn-info carrinho" href="#">Meu carrinho</a></li>
-                        <li><a class="nav-link btn btn-info pedidos" href="#">Meus pedido</a></li>
-                        <li><a class="nav-link btn btn-info perfil-info" href="#">Minhas informaçoes</a></li>
+                        <li><a class="nav-link btn btn-info carrinho" href="#">Carrinho</a></li>
+                        <li><a class="nav-link btn btn-info pedidos" href="#">Pedido</a></li>
+                        <li><a class="nav-link btn btn-info perfil-info" href="#">usuario Info</a></li>
                     </ul>
                 </div>
+                <div class="box-space"></div>
             </div>
             <div class="side-right col-8 ">
                 <div class="box-pedidos">
@@ -33,12 +33,31 @@
                         <h2>Todos os Pedidos</h2>
                     </div>
                     <div class="pedidos-list">
-                        <ul class="nav">
-                            <li class="nav-item col-4">Número do pedido</li>
-                            <li class="nav-item col-3" >Pagamento</li>
-                            <li class="nav-item col-2">status</li>
-                            <li class="nav-item col-2">Data</li>
-                        </ul>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>N°</th>
+                                    <th>Livro</th>
+                                    <th>Pagamento</th>
+                                    <th>Valor</th>
+                                    <th>Entrega</th>
+                                </tr>
+                                <tbody>
+                                    <% if(locals.approvedCart) {%>
+                                        <% approvedCart.forEach(element => {%>
+                                            <tr>
+                                                <td><%= element.id_cart %></td>
+                                                <td><%= element.books.title %></td>
+                                                <td><%= element.status_payment %></td>
+                                                <td><%= element.request_price %></td>
+                                                <td><%= element.status_delivery %></td>
+                                                
+                                            </tr>
+                                        <%});%> 
+                                    <% } %>  
+                                </tbody>
+                            </thead>
+                        </table>
                     </div>
                 </div>
                 <div id="box-info" class="none col-12"><%- include('partials/user/painel-info') %></div>

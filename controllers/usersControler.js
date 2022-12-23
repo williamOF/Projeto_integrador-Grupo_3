@@ -2,7 +2,7 @@ const bcrypt = require('bcrypt')
 const {validationResult} = require('express-validator')
 
 //************---Models required ---***************/
-const {Users, Books, User_information} = require ('../database/models')
+const {Users, Books, User_information, Cart } = require ('../database/models')
 
 module.exports = {
     loginGet : (req,res) => {
@@ -96,28 +96,25 @@ module.exports = {
 
             let id = admin.id_user
             let user = await Users.findByPk(id,{ include:{association:'information'} })
-            let info = user.information
+            //carrinho com pedidos aprovados
+            let approvedCart = await Cart.findAll({include:{association:'books'},where:{fk_id_user: admin.id_user,status:'approved'}} )
+            
+            //carrinho de pedidos ainda nao pagos
+            let cart = await Cart.findAll({include:{association:'books'},where:{fk_id_user: admin.id_user,status:'pending'}} )
+            for(let i of cart){
+                console.log(i)
 
-            if(info.length == 0 ){
-                console.log('nada ')
-                let info = [{
-                    dataValues:{
-                        full_name:null,
-                        email:null,
-                        telephone:null,
-                        birth_date:null,
-                        user_cpf:null,
-                        state:null,
-                        city:null,
-                        district:null,
-                        road:null,
-                        complements:null}
-                }]
-                return res.render('usuario-perfil',{admin, user, info})
             }
 
-            res.render('usuario-perfil',{admin,user,info })
+            let info = user.information
+            let purchase = approvedCart
+            
+            if(info.length == 0 && purchase.length == 0 ){
+                return res.render('usuario-perfil',{admin, user})
+            }
 
+            res.render('usuario-perfil',{admin,user,info, approvedCart, cart})
+            
         }else{
             const error  = { type :{msg:'Página de perfil não autoriazada por favor faça o login antes !'}}
             res.render('error',{error})

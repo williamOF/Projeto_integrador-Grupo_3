@@ -1,54 +1,43 @@
-<div>
-    <h2 class="text-center p-3">carrinho</h2>
-        <% if(typeof livros !== 'undefined') {%>
-            <div class="row flex-center ">
-                <% for(let p of livros) {%>
-                    <div class="col-8 flex-center p-2 m-2 border">
-                        <div class="col-4">
-                            <img class="w-100" src="<%= p.capa %> " alt="capa-livro<%= p.titulo %> ">
-                        </div>
-                        <div class="container" >
-                            <div class="flex-center flex-column border p-2">
-                                <h2><%= p.titulo %> </h2>
-                                <p>Editora: <%=p.editora %> </p>
-                                <p>Em Estoque: <%= p.estoque %> unidades </p>
-                                <p>para presente:
-                                    <input type="checkbox" name="para_presente" value="">
-                                </p>
-                                <div class="d-flex p-2 flex-column border">
-                                        <div>
-                                            <label for="qtd">quantidade:</label>
-                                            <input type="number" style="width: 50px;" name="qtd" min="1" value="<%= p.qtd_unidades %>">
-                                        </div>
-                                </div>
-                                <span class="p-3">valor da unidade: 
-                                    <%= toThousand(p.type_price) %>R$ 
-                                </span>
-                                <div>
-                                    <form action="/carrinho/remover/<%= p.id %>?_method=DELETE " method="post">
-                                        <button class="btn btn-info">Remover</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                <% } %> 
+<div class="d-flex aligin-items-center justify-content-center">
+    <% if(typeof cart != 'undefined' && cart.length != 0 ) {%>
+        <div class="box-pedidos">
+            <div class="pedidos-titulo">
+                <h2>Carrinho</h2>
             </div>
-                <div class="innerPrice flex-center ">
-                    <div class="border p-5 text-center">
-                        <h2>finalize o pedido</h2>
-                        <p>valor total:<%= valTotal %>  R$</p>
-                        <a href="/carrinho/finalizar" class="btn btn-info">comprar</a>
-                        <a class="btn btn-info" href="/biblioteca">adicionar mais</a>
-                    </div>
-                </div> 
-        <% }else{%>
-            <div class=" d-flex border m-2">
-                <div style="height: 200px;" class="w-100 pb-1 d-flex align-items-center justify-content-center">
-                    <div class="p-2 border">
-                        <a class="link btn btn-info" href="/biblioteca">Adicione livros ao carrinho</a>    
-                    </div>
-                </div>
+            <div class="pedidos-list">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>qtd</th>
+                            <th>titulo</th>
+                            <th>valor</th>
+                            <th>pagamento</th>
+                            <th>remover</th>
+                            <th>comprar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(let item of cart) {%>
+                            <tr>
+                                <td><%= item.qtd_items %></td>
+                                <td><%= item.books.title %></td>
+                                <td><%= item.request_price %></td>
+                                <td><%= item.status %></td>
+                                <td><a href="/carrinho/remover/<%= item.id_cart %>" class="btn  btn-danger">excluir</a></td>
+                                <td><a href="/carrinho/finalizar" class="btn  btn-info">comprar</a></td>
+                            </tr>
+                        <% } %> 
+                    </tbody>
+                </table>
             </div>
-        <% } %> 
+        </div>
+    <% }else{ %>
+        <div >
+            <div class="text-center border m-5 p-3">
+                <p>Opa! Acabei de ver aqui você ainda não possui nenhum item em seu carrinho, mas não desanime, vá agora mesmo encontrar o seu mais novo companheiro. e desfrute de histórias apaixonantes e vibrantes.</p>
+                <a class=" btn btn-info" href="/biblioteca">Encontrar livro</a>    
+            </div>
+            <div style="height: 200px;"></div>
+        </div>
+    <% } %> 
 </div>
