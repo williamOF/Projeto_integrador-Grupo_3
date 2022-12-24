@@ -11,6 +11,9 @@
   background-color: var(--bg-alfa);
   box-shadow:  1px 1px 10px solid var(--bg-alfa) ;
 }
+.bg-page{
+  background: #fff !important;
+}
 
 main{
   padding: 10px;

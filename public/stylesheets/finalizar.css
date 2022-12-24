@@ -1,0 +1,25 @@
+.metodo-pag input{
+    display: none;
+}
+
+.metodo-pag label{
+    width: 100%;
+    height: 35px;
+    margin: 10px auto 10px auto;
+    cursor: pointer;
+}   
+
+.metodo-pag label{
+    background-color: #fff;
+    text-align: center;
+    font-weight: 700;
+    color: #F8A458;
+    border: 1px solid #F8A458;
+}
+.btn-checked{
+    background-color: #F8A458 !important;
+    color: #fff !important;
+}
+.metodo-pag label::selection{
+    display: none;
+}

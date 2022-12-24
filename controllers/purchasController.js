@@ -71,7 +71,7 @@ module.exports = {
         
         res.redirect('/carrinho')
     },
-    finalizar: async (req,res) => {
+    pedido: async (req,res) => {
         let admin = req.session.admin
 
         if(admin){
@@ -93,8 +93,11 @@ module.exports = {
                     }, {where: {id_cart:item.id_cart} })
                 }
             }
-            return res.redirect('/')
+            return res.redirect('/carrinho/pedido/finalizar')
         }
+    },
+    finalizar: async (req,res) => {
+        res.render('finalizar')
     }
 }
 

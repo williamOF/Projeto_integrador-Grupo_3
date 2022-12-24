@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<%- include('partials/head.ejs') %>
+<link rel="stylesheet" href="/stylesheets/finalizar.css">
+<body>
+  <%- include('partials/header.ejs') %> 
+  <main class="container">
+    <div class="bg-page">
+        <form action="#" method="post">
+            <div class="d-flex align-items-center justify-content-around w-100 p-3">
+                <div class="metodo-pag col-2 text-center">
+                    <span><strong>Forma de pagamento</strong></span>
+                    <div>
+                        <label for="op1" id="pix">PIX</label>
+                       <input type="radio" name="opt" value="pix" id="op1">
+                    </div>
+                    <div>
+                        <label for="op2" id="bol">BOLETO</label>
+                       <input type="radio" name="opt" value="boleto" id="op2">
+                    </div>
+                    <div>
+                        <label for="op3" id="car">CARTAO</label>
+                       <input type="radio" name="opt" value="cartao" id="op3">
+                    </div>
+                </div>
+                <div class="border p-3 col-9" >
+                    <span>INFORMAÇÕES DO SEU PEDIDO</span>
+                    <div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>DADOS PESSOAIS</th>
+                                    <th>ENDEREÇÕ DE ENTREGA</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>nome do usuario aqui</td>
+                                    <td>Rua:</td>
+                                </tr>
+                                <tr>
+                                    <td>CPF/CPNJ:</td>
+                                    <td>Número:</td>
+                                </tr>
+                                <tr>
+                                    <td>RG:</td>
+                                    <td>Bairro:</td>
+                                </tr>
+                                <tr>
+                                    <td>Telefone:</td>
+                                    <td>Cidade:</td>
+                                </tr>
+                                <tr>
+                                    <td>E-Email:</td>
+                                    <td>CEP:</td>
+                                </tr>
+                                <tr>
+                                    <td>CEP:</td>
+                                    <td>Complemento:</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>LISTA DE PRODUTOS</th>
+                                    <th>Preço</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Titulo do livro</td>
+                                    <td>R$ 15.00</td>
+                                </tr>
+                                <tr>
+                                    <td>Titulo do livro</td>
+                                    <td>R$ 15.00</td>
+                                </tr>
+                                <tr>
+                                    <td>Titulo do livro</td>
+                                    <td>R$: 15.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="text-center">
+                        <div>
+                            <span>TOTAL DA SUA COMPRA</span>
+                            <SPAN>R$: 45.00</SPAN>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-info">PAGAR</button>
+                        </div>
+                    </div>
+                </div>
+                </div>
+        </form>
+    </div>
+  </main>
+  <%- include('partials/footer') %> 
+  <script src="/js/finalizar.js"></script>
+  </body>
+</html>
