@@ -139,6 +139,10 @@ module.exports = {
             .isLength({min:11}).withMessage('informe um número de telefone válido'),
 
         check('birth_date').notEmpty().withMessage('*o campo não pode estar vazio! ').bail(),
+
+        check('user_rg').notEmpty().withMessage('*o campo não pode estar vazio! ').bail(),
+
+        check('number').notEmpty().withMessage('*o campo não pode estar vazio! ').bail(),
         
         check('cep').notEmpty().withMessage('*o campo não pode estar vazio! ').bail(),
 

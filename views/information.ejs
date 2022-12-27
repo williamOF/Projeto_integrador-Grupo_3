@@ -10,7 +10,7 @@
         <div class="bg-light p-5">
             <form action="/user/perfil/information" method="post">
                 <div class="error text-center p-3">
-                    <h5><%= locals.errors ? errors.error.msg : '' %></h5>
+                    <h5><%= locals.msg ? errors.error.msg : '' %></h5>
                 </div>
                 <div class="row box-info-forms ">
                     <div class="col-12">
@@ -49,6 +49,12 @@
                                 <span class="error"><%= errors.user_cpf.msg %> </span>
                             <% } %> 
                          </div>
+                         <div class="form-group mb-3">
+                            <input type="text" value="<%= locals.oldData ? oldData.user_rg :'' %>" name="user_rg" id="user_rg" placeholder="<%= locals.info ? info.user_rg:'rg' %> " class="form-control">
+                            <% if(locals.errors && errors.user_rg) {%>
+                            <span class="error"><%= errors.user_rg.msg %></span>
+                        <% } %> 
+                        </div>
                          <div>
                              <h2>Endereço</h2>
                          </div>
@@ -81,17 +87,23 @@
                           <% } %> 
                        </div>
                          <div class="form-group mb-3">
-                             <input type="text" value="<%= locals.oldData ? oldData.district :'' %>" name="district" id="district" placeholder="<%= locals.info ? info.district :'Bairro' %> x:" class="form-control">
+                             <input type="text" value="<%= locals.oldData ? oldData.district :'' %>" name="district" id="district" placeholder="<%= locals.info ? info.district :'Bairro' %>" class="form-control">
                              <% if(locals.errors && errors.district){%>
                                 <span class="error"><%= errors.district.msg %> </span>
                             <% } %> 
                          </div>
                          <div class="form-group mb-3">
-                             <input type="text" value="<%= locals.oldData ? oldData.road :'' %>" name="road" id="road" placeholder="<%= locals.info ? info.road :'Rua' %>:" class="form-control">
+                             <input type="text" value="<%= locals.oldData ? oldData.road :'' %>" name="road" id="road" placeholder="<%= locals.info ? info.road :'Rua' %>" class="form-control">
                              <% if(locals.errors && errors.road) {%>
                                 <span class="error"><%= errors.road.msg %></span>
                             <% } %> 
                          </div>
+                        <div class="form-group mb-3">
+                            <input type="text" value="<%= locals.oldData ? oldData.number :'' %>" name="number" id="number" placeholder="<%= locals.info ? info.number:'Numero da rua:' %> " class="form-control">
+                            <% if(locals.errors && errors.number) {%>
+                            <span class="error"><%= errors.number.msg %></span>
+                        <% } %> 
+                        </div>
                          <div class="form-group mb-3">
                              <input type="text" value="<%= locals.oldData ? oldData.complements : '' %>" name="complements" id="complements" placeholder="<%= locals.info ? info.complements :'Complemento' %>" class="form-control">
                              <% if(locals.errors && errors.complements) {%>

@@ -24,10 +24,12 @@
                     </div>
                 </div>
                 <div class="border p-3 col-9" >
-                    <span>INFORMAÇÕES DO SEU PEDIDO</span>
                     <div>
                         <table class="table">
                             <thead>
+                                <tr>
+                                    <span><strong>INFORMAÇÕES DO SEU PEDIDO</strong></span>
+                                </tr>
                                 <tr>
                                     <th>DADOS PESSOAIS</th>
                                     <th>ENDEREÇÕ DE ENTREGA</th>
@@ -35,28 +37,28 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>nome do usuario aqui</td>
-                                    <td>Rua:</td>
+                                    <td><strong>Nome:</strong> <%= info.full_name %> </td>
+                                    <td><strong>Rua:</strong> <%= info.road  %> </td>
                                 </tr>
                                 <tr>
-                                    <td>CPF/CPNJ:</td>
-                                    <td>Número:</td>
+                                    <td><strong>CPF:</strong> <%= info.user_cpf %> </td>
+                                    <td><strong>Número:</strong> <%= info.number %> </td>
                                 </tr>
                                 <tr>
-                                    <td>RG:</td>
-                                    <td>Bairro:</td>
+                                    <td><strong>RG:</strong> <%= info.user_rg %> </td>
+                                    <td><strong>Bairro:</strong> <%= info.district %> </td>
                                 </tr>
                                 <tr>
-                                    <td>Telefone:</td>
-                                    <td>Cidade:</td>
+                                    <td><strong>Estado:</strong> <%= info.state %> </td>
+                                    <td><strong>Cidade:</strong> <%= info.city %> </td>
                                 </tr>
                                 <tr>
-                                    <td>E-Email:</td>
-                                    <td>CEP:</td>
+                                    <td><strong>E-Email:</strong> <%= info.email %> </td>
+                                    <td><strong>Tell:</strong> <%= info.telephone %> </td>
                                 </tr>
                                 <tr>
-                                    <td>CEP:</td>
-                                    <td>Complemento:</td>
+                                    <td><strong>CEP:</strong> <%= info.cep %> </td>
+                                    <td><strong>Complemento:</strong> <%= info.complements %> </td>
                                 </tr>
                             </tbody>
                         </table>

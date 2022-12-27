@@ -84,7 +84,7 @@ module.exports = {
         if(!userInfo){
             let error = {error: {msg:'preencha os dados para conseguir proseguir com a compra deste produto'}}
            return res.render('information',{
-            errors:error,
+            msg:error,
             admin:req.session.admin
         })
         }
@@ -93,17 +93,10 @@ module.exports = {
         
         for(let item of cart){
             if(item.books.inventory > item.qtd_items){
-
                 //subtraia items do estoque e atualize os dados no banco de dados
                 let subInventory = item.books.inventory - item.qtd_items
                 await Books.update({inventory:subInventory},{where:{id_books:item.books.id_books}})
             
-                await Cart.update({
-                    status:'approved',
-                    form_payment: 'boleto',
-                    status_payment: 'aprovado',
-                    status_delivery: 'acaminho'
-                }, {where: {id_cart:item.id_cart} })
             }
         }
         return res.redirect('/carrinho/pedido/finalizar')
@@ -113,14 +106,14 @@ module.exports = {
         let id = req.session.admin ? req.session.admin.id_user : null ;
         
         if(id){
-            let cart = await Cart.findAll({where:{ fk_id_user:id, status: 'approved' }})
-            let userInfo = await User_information.findOne({where: { fk_id_user: id } })
+            let cart = await Cart.findAll({where:{ fk_id_user:id, status: 'pendding' }})
+            let info = await User_information.findOne({where: { fk_id_user: id } })
 
             res.render('finalizar', 
             {
                 admin: req.session.admin,
                 cart,
-                userInfo
+                info
             })
 
         }else{
