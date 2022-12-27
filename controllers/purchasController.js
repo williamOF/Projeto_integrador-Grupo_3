@@ -2,6 +2,7 @@ const {Books, Cart, User_information} = require('../database/models')
 
 /* functions is exported */
 const cal_price = require('../functions/calc_price_book')
+const pedido_calc = require('../functions/pedido_calc')
 
 
 module.exports = {
@@ -106,16 +107,20 @@ module.exports = {
         let id = req.session.admin ? req.session.admin.id_user : null ;
         
         if(id){
-            let cart = await Cart.findAll({where:{ fk_id_user:id, status: 'pendding' }})
-            let info = await User_information.findOne({where: { fk_id_user: id } })
+            let cart = await Cart.findAll({include:{association:'books'},where:{fk_id_user: id ,status:'pending'}} )
+            let info = await User_information.findOne({where: { fk_id_user: id} })
 
+            let price = pedido_calc(cart)
+
+            console.log(price)
             res.render('finalizar', 
             {
                 admin: req.session.admin,
                 cart,
-                info
+                info,
+                price
             })
-
+            //console.log(cart)
         }else{
             res.redirect('/')
         }

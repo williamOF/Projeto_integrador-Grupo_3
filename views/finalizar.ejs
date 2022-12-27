@@ -69,28 +69,28 @@
                                 <tr>
                                     <th>LISTA DE PRODUTOS</th>
                                     <th>Preço</th>
+                                    <th>Preço/Un</th>
+                                    <th>QTD/Unds:</th>
+                                    <th>Tipo:</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Titulo do livro</td>
-                                    <td>R$ 15.00</td>
-                                </tr>
-                                <tr>
-                                    <td>Titulo do livro</td>
-                                    <td>R$ 15.00</td>
-                                </tr>
-                                <tr>
-                                    <td>Titulo do livro</td>
-                                    <td>R$: 15.00</td>
-                                </tr>
+                                <% cart.forEach(element => {%>
+                                    <tr>
+                                        <td><%= element.books.title %> </td>
+                                        <td><%= element.request_price %> </td>
+                                        <td><%= element.item_price %> </td>
+                                        <td><%= element.qtd_items %> </td>
+                                        <td><%= element.type_selected %> </td>
+                                    </tr>                                    
+                                <% }); %> 
                             </tbody>
                         </table>
                     </div>
                     <div class="text-center">
-                        <div>
-                            <span>TOTAL DA SUA COMPRA</span>
-                            <SPAN>R$: 45.00</SPAN>
+                        <div class="p-5">
+                            <span>TOTAL DA SUA COMPRA</span><br>
+                            <SPAN><strong>R$: <%= locals.price ? price : 0 %> </strong></SPAN>
                         </div>
                         <div>
                             <button type="submit" class="btn btn-info">PAGAR</button>
