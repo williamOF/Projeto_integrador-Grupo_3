@@ -126,5 +126,32 @@ module.exports = {
             }
 
         })
+    ],
+    userInformation:[
+        check('full_name').notEmpty().withMessage('*o campo não pode estar vazio! ').bail(),
+
+        check('email').notEmpty().withMessage('*o campo não pode estar vazio! ').bail()
+            .trim().bail()
+            .normalizeEmail().bail()
+            .isEmail().withMessage('formato de email inválido, por favor insira um email correto'),
+            
+        check('telephone').notEmpty().withMessage('*o campo não pode estar vazio! ').bail()
+            .isLength({min:11}).withMessage('informe um número de telefone válido'),
+
+        check('birth_date').notEmpty().withMessage('*o campo não pode estar vazio! ').bail(),
+        
+        check('cep').notEmpty().withMessage('*o campo não pode estar vazio! ').bail(),
+
+        check('user_cpf').notEmpty().withMessage('*o campo não pode estar vazio! ').bail(),
+
+        check('state').notEmpty().withMessage('*o campo não pode estar vazio! ').bail(),
+
+        check('city').notEmpty().withMessage('*o campo não pode estar vazio! ').bail(),
+
+        check('district').notEmpty().withMessage('*o campo não pode estar vazio! ').bail(),
+
+        check('road').notEmpty().withMessage('*o campo não pode estar vazio! ').bail(),
+
+        check('complements').notEmpty().withMessage('*o campo não pode estar vazio! ').bail(),
     ]
 }

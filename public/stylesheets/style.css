@@ -138,3 +138,8 @@ font-size: 10pt;
   font-weight: bolder;
   background-color: #92c78483 ;
 }
+
+.error{
+  font-size: 10pt;
+  color: red;
+}

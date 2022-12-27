@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <%- include('partials/head') %> 
+</head>
+<body>
+    <%- include('partials/header') %> 
+
+    <main class="container">
+        <div class="bg-light p-5">
+            <form action="/user/perfil/information" method="post">
+                <div class="error text-center p-3">
+                    <h5><%= locals.errors ? errors.error.msg : '' %></h5>
+                </div>
+                <div class="row box-info-forms ">
+                    <div class="col-12">
+                     <form action="/user/perfil" method="post" class="border p-2 m-2">
+                         <div>
+                             <h2>Dados pessoais</h2>
+                         </div>
+                         <div class="form-group mb-3">
+                             <input type="text" value="<%= locals.oldData ? oldData.full_name : ''  %>" name="full_name" id="name" placeholder="<%= locals.info ? info.full_name :'Nome completo' %>"  class="form-control">
+                             <% if(locals.errors && errors.full_name) {%>
+                                 <span class="error"><%= errors.full_name.msg %> </span>
+                             <% } %> 
+                         </div>
+                         <div class="form-group mb-3">
+                             <input type="email" value="<%= locals.oldData ? oldData.email : '' %>" name="email" id="email" placeholder="<%= locals.info ? info.email :'Email contato' %>"  class="form-control">
+                             <% if(locals.errors && errors.email) {%>
+                                 <span class="error"><%= errors.email.msg %> </span>
+                             <% } %> 
+                         </div>
+                         <div class="form-group mb-3">
+                             <input type="tel" value="<%= locals.oldData ? oldData.telephone: '' %>" name="telephone" id="tel" placeholder="<%= locals.info ? info.telephone:'Telefone' %>"  class="form-control">
+                             <% if(locals.errors && errors.telephone) {%>
+                                <span class="error"><%= errors.telephone.msg %> </span>
+                            <% } %> 
+                         </div>
+                         <div class="form-group mb-3">
+                             <label for="age">Data de Nascimento</label><br>
+                             <input type="date" value="<%= locals.oldData ? oldData.birth_date : '' %>" name="birth_date" id="age"  class="form-control">
+                             <% if(locals.errors && errors.birth_date) {%>
+                                <span class="error"><%= errors.birth_date.msg %> </span>
+                            <% } %> 
+                         </div>
+                         <div class="form-group mb-3">
+                             <input type="text" value="<%= locals.oldData ? oldData.user_cpf : '' %>" name="user_cpf" id="cpf" placeholder="<%= locals.info ? info.user_cpf :'Digite seu CPF' %>"  class="form-control">
+                             <% if(locals.errors && errors.user_cpf) {%>
+                                <span class="error"><%= errors.user_cpf.msg %> </span>
+                            <% } %> 
+                         </div>
+                         <div>
+                             <h2>Endereço</h2>
+                         </div>
+                         <div class="form-group mb-3">
+                             <select  type="text" value="<%= locals.info ? info.state : '' %>" name="state" id="state" class="form-control">
+                                 <option disabled >Selecione um Estado</option>
+                                 <option value="SP">São Paulo</option>
+                                 <option value="AL">Alagoas</option>
+                                 <option value="BA">Bahia</option>
+                                 <option value="CE">Ceará</option>
+                                 <option value="ES">Espírito Santo</option>
+                                 <option value="MT">Mato Grosso</option>
+                                 <option value="MG">Minas Gerais</option>
+                                 <option value="RJ">Rio de Janeiro</option>
+                                 <option value="RN">Rio Grande do Norte</option>
+                                 <option value="TO">Tocantins</option>
+                                 <option value="DF">Distrito Federa</option>
+                             </select>
+                         </div>
+                         <div class="form-group mb-3">
+                            <input type="text" value="<%= locals.oldData ? oldData.city :''%>" name="city" id="city" placeholder="<%= locals.info ? info.city :'Cidade' %>:" class="form-control">
+                            <% if(locals.errors && errors.city) {%>
+                                <span class="error"><%= errors.city.msg %></span>
+                            <% } %> 
+                        </div>
+                        <div class="form-group mb-3">
+                           <input type="text" value="<%= locals.oldData ? oldData.cep :''%>" name="cep" id="cpf" placeholder="<%= locals.info ? info.cep :'Digite seu cep' %>"  class="form-control">
+                           <% if(locals.errors && errors.cep) {%>
+                              <span class="error"><%= errors.cep.msg %> </span>
+                          <% } %> 
+                       </div>
+                         <div class="form-group mb-3">
+                             <input type="text" value="<%= locals.oldData ? oldData.district :'' %>" name="district" id="district" placeholder="<%= locals.info ? info.district :'Bairro' %> x:" class="form-control">
+                             <% if(locals.errors && errors.district){%>
+                                <span class="error"><%= errors.district.msg %> </span>
+                            <% } %> 
+                         </div>
+                         <div class="form-group mb-3">
+                             <input type="text" value="<%= locals.oldData ? oldData.road :'' %>" name="road" id="road" placeholder="<%= locals.info ? info.road :'Rua' %>:" class="form-control">
+                             <% if(locals.errors && errors.road) {%>
+                                <span class="error"><%= errors.road.msg %></span>
+                            <% } %> 
+                         </div>
+                         <div class="form-group mb-3">
+                             <input type="text" value="<%= locals.oldData ? oldData.complements : '' %>" name="complements" id="complements" placeholder="<%= locals.info ? info.complements :'Complemento' %>" class="form-control">
+                             <% if(locals.errors && errors.complements) {%>
+                                <span class="error"><%= errors.complements.msg %></span>
+                            <% } %> 
+                         </div>
+                         <button class="btn btn-light border">Salvar</button>
+                     </form>
+                    </div>
+                 </div>
+            </form>
+        </div>
+    </main>
+
+    <%- include('partials/footer') %> 
+</body>
+</html>

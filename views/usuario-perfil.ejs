@@ -28,13 +28,13 @@
                 <div class="box-space"></div>
             </div>
             <div class="side-right col-8 ">
-                <div class="box-pedidos">
-                    <div class="pedidos-titulo">
-                        <h2>Todos os Pedidos</h2>
-                    </div>
-                    <div class="pedidos-list">
-                        <table class="table">
+                <div class="box-pedidos col-12 p-5">
+                    <div class="pedidos-list ">
+                        <table class="table ">
                             <thead>
+                                <tr>
+                                    <h4>Meus Pedidos</h4>   
+                                </tr>
                                 <tr>
                                     <th>N°</th>
                                     <th>Livro</th>
@@ -60,8 +60,8 @@
                         </table>
                     </div>
                 </div>
-                <div id="box-info" class="none col-12"><%- include('partials/user/painel-info') %></div>
                 <div id="box-carrinho" class="none col-12"><%- include('partials/user/painel-carrinho') %></div>
+                <div id="box-info" class="none col-12"><%- include('partials/user/infoView') %></div>
             </div>
         </div>
     </main>

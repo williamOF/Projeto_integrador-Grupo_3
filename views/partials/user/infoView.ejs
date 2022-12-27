@@ -1,0 +1,60 @@
+
+<div class="row box-info-forms  p-5">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Campos</th>
+                <th>dados usuario</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Nome completo:</td>
+                <td><%= locals.info ? info.full_name : '' %></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><%= locals.info ? info.email : '' %></td>
+            </tr>
+            <tr>
+                <td>telephone:</td>
+                <td><%= locals.info ? info.telephone : '' %></td>
+            </tr>
+            <tr>
+                <td>birth_date:</td>
+                <td><%= locals.info ? info.birth_date : '' %></td>
+            </tr>
+            <tr>
+                <td>user_cpf:</td>
+                <td><%= locals.info ? info.user_cpf : '' %></td>
+            </tr>
+            <tr>
+                <td>state:</td>
+                <td><%= locals.info ? info.state: '' %></td>
+            </tr>
+            <tr>
+                <td>city:</td>
+                <td><%= locals.info ? info.city : '' %></td>
+            </tr>
+            <tr>
+                <td>cep:</td>
+                <td><%= locals.info ? info.cep: '' %></td>
+            </tr>
+            <tr>
+                <td>district:</td>
+                <td><%= locals.info ? info.district: '' %></td>
+            </tr>
+            <tr>
+                <td>road:</td>
+                <td><%= locals.info ? info.road: '' %></td>
+            </tr>
+            <tr>
+                <td>complements:</td>
+                <td><%= locals.info ? info.complements: '' %></td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="/user/perfil/information" class="btn btn-info">modificar dados </a>
+    
+</div>

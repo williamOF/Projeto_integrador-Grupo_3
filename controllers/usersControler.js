@@ -90,80 +90,36 @@ module.exports = {
         }
     },
     perfilGet: async (req,res)=>{
-        let admin = req.session.admin
+        let id = req.session.admin ? req.session.admin.id_user : null
 
-        if(admin){
-
-            let id = admin.id_user
-            let user = await Users.findByPk(id,{ include:{association:'information'} })
-            //carrinho com pedidos aprovados
-            let approvedCart = await Cart.findAll({include:{association:'books'},where:{fk_id_user: admin.id_user,status:'approved'}} )
-            
-            //carrinho de pedidos ainda nao pagos
-            let cart = await Cart.findAll({include:{association:'books'},where:{fk_id_user: admin.id_user,status:'pending'}} )
-            for(let i of cart){
-                console.log(i)
-
-            }
-
-            let info = user.information
-            let purchase = approvedCart
-            
-            if(info.length == 0 && purchase.length == 0 ){
-                return res.render('usuario-perfil',{admin, user})
-            }
-
-            res.render('usuario-perfil',{admin,user,info, approvedCart, cart})
+        if(id){
+            let user = await Users.findByPk(id)
+            let info = await User_information.findOne({where:{fk_id_user: id}})
+            let approvedCart = await Cart.findAll({include:{association:'books'},where:{fk_id_user: id ,status:'approved'}} )
+            let cart = await Cart.findAll({include:{association:'books'},where:{fk_id_user: id ,status:'pending'}} )
+       
+           res.render('usuario-perfil',
+           {
+                admin:req.session.admin,
+                user,
+                info,
+                approvedCart,
+                cart
+            })
+            console.log(info)
             
         }else{
-            const error  = { type :{msg:'Página de perfil não autoriazada por favor faça o login antes !'}}
-            res.render('error',{error})
+           res.redirect('/')
         }
         
     },
     perfilPost: async (req,res) =>{
-        let {full_name, email, telephone, birth_date, user_cpf, state, city, district, road, complements} = req.body
-        
-        let admin = req.session.admin
-
-        if(admin){
-            let id = admin.id_user
-            let user = await Users.findByPk(id,{ include:{association:'information'}})
-            let info = user.information
-            if(info.length == 0){
-                
-                let infoUser = await User_information.create({
-                    full_name,
-                    email,
-                    telephone,
-                    birth_date,
-                    user_cpf,
-                    state,
-                    city,
-                    district,
-                    road,
-                    complements,
-                    fk_id_user:admin.id_user
-                })
-                await infoUser.save()
-            }else{
-                let updateInfo = await User_information.update({
-                    full_name,
-                    email,
-                    telephone,
-                    birth_date,
-                    user_cpf,
-                    state,
-                    city,
-                    district,
-                    road,
-                    complements
-                },{
-                    where:{ fk_id_user: admin.id_user }
-                })
-            }
-        }
        return res.redirect('/user/perfil')
+
+    },
+    adminProductsGet: (req,res)=>{
+
+        res.render('adm-products',{admin:req.session.admin})
 
     },
     adminProductsGet: (req,res)=>{
@@ -208,6 +164,55 @@ module.exports = {
 
             let sucessMsg = {sucess:{msg:'produto cadastrado com sucesso!'}}
             return res.render('adm-products',{sucess:sucessMsg})
+        }
+    },
+    information: async (req,res) =>{
+        let id = req.session.admin ? req.session.admin.id_user : null
+
+        if(id){
+            let UserInfo = await User_information.findOne({where:{fk_id_user: id}})
+
+            res.render('information', {
+                info:UserInfo,
+                admin:req.session.admin
+             })
+        }else{
+            return res.redirect('/')
+        }
+
+    },
+    informationPost: async (req,res) =>{
+        let id = req.session.admin ? req.session.admin.id_user : undefined ;
+        
+        if(id == undefined){
+
+           return res.redirect('/')
+        }else{
+
+            const result = validationResult(req)
+            let UserInfo = await User_information.findOne({where:{fk_id_user: id}})
+            
+            if(result.errors.length > 0){
+                return res.render('information', {
+                    info:UserInfo,
+                    admin: req.session.admin,
+                    oldData:req.body,
+                    errors:result.mapped()
+                })
+            }
+    
+            let user = await Users.findByPk(id,{ include:{association:'information'}})
+    
+            if(!user){
+                await User_information.create(req.body)
+                await infoUser.save()
+            }else{
+                await User_information.update(req.body,{
+                    where:{ fk_id_user:id}
+                })
+            }
+            return res.redirect('/')
+
         }
     }
 }

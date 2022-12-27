@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) =>{
         user_cpf:DataTypes.STRING,
         state:DataTypes.STRING,
         city:DataTypes.STRING,
+        cep:DataTypes.STRING,
         district:DataTypes.STRING,
         road:DataTypes.STRING,
         complements:DataTypes.STRING,

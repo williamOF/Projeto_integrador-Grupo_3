@@ -49,41 +49,8 @@
     justify-content: center;
     align-items: center;
 }
-.box-pedidos{
-    margin-top: 15px;
-    width: 95%;
-    height: 500px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0,.3);
-}
-.pedidos-titulo{
-    background-color: var(--azul-forte);
-    display: flex;
-}
-.pedidos-titulo h2{
-    width: max-content;
-    padding: 10px;
-    margin: 10px auto 10px 0px;
-    border-radius: 15px;
-    font-size: 18pt;
-    font-weight: 700;
-    color: #fff;
-}
-.pedidos-list li{
-    padding: 5px;
-    margin: 5px;
-}
-.pedidos-list{
-    background-color: #fff;
-    
-}
+
 /*FORMATAÇÃO DOS FORMULÁRIOS DO USUARIO */
-.box-info-forms h2{
-    font-size: 14pt;
-    margin: 10px;
-    padding: 10px;
-    text-align: center;
-    border-bottom: black 2px solid;
-}   
 
 
 /*avatar do usuario*/
