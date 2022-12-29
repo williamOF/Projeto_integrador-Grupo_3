@@ -4,7 +4,6 @@ module.exports = {
     home : async (req,res) => { 
         const books = await Books.findAll()
         const emphasis = await Books.findAll({where:{genre:'fiction'}})
-        console.log(emphasis)
 
         res.render('home', {
             books,
@@ -34,7 +33,6 @@ module.exports = {
     produto: async (req,res) => {
         const admin = req.session.admin
         const emphasis = await Books.findAll({ where: {genre: 'fiction'}})
-        
 
         let id_book = req.params.id
         

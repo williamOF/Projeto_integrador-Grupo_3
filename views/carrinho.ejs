@@ -55,6 +55,22 @@
                                             
                                             <span>Total: <strong> R$ <%= price %></strong> </span>
                                         </div>
+                                        <div class="cho-container"></div>
+                                            <script>
+                                            const mp = new MercadoPago('PUBLIC_KEY', {
+                                                locale: 'pt-BR'
+                                            });
+
+                                            mp.checkout({
+                                                preference: {
+                                                id: 'YOUR_PREFERENCE_ID'
+                                                },
+                                                render: {
+                                                container: '.cho-container',
+                                                label: 'Pagar',
+                                                }
+                                            });
+                                            </script>
                                     </div>
                                     <div class="bt-pedido">
                                         <a href="/carrinho/pedido" class="btn btn-info">Fazer o Pedido</a>
@@ -76,6 +92,7 @@
                     </div>
                 <% } %> 
             </div>
+            
             <div>
                 <div>
                     <div class="text-center">

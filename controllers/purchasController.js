@@ -4,6 +4,11 @@ const {Books, Cart, User_information} = require('../database/models')
 const cal_price = require('../functions/calc_price_book')
 const pedido_calc = require('../functions/pedido_calc')
 
+const mercadopago = require('mercadopago')
+
+mercadopago.configure({
+    access_token: 'TEST-6183420284507006-122906-ac3f812482e4091162c97976aeace8be-1275352349'
+});
 
 module.exports = {
     add: async (req,res) => {
@@ -111,16 +116,37 @@ module.exports = {
             let info = await User_information.findOne({where: { fk_id_user: id} })
 
             let price = pedido_calc(cart)
+            let items = []
 
-            console.log(price)
-            res.render('finalizar', 
-            {
-                admin: req.session.admin,
-                cart,
-                info,
-                price
-            })
-            //console.log(cart)
+            for(let item of cart){
+                items.push({
+                    title:item.books.title,
+                    unit_price: parseFloat(item.item_price),
+                    quantity: parseInt(item.qtd_items),
+                    currency_id:"BRL"
+                })
+            }
+
+            let preference = {items};
+
+            mercadopago.preferences.create(preference)
+
+            .then(function(response){
+                // Este valor substituirá a string "<%= global.id %>" no seu HTML
+                global.id = response.body.id;
+               
+                res.render('finalizar',{ 
+                    url:response.body.sandbox_init_point,
+                    admin: req.session.admin,
+                    cart,
+                    info,
+                    price
+                 } )
+
+            }).catch(function(error){
+                console.log(error);
+            });
+
         }else{
             res.redirect('/')
         }
