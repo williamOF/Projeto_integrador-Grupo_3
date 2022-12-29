@@ -143,3 +143,13 @@ font-size: 10pt;
   font-size: 10pt;
   color: red;
 }
+
+.bg-text{
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 10px;
+  text-align: center;
+  border-radius: 15px;
+}
+.bg-carrousel{
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+}

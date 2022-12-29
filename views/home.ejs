@@ -8,12 +8,55 @@
     <div class="bg-white">
       <section class="container">
         <div class="row bg-light">
-          <div class="text-center ">
-            <div class="pt-5 mb-5">
-              <h2>Até 25% off em Livros e eBooks </h2>
-            </div>
-          </div>
+          <div>
+            <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <% for(let i =1 ; i< emphasis.length ; i++) {%>
+                  <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="<%= i %>" aria-label="Slide <%= i %> "></button>
+                <% } %> 
+              </div>
+              <div class="carousel-inner">
+
+                <div class="carousel-item active bg-carrousel">
+                    <img class="bd-placeholder-img p-1"  height="100%" src="/img-books/<%= emphasis[0].front_cover %> " aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777">
           
+                  <div class="container">
+                    <div class="carousel-caption bg-text">
+                      <h1><%= emphasis[0].title %> </h1>
+                      <p><%= emphasis[0].synopsis %> </p>
+                      <p><a class="btn btn-lg btn-info" href="/showbook/<%= emphasis[0].id_books %> ">Ver Mais</a></p>
+                    </div>
+                  </div>
+                </div>
+                <% for(let t = 1 ; t< emphasis.length ; t ++) {%>
+                  
+                  <div class="carousel-item bg-carrousel ">
+                    <img class="bd-placeholder-img p-1"  height="100%" src="/img-books/<%= emphasis[t].front_cover %> " aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777">
+            
+                    <div class="container">
+                      <div class="carousel-caption  bg-text">
+                        <h1><%= emphasis[t].title %> </h1>
+                        <p><%= emphasis[t].synopsis %> </p>
+                        <p><a class="btn btn-lg btn-info" href="/showbook/<%= emphasis[t].id_books %> ">Ver Mais</a></p>
+                      </div>
+                    </div>
+                  </div>
+                  <% } %> 
+              
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          
+          </div>
+   
           <% if(locals.books) {%>
             <% for(let book of books) {%>
               
@@ -47,5 +90,7 @@
     </div>
   </main>
   <%- include('partials/footer') %> 
+  <script src="/js/bootstrap.bundle.min.js"></script>
+  <script src="/js/carousel.js"></script>
   </body>
 </html>

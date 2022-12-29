@@ -3,9 +3,12 @@ const {Books} = require ('../database/models')
 module.exports = { 
     home : async (req,res) => { 
         const books = await Books.findAll()
+        const emphasis = await Books.findAll({where:{genre:'fiction'}})
+        console.log(emphasis)
 
         res.render('home', {
             books,
+            emphasis,
             admin: req.session.admin,
         })
     },
