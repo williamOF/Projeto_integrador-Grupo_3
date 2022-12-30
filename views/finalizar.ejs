@@ -8,21 +8,6 @@
     <div class="bg-page">
         <form action="#" method="post">
             <div class="d-flex align-items-center justify-content-around w-100 p-3">
-                <div class="metodo-pag col-2 text-center">
-                    <span><strong>Forma de pagamento</strong></span>
-                    <div>
-                        <label for="op1" class="btn btn-waning" id="pix">PIX</label>
-                       <input type="hidden" name="opt" value="pix" id="op1">
-                    </div>
-                    <div>
-                        <label for="op2" class="btn btn-waning" id="bol">BOLETO</label>
-                       <input type="hidden" name="opt" value="boleto" id="op2">
-                    </div>
-                    <div>
-                        <label for="op3"  class="btn btn-waning" id="car">CARTAO</label>
-                       <input type="hidden" name="opt" value="cartao" id="op3">
-                    </div>
-                </div>
                 <div class="border p-3 col-9" >
                     <div>
                         <table class="table">
@@ -93,8 +78,11 @@
                             <SPAN><strong>R$: <%= locals.price ? price : 0 %> </strong></SPAN>
                         </div>
                         <div>
-                          <a href="<%= url %>" class="btn btn-info">Ir ao Pagamento</a>
+                            <div class="cho-container"></div>
+                            <input type="hidden" name="global" id="btnId" value="<%= global %> ">
+                            <a href="<%= url %>" class="btn btn-info">Ir ao Pagamento</a>
                         </div>
+                      
                     </div>
                 </div>
                 </div>
@@ -102,6 +90,5 @@
     </div>
   </main>
   <%- include('partials/footer') %> 
-  <script src="/js/finalizar.js"></script>
   </body>
 </html>

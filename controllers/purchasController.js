@@ -87,12 +87,9 @@ module.exports = {
 
         let userInfo = await User_information.findOne({where:{fk_id_user:id}})
 
-        if(!userInfo){
-            let error = {error: {msg:'preencha os dados para conseguir proseguir com a compra deste produto'}}
-           return res.render('information',{
-            msg:error,
-            admin:req.session.admin
-        })
+        if(userInfo == null){
+            let error = {msg:'preencha os dados para conseguir proseguir com a compra deste produto'}
+            return res.render('information',{ error, admin:req.session.admin})
         }
     
         let cart = await Cart.findAll({where:{fk_id_user: id},include:{association:'books'}})
@@ -117,6 +114,7 @@ module.exports = {
 
             let price = pedido_calc(cart)
             let items = []
+            console.log(info)
 
             for(let item of cart){
                 items.push({
@@ -134,7 +132,7 @@ module.exports = {
             .then(function(response){
                 // Este valor substituirá a string "<%= global.id %>" no seu HTML
                 global.id = response.body.id;
-               
+                
                 res.render('finalizar',{ 
                     url:response.body.sandbox_init_point,
                     admin: req.session.admin,
@@ -146,7 +144,7 @@ module.exports = {
             }).catch(function(error){
                 console.log(error);
             });
-
+            console.log(mercadopago)
         }else{
             res.redirect('/')
         }

@@ -185,7 +185,6 @@ module.exports = {
         let id = req.session.admin ? req.session.admin.id_user : undefined ;
         
         if(id == undefined){
-
            return res.redirect('/')
         }else{
 
@@ -193,6 +192,7 @@ module.exports = {
             let UserInfo = await User_information.findOne({where:{fk_id_user: id}})
             
             if(result.errors.length > 0){
+                console.log(result)
                 return res.render('information', {
                     info:UserInfo,
                     admin: req.session.admin,
@@ -200,12 +200,12 @@ module.exports = {
                     errors:result.mapped()
                 })
             }
-    
-            let user = await Users.findByPk(id,{ include:{association:'information'}})
-    
-            if(!user){
-                await User_information.create(req.body)
-                await infoUser.save()
+
+            if(UserInfo == null){
+                
+                let infoUser =  await User_information.create(req.body,{fk_id_user:id})
+                console.log(infoUser)
+
             }else{
                 await User_information.update(req.body,{
                     where:{ fk_id_user:id}

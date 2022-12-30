@@ -10,9 +10,10 @@
         <div class="bg-light p-5">
             <form action="/user/perfil/information" method="post">
                 <div class="error text-center p-3">
-                    <h5><%= locals.msg ? errors.error.msg : '' %></h5>
+                    <h5><%= locals.error ? error.msg : '' %></h5>
                 </div>
                 <div class="row box-info-forms ">
+                    <input type="hidden" name="fk_id_user" value="<%= admin.id_user %> ">
                     <div class="col-12">
                      <form action="/user/perfil" method="post" class="border p-2 m-2">
                          <div>
