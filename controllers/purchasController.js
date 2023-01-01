@@ -1,4 +1,5 @@
 const {Books, Cart, User_information} = require('../database/models')
+require('dotenv').config()
 
 /* functions is exported */
 const cal_price = require('../functions/calc_price_book')
@@ -7,7 +8,7 @@ const pedido_calc = require('../functions/pedido_calc')
 const mercadopago = require('mercadopago')
 
 mercadopago.configure({
-    access_token: 'TEST-6183420284507006-122906-ac3f812482e4091162c97976aeace8be-1275352349'
+    access_token: process.env.MERCADOPAGOTOKEN
 });
 
 module.exports = {
