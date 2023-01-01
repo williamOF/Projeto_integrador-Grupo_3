@@ -114,7 +114,6 @@ module.exports = {
 
             let price = pedido_calc(cart)
             let items = []
-            console.log(info)
 
             for(let item of cart){
                 items.push({
@@ -125,26 +124,36 @@ module.exports = {
                 })
             }
 
-            let preference = {items};
+            let preference = {
+                items,
+                back_urls: {
+                    "success": "http://localhost:3000/",
+                    "failure": "http://localhost:3000/",
+                    "pending": "http://localhost:3000/",
+                },
+                auto_return : "approved",
+            };
 
             mercadopago.preferences.create(preference)
-
-            .then(function(response){
-                // Este valor substituirá a string "<%= global.id %>" no seu HTML
-                global.id = response.body.id;
-                
-                res.render('finalizar',{ 
-                    url:response.body.sandbox_init_point,
-                    admin: req.session.admin,
-                    cart,
-                    info,
-                    price
-                 } )
+                .then(function(response){
+                    global.id = response.body.id;
+                    
+                    res.render('finalizar',{ 
+                        url:response.body.sandbox_init_point,
+                        admin: req.session.admin,
+                        cart,
+                        info,
+                        price
+                    } )
 
             }).catch(function(error){
                 console.log(error);
             });
+
+            console.log('retorno')
+            console.log(mercadopago.preferences)
             console.log(mercadopago)
+
         }else{
             res.redirect('/')
         }

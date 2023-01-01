@@ -106,7 +106,6 @@ module.exports = {
                 approvedCart,
                 cart
             })
-            console.log(info)
             
         }else{
            res.redirect('/')
@@ -192,7 +191,6 @@ module.exports = {
             let UserInfo = await User_information.findOne({where:{fk_id_user: id}})
             
             if(result.errors.length > 0){
-                console.log(result)
                 return res.render('information', {
                     info:UserInfo,
                     admin: req.session.admin,
@@ -202,9 +200,7 @@ module.exports = {
             }
 
             if(UserInfo == null){
-                
-                let infoUser =  await User_information.create(req.body,{fk_id_user:id})
-                console.log(infoUser)
+                await User_information.create(req.body,{fk_id_user:id})
 
             }else{
                 await User_information.update(req.body,{

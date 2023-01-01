@@ -82,6 +82,23 @@
                             <input type="hidden" name="global" id="btnId" value="<%= global %> ">
                             <a href="<%= url %>" class="btn btn-info">Ir ao Pagamento</a>
                         </div>
+                        <div class="cho-container"></div>
+                        <script>
+                        const mp = new MercadoPago('PUBLIC_KEY', {
+                            locale: 'pt-BR'
+                        });
+
+                        mp.checkout({
+                            preference: {
+                            id: 'YOUR_PREFERENCE_ID'
+                            },
+                            render: {
+                            container: '.cho-container',
+                            label: 'Pagar',
+                            }
+                        });
+                        </script>
+
                       
                     </div>
                 </div>
