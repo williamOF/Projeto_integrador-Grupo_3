@@ -3,6 +3,7 @@ const {validationResult} = require('express-validator')
 
 //************---Models required ---***************/
 const {Users, Books, User_information, Cart } = require ('../database/models')
+const nameFormat = require('../functions/nameFormat')
 
 module.exports = {
     loginGet : (req,res) => {
@@ -12,40 +13,35 @@ module.exports = {
         const result = validationResult(req)
          
         if( result.errors.length == 0){
+
             const {email,password} = req.body
-            let user = await Users.findAll({ where:{email}})
-    
-            if(user.length > 0 ){
+            let isEmailTrue = await Users.findAll({ where:{email}})
 
-                let passwordTru = bcrypt.compareSync(password, user[0].dataValues.password)
-                if(passwordTru){
-                    
-                    let userData = user[0].dataValues
-                    let admin = {
-                        id_user : userData.id_user,
-                        userName : userData.username,
-                        userEmail: userData.email,
-                        userAvatar: userData.user_avatar
+            if(isEmailTrue){
+                isEmailTrue.forEach(element => {
+                    pass = bcrypt.compareSync(password, element.password)
+                    if(pass){
+                        let userData = {
+                            id_user : element.id_user,
+                            userName : nameFormat(element.username),
+                            userEmail: element.email,
+                            userAvatar: element.user_avatar
+                        }
+                        req.session.admin = userData
+                        res.redirect('/')
+                    }else{
+                        const error = {password:{msg:'Senha inválida !'}}
+                        res.render('login',{errors:error})
                     }
-                    
-                    req.session.admin = admin
-                    
-                    let admPage = user[0].dataValues.admin
-                    if(admPage){
-                        return res.redirect('/user/perfil/admin')
-                    }
-                   
-                    return res.redirect('/')
+                });
 
-                }else{
-                    const error = {password:{msg:'Senha inválida !'}}
-                    res.render('login',{errors:error})
-                }
             }else{
                 const error = {email:{msg:'usuario não encontrado !'}}
                 res.render('login',{errors:error})
             }
+    
         }
+
     },
     sair: (req,res) =>{
         req.session.admin = undefined
@@ -91,12 +87,16 @@ module.exports = {
     },
     perfilGet: async (req,res)=>{
         let id = req.session.admin ? req.session.admin.id_user : null
+        
 
         if(id){
             let user = await Users.findByPk(id)
             let info = await User_information.findOne({where:{fk_id_user: id}})
             let approvedCart = await Cart.findAll({include:{association:'books'},where:{fk_id_user: id ,status:'approved'}} )
             let cart = await Cart.findAll({include:{association:'books'},where:{fk_id_user: id ,status:'pending'}} )
+
+          
+            console.log('asodkasopdasjkfhasjkfhasjkhfjkashkjashkfjashjk')
        
            res.render('usuario-perfil',
            {
@@ -108,7 +108,7 @@ module.exports = {
             })
             
         }else{
-           res.redirect('/')
+           res.redirect('/user/')
         }
         
     },

@@ -13,7 +13,6 @@
                             <th>valor</th>
                             <th>pagamento</th>
                             <th>remover</th>
-                            <th>comprar</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -23,13 +22,16 @@
                                 <td><%= item.books.title %></td>
                                 <td><%= item.request_price %></td>
                                 <td><%= item.status %></td>
-                                <td><a href="/carrinho/remover/<%= item.id_cart %>" class="btn  btn-danger">excluir</a></td>
-                                <td><a href="/carrinho/finalizar" class="btn  btn-info">comprar</a></td>
-                            </tr>
-                        <% } %> 
-                    </tbody>
-                </table>
-            </div>
+                                <td>
+                                    <a href="/carrinho/remover/<%= item.id_cart %>" class="btn  btn-danger">excluir</a></td>
+                                </tr>
+                                <% } %> 
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="text-center">
+                        <a href="/api/comprar" class="btn  btn-info">comprar</a>
+                    </div>
         </div>
     <% }else{ %>
         <div >
