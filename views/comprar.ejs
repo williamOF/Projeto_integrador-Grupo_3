@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <%- include('partials/head.ejs') %>
+<body>
+  <%- include('partials/header.ejs') %> 
+  <main class="container">
+    <div class="bg-page">
+       
+            <div class="d-flex align-items-center justify-content-around w-100 p-3">
+                <div class="border p-3 col-9" >
+                    <div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <span><strong>INFORMAÇÕES DO SEU PEDIDO</strong></span>
+                                </tr>
+                                <tr>
+                                    <th>DADOS PESSOAIS</th>
+                                    <th>ENDEREÇÕ DE ENTREGA</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Nome:</strong> <%= info.full_name %> </td>
+                                    <td><strong>Rua:</strong> <%= info.road  %> </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>CPF:</strong> <%= info.user_cpf %> </td>
+                                    <td><strong>Número:</strong> <%= info.number %> </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>RG:</strong> <%= info.user_rg %> </td>
+                                    <td><strong>Bairro:</strong> <%= info.district %> </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Estado:</strong> <%= info.state %> </td>
+                                    <td><strong>Cidade:</strong> <%= info.city %> </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>E-Email:</strong> <%= info.email %> </td>
+                                    <td><strong>Tell:</strong> <%= info.telephone %> </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>CEP:</strong> <%= info.cep %> </td>
+                                    <td><strong>Complemento:</strong> <%= info.complements %> </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>LISTA DE PRODUTOS</th>
+                                    <th>Preço</th>
+                                    <th>Preço/Un</th>
+                                    <th>QTD/Unds:</th>
+                                    <th>Tipo:</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% cart.forEach(element => {%>
+                                    <tr>
+                                        <td ><%= element.books.title %> </td>
+                                        <td><%= element.request_price %> </td>
+                                        <td ><%= element.item_price %></td>
+                                        <td><%= element.qtd_items %> </td>
+                                        <td><%= element.type_selected %> </td>
+                                    </tr>                                    
+                                <% }); %> 
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="text-center">
+                        <div class="p-5" style="display: none;">
+                            <div>
+                                <span>TOTAL DA SUA COMPRA</span>
+                            </div>
+                            <div>
+                                <div>Descrição do Produto: 
+                                    <span class="product-description" id="product-description">Livros</span>
+                                </div>
+                                <div>Valor do produto: R$: 
+                                    <span class="unit-price" id="unit-price"><%= locals.price ? price : 0 %></span>
+                                </div>
+                                <div>Qauntidade de pedido: 
+                                    <span class="quantity" id="quantity" >1</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!--payment-->
+                        <section class="payment-form dark">
+                            <div class="container_payment">
+                                <div class="block-heading">
+                                    <h2>Pagamento</h2>
+                                </div>
+                                <div class="form-payment">
+                                    <div class="products border p-2 m-2" >
+                                        <div class="item">
+                                            <p>
+                                                Valor Em Carrinho :
+                                                <span class="price" id="summary-price"></span>
+                                            </p>
+                                            <p class="item-name">Qtd Livro : <span id="summary-quantity"></span></p>
+                                        </div>
+                                        <div class="total">Total Da compra :
+                                            <span class="price" id="summary-total"></span>
+                                        </div>
+                                        <div>
+                                            <span id="cart-total" style="display:none ;"></span>
+                                        </div>
+                                        <div class="mt-3 mb-3">
+                                            <button class="btn btn-primary btn-lg btn-block" id="checkout-btn">Continuar Compra</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="payment-details">
+                                    <div class="form-group col-sm-12">
+                                        <div id="button-checkout"></div>
+                                    </div>
+                                    </div>
+                                    <a id="go-back" style="display: none ;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 10 10" class="chevron-left">
+                                        <path fill="#009EE3" fill-rule="nonzero" id="chevron_left"
+                                            d="M7.05 1.4L6.2.552 1.756 4.997l4.449 4.448.849-.848-3.6-3.6z"></path>
+                                        </svg>
+                                        Go back to Shopping Cart
+                                    </a>
+                                </div>
+                            </div>
+                        </section>
+                        
+                    </div>
+                </div>
+
+            </div>
+   
+    </div>
+   
+  </main>
+   <script src="/js/comprar.js"></script>
+   <%- include('partials/footer.ejs') %> 
+</body>
+</html>

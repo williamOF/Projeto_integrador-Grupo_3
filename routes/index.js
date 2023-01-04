@@ -13,9 +13,7 @@ router.get('/showbook/:id', indexController.produto)
 
 router.get('/carrinho', purchasController.carrinho)
 router.post('/carrinho/add', purchasController.add)
-
 router.get('/carrinho/pedido', purchasController.pedido)
-router.get('/carrinho/pedido/finalizar', purchasController.finalizar)
 
 router.get('/carrinho/remover/:id', purchasController.remover)
 router.get('/carrinho/clean', purchasController.clean)

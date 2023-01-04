@@ -1,5 +1,10 @@
 const {Books} = require ('../database/models')
 
+const mercadopago = require('mercadopago')
+require('dotenv').config()
+
+let tokemMercadoPago = process.env.MERCADOPAGOTOKEN
+
 module.exports = { 
     home : async (req,res) => { 
         const books = await Books.findAll()
