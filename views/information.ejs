@@ -59,58 +59,64 @@
                          <div>
                              <h2>Endereço</h2>
                          </div>
-                         <div class="form-group mb-3">
-                             <select  type="text" value="<%= locals.info ? info.state : '' %>" name="state" id="state" class="form-control">
-                                 <option disabled >Selecione um Estado</option>
-                                 <option value="SP">São Paulo</option>
-                                 <option value="AL">Alagoas</option>
-                                 <option value="BA">Bahia</option>
-                                 <option value="CE">Ceará</option>
-                                 <option value="ES">Espírito Santo</option>
-                                 <option value="MT">Mato Grosso</option>
-                                 <option value="MG">Minas Gerais</option>
-                                 <option value="RJ">Rio de Janeiro</option>
-                                 <option value="RN">Rio Grande do Norte</option>
-                                 <option value="TO">Tocantins</option>
-                                 <option value="DF">Distrito Federa</option>
-                             </select>
-                         </div>
-                         <div class="form-group mb-3">
-                            <input type="text" value="<%= locals.oldData ? oldData.city :''%>" name="city" id="city" placeholder="<%= locals.info ? info.city :'Cidade' %>:" class="form-control">
-                            <% if(locals.errors && errors.city) {%>
-                                <span class="error"><%= errors.city.msg %></span>
-                            <% } %> 
+                         
+                        <div class="form-group mb-3">
+                            <input type="text" class="form-control" value="<%= locals.oldData ? oldData.cep :''%>" id="cep" name="cep" placeholder="CEP: 00000-000">
+                            <small>
+                                <% if(locals.errors && errors.cep) {%>
+                                    <span class="error"><%= errors.cep.msg %> </span>
+                                <% } %> 
+                            </small>
                         </div>
                         <div class="form-group mb-3">
-                           <input type="text" value="<%= locals.oldData ? oldData.cep :''%>" name="cep" id="cpf" placeholder="<%= locals.info ? info.cep :'Digite seu cep' %>"  class="form-control">
-                           <% if(locals.errors && errors.cep) {%>
-                              <span class="error"><%= errors.cep.msg %> </span>
-                          <% } %> 
-                       </div>
-                         <div class="form-group mb-3">
-                             <input type="text" value="<%= locals.oldData ? oldData.district :'' %>" name="district" id="district" placeholder="<%= locals.info ? info.district :'Bairro' %>" class="form-control">
-                             <% if(locals.errors && errors.district){%>
-                                <span class="error"><%= errors.district.msg %> </span>
-                            <% } %> 
-                         </div>
-                         <div class="form-group mb-3">
-                             <input type="text" value="<%= locals.oldData ? oldData.road :'' %>" name="road" id="road" placeholder="<%= locals.info ? info.road :'Rua' %>" class="form-control">
-                             <% if(locals.errors && errors.road) {%>
-                                <span class="error"><%= errors.road.msg %></span>
-                            <% } %> 
-                         </div>
+                            <input type="text" class="form-control" value="<%= locals.oldData ? oldData.road :'' %>" id="logradouro" name="road" placeholder="Rua.">
+                            <small>
+                                <% if(locals.errors && errors.road) {%>
+                                    <span class="error"><%= errors.road.msg %></span>
+                                <% } %> 
+                            </small>
+                        </div>
                         <div class="form-group mb-3">
-                            <input type="text" value="<%= locals.oldData ? oldData.number :'' %>" name="number" id="number" placeholder="<%= locals.info ? info.number:'Numero da rua:' %> " class="form-control">
-                            <% if(locals.errors && errors.number) {%>
-                            <span class="error"><%= errors.number.msg %></span>
-                        <% } %> 
+                            <input type="text" class="form-control" value="<%= locals.oldData ? oldData.number :'' %>" id="numero" name="number" placeholder="N° Rua.">
+                            <small>
+                                <% if(locals.errors && errors.number) {%>
+                                    <span class="error"><%= errors.number.msg %></span>
+                                <% } %> 
+                            </small>
+                        </div>
+                        <div class="form-group mb-3">
+                            <input type="text" class="form-control" value="<%= locals.oldData ? oldData.district :'' %>" id="bairro"  name="district" placeholder="Bairro">
+                            <small>
+                                <% if(locals.errors && errors.district){%>
+                                    <span class="error"><%= errors.district.msg %></span>
+                                <% } %> 
+                            </small>
+                        </div>
+                        <div class="form-group mb-3">
+                            <input type="text" class="form-control" value="<%= locals.oldData ? oldData.city :''%>" id="localidade" name="city" placeholder="Cidade">
+                            <small>
+                                <% if(locals.errors && errors.city) {%>
+                                    <span class="error"><%= errors.city.msg %></span>
+                                <% } %>
+                            </small>
                         </div>
                          <div class="form-group mb-3">
-                             <input type="text" value="<%= locals.oldData ? oldData.complements : '' %>" name="complements" id="complements" placeholder="<%= locals.info ? info.complements :'Complemento' %>" class="form-control">
-                             <% if(locals.errors && errors.complements) {%>
-                                <span class="error"><%= errors.complements.msg %></span>
-                            <% } %> 
-                         </div>
+                            <input type="text" class="form-control" value="<%= locals.info ? info.state : '' %>" id="uf" name="state" placeholder="Estado">
+                            <small>
+                                <% if(locals.errors && errors.city) {%>
+                                    <span class="error"><%= errors.city.msg %></span>
+                                <% } %>
+                            </small>
+                        </div>
+                        <div class="form-group mb-3">
+                            <input type="text" class="form-control" value="<%= locals.oldData ? oldData.complements : '' %>" id="complemento" name="complements" placeholder="complemento">
+                            <small>
+                                <% if(locals.errors && errors.complements) {%>
+                                    <span class="error"><%= errors.complements.msg %></span>
+                                <% } %> 
+                            </small>
+                        </div>
+                       
                          <button class="btn btn-light border">Salvar</button>
                      </form>
                     </div>
@@ -118,7 +124,7 @@
             </form>
         </div>
     </main>
-
+    <script src="/js/info.js"></script>
     <%- include('partials/footer') %> 
 </body>
 </html>

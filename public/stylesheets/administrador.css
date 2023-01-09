@@ -1,0 +1,26 @@
+
+main .nav{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+main .nav-item{
+    margin-right: 15px;
+}
+main .nav-link{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+    transition: all 400ms;
+}
+main .nav-link:hover{
+    color: white;
+}
+main div.menu-nav {
+    margin-bottom: 15px;
+}
+div.painel{
+    padding: 10px;
+    box-shadow: 0px 0px 15px black;
+}

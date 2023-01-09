@@ -15,10 +15,10 @@ module.exports = {
         if( result.errors.length == 0){
 
             const {email,password} = req.body
-            let isEmailTrue = await Users.findAll({ where:{email}})
+            let User = await Users.findAll({ where:{email}})
 
-            if(isEmailTrue){
-                isEmailTrue.forEach(element => {
+            if(User){
+                User.forEach(element => {
                     pass = bcrypt.compareSync(password, element.password)
                     if(pass){
                         let userData = {
@@ -28,6 +28,12 @@ module.exports = {
                             userAvatar: element.user_avatar
                         }
                         req.session.admin = userData
+
+
+                        if(element.admin){
+                           return res.redirect('/admin/')
+                        }
+                       
                         res.redirect('/')
                     }else{
                         const error = {password:{msg:'Senha inválida !'}}
@@ -95,8 +101,9 @@ module.exports = {
             let approvedCart = await Cart.findAll({include:{association:'books'},where:{fk_id_user: id ,status:'approved'}} )
             let cart = await Cart.findAll({include:{association:'books'},where:{fk_id_user: id ,status:'pending'}} )
 
-          
-            console.log('asodkasopdasjkfhasjkfhasjkhfjkashkjashkfjashjk')
+            if(user.admin){
+               return res.redirect('/admin/')
+            }
        
            res.render('usuario-perfil',
            {
@@ -104,7 +111,8 @@ module.exports = {
                 user,
                 info,
                 approvedCart,
-                cart
+                cart,
+                administrador: req.session.admin.admin ? req.session.admin.admin : null 
             })
             
         }else{

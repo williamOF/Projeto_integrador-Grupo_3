@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <%- include('partials/head.ejs') %>
+    <link rel="stylesheet" href="/stylesheets/administrador.css">
+<body>
+    <%- include('partials/header.ejs') %> 
+    
+    <main class="container">
+        <div class="bg-white painel">
+            <div class="text-center ">
+                <h2>administrador page</h2>
+            </div>
+            <div class="menu-nav" >
+                <ul class="nav">
+                    <li class="nav-item"><a href="#" class="nav-link btn btn-info">Usuarios</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link btn btn-info">Produtos</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link btn btn-info">Vendas</a></li>
+                </ul>
+            </div>
+            <div>   
+                <h4>Lista de produtos</h4>
+                <div id="paginate">
+                    <table class="table" >
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>titulo</th>
+                                <th>Qtd Estoque</th>
+                                <th>Mais Sobre</th>
+                            </tr>
+                        </thead>
+                        <tbody >
+                        <% produtos.forEach(element => {%>
+                            
+                            <tr class="list">
+                                <td><%= element.id_books %> </td>
+                                <td><%= element.title %> </td>
+                                <td><%= element.inventory %>  </td>
+                                <td><a href="#" class="btn btn-light">ver livro</a></td>
+                            </tr>
+                            
+                        <% }); %> 
+                        </tbody>
+                    </table>
+                    <div class="pagination">
+                        <div class="first">&#171;</div>
+                        <div class="prev">&lt;</div>
+                        <div class="numbers">
+                            <div>1</div>
+                        </div>
+                        <div class="next">&gt;</div>
+                        <div class="last">&#187;</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <%- include('partials/footer') %> 
+<script src="/js/pagination.js"></script>
+</body>
+</html>

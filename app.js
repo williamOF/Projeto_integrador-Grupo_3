@@ -10,7 +10,8 @@ require('dotenv').config()
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-const apiRouter =require('./routes/api')
+const apiRouter = require('./routes/api')
+const administradorController = require('./routes/administradorRouter')
 
 var app = express();
 
@@ -35,6 +36,7 @@ app.use(methodOverride('_method'))
 app.use('/', indexRouter);
 app.use('/user', usersRouter)
 app.use('/api', apiRouter)
+app.use('/admin', administradorController)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
